@@ -2,7 +2,7 @@
 <?php require_once('functions.php'); ?>
 
 <?php get_header(); ?>
-
+<?php echo "xxx" ?>
   	<!-- INFO HOME PAGE START -->
 		<?php
 			$home_info_query = new WP_Query( 'pagename=info-home' );
