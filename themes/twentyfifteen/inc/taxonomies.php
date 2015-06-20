@@ -7,6 +7,7 @@
 	add_action( 'init', 'custom_taxonomies_callback', 0 );
 
 	function custom_taxonomies_callback(){
+		echo "string";
 
 		// BRAND
 		if( ! taxonomy_exists('brand')){
@@ -35,32 +36,6 @@
 			register_taxonomy( 'brand', 'product', $args );
 		}
 
-	if( ! taxonomy_exists('recipe')){
-
-			$labels = array(
-				'name'              => 'Recipes',
-				'singular_name'     => 'Recipe',
-				'search_items'      => 'Buscar',
-				'all_items'         => 'Todos',
-				'edit_item'         => 'Editar Recipe',
-				'update_item'       => 'Actualizar recipe',
-				'add_new_item'      => 'Nuevo recipe',
-				'new_item_name'     => 'Nombre Nuevo Recipe',
-				'menu_name'         => 'Recipes'
-			);
-			$args = array(
-				'hierarchical'      => true,
-				'labels'            => $labels,
-				'show_ui'           => true,
-				'show_admin_column' => true,
-				'show_in_nav_menus' => true,
-				'query_var'         => true,
-				'rewrite'           => array( 'slug' => 'recipe' ),
-			);
-
-			register_taxonomy( 'recipe', 'product', $args );
-		}
-
 		/**
 		* Insert initial terms for some of the new taxonomies
 		**/
@@ -68,6 +43,7 @@
 
 	}// custom_taxonomies_callback
 
+	
 	/**
 	* Insert terms for "Tipo de arte"
 	**/

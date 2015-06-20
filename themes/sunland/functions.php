@@ -25,7 +25,7 @@
 
 
 	require_once('inc/post-types.php');
-	// require_once('inc/metaboxes.php');
+	require_once('inc/metaboxes.php');
 	require_once('inc/taxonomies.php');
 	require_once('inc/pages.php');
 	// require_once('inc/users.php');
@@ -45,6 +45,7 @@
 	/**
 	* Enqueue frontend scripts and styles
 	**/
+	add_theme_support( 'post-thumbnails' );
 	add_action( 'wp_enqueue_scripts', function(){
 
 		// scripts
@@ -65,7 +66,7 @@
 	/**
 	* Add javascript to the footer of pages.
 	**/
-	add_action( 'wp_footer', 'footer_scripts', 21 );
+	// add_action( 'wp_footer', 'footer_scripts', 21 );
 
 
 
