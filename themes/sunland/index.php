@@ -43,7 +43,7 @@
 		$product_args = array(
 			'post_type' 		=> 'product',
 			'posts_per_page' 	=> 3,
-		);
+		); 
 		$query_products = new WP_Query( $product_args );
 			if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
 				$img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
