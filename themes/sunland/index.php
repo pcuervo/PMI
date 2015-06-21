@@ -61,7 +61,44 @@
 				<img src="<?php echo $img_url[0] ?>" >
 		<?php endwhile; endif; wp_reset_query(); ?>
 		<!-- PRODUCTS POSTS End -->
+	
+			</br></br></br></br>
 		
+
+		<!-- RECIPE POSTS START -->
+		<?php
+		$recipe_args = array(
+			'post_type' 		=> 'recipe1',
+			'posts_per_page' 	=> 3,
+		); 
+		$query_recipe = new WP_Query( $recipe_args );
+			if ( $query_recipe->have_posts() ) : while ( $query_recipe->have_posts() ) : $query_recipe->the_post();
+				$img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
+				$songs = get_post_meta( $post->ID, 'songs', TRUE );
+				
+			?>
+				<?php the_title() ?>
+				<?php the_content()?>
+				<?php 
+				$c = 0;
+			    if ( count( $songs ) > 0 ) {
+			    	if (is_array($songs) )
+					{
+			        foreach( $songs as $track ) {
+			            if ( isset( $track['title'] ) || isset( $track['track'] ) ) {
+			                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], __( 'Remove Track' ) );
+			                echo "Song ".$c." ".  $track['title']."   ". $track['track'];
+			                $c = $c +1;
+			            }
+			        }
+			    }
+			    }
+			    ?>
+				
+				<img src="<?php echo $img_url[0] ?>" >
+		<?php endwhile; endif; wp_reset_query(); ?>
+		<!-- RECIPE	 POSTS End -->
+	
 
 <?php get_footer(); ?>
 

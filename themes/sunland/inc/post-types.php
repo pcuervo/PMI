@@ -70,8 +70,8 @@
 
 		// RECIPE
 		$labels = array(
-				'name'          => 'Recipes',
-				'singular_name' => 'Recipe',
+				'name'          => 'Recipes1',
+				'singular_name' => 'Recipe1',
 				'add_new'       => 'Nueva Recipe',
 				'add_new_item'  => 'Nueva Recipe',
 				'edit_item'     => 'Editar Recipe',
@@ -80,7 +80,7 @@
 				'view_item'     => 'Ver Feature',
 				'search_items'  => 'Buscar Recipes',
 				'not_found'     => 'No se encontró',
-				'menu_name'     => 'Recipes'
+				'menu_name'     => 'Recipes1'
 			);
 			$args = array(
 				'labels'             => $labels,
@@ -89,7 +89,7 @@
 				'show_ui'            => true,
 				'show_in_menu'       => true,
 				'query_var'          => true,
-				'rewrite'            => array( 'slug' => 'recipe' ),
+				'rewrite'            => array( 'slug' => 'recipe1' ),
 				'capability_type'    => 'post',
 				'has_archive'        => true,
 				'hierarchical'       => false,
@@ -97,6 +97,6 @@
 				'taxonomies'         => array( 'category' ),
 				'supports'           => array( 'title', 'editor', 'thumbnail' )
 			);
-			register_post_type( 'recipe', $args );
+			register_post_type( 'recipe1', $args );
 
 	});

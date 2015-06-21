@@ -3,23 +3,6 @@
 // CUSTOM METABOXES //////////////////////////////////////////////////////////////////
 
 add_action('add_meta_boxes', function(){
-		// global $post;
-
-		// add_meta_box( 'fecha_evento', 'Fecha del evento', 'metabox_fecha_evento', 'eventos', 'advanced', 'high' );
-		// switch ( $post->post_name ) {
-		// 	case 'product':
-		// 		add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
-		// 		add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
-		// 		add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
-		// 		add_meta_box( 'direccion', 'Dirección', 'metabox_direccion', 'page', 'advanced', 'high' );
-		// 		add_meta_box( 'motivo_contacto', 'Motivo de contacto', 'metabox_motivo_contacto', 'page', 'advanced', 'high' );		
-		// 		break;
-		// 	case 'sunland-express':
-		// 		add_meta_box( 'descripcion_home', 'Descripción página de inicio', 'metabox_home_express', 'page', 'advanced', 'high' );
-		// 		break;
-		// 	default:
-		// 		break;
-		// }
 		
 				add_meta_box( 'weight', 'Weight', 'metabox_weight', 'product', 'advanced', 'high' );
 				add_meta_box( 'indications', 'Indications', 'metabox_indications', 'product', 'advanced', 'high' );
@@ -32,8 +15,54 @@ add_action('add_meta_boxes', function(){
 				add_meta_box( 'ingredients_for_recipe', 'ingredients', 'metabox_ingredients_for_recipe', 'recipe', 'advanced', 'high' );
 				add_meta_box( 'nutrition_facts', 'nutrition_facts', 'metabox_nutrition_facts', 'recipe', 'advanced', 'high' );
 				add_meta_box( 'percentage_per_serving', 'percentage_per_serving', 'metabox_percentage_per_serving', 'recipe', 'advanced', 'high' );
-
+				add_meta_box('dynamic_sectionid',__( 'My Tracks', 'myplugin_textdomain' ),'dynamic_inner_custom_box','recipe1');
 	});
+
+	function dynamic_inner_custom_box() {
+	    global $post;
+	    // Use nonce for verification
+	    wp_nonce_field( plugin_basename( __FILE__ ), 'dynamicMeta_noncename' );
+	    ?>
+	    <div id="meta_inner">
+	    <?php
+
+	    //get the saved meta as an arry
+	    $songs = get_post_meta($post->ID,'songs',true);
+
+	    $c = 0;
+	    if ( count( $songs ) >0 ) {
+	    	if (is_array($songs) )
+			{
+	        foreach( $songs as $track ) {
+	            if ( isset( $track['title'] ) || isset( $track['track'] ) ) {
+	                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], __( 'Remove Track' ) );
+	                $c = $c +1;
+	            }
+	        }
+	      }
+	    }
+
+	    ?>
+	<span id="here"></span>
+	<span class="add"><?php _e('Add Tracks'); ?></span>
+	<script>
+	    var $ =jQuery.noConflict();
+	    $(document).ready(function() {
+	        var count = <?php echo $c; ?>;
+	        $(".add").click(function() {
+	            count = count + 1;
+
+	            $('#here').append('<p> Song Title <input type="text" name="songs['+count+'][title]" value="" /> -- Track number : <input type="text" name="songs['+count+'][track]" value="" /><span class="remove">Remove Track</span></p>' );
+	            return false;
+	        });
+	        $(".remove").live('click', function() {
+	            $(this).parent().remove();
+	        });
+	    });
+	    </script>
+	</div><?php
+
+	}
 
 	function metabox_weight($post){
 		$weight = get_post_meta($post->ID, '_weight_meta', true);
@@ -212,6 +241,26 @@ add_action('save_post', function($post_id){
 			update_post_meta($post_id, '_percentage_per_serving_meta', $_POST['_percentage_per_serving_meta']);
 		}
 
+    // verify this came from the our screen and with proper authorization,
+    // because save_post can be triggered at other times
+    if ( isset( $_POST['dynamicMeta_noncename'] ) ){
+       
+
+    if ( !wp_verify_nonce( $_POST['dynamicMeta_noncename'], plugin_basename( __FILE__ ) ) )
+        return;
+
+    // OK, we're authenticated: we need to find and save the data
+	     if(array_key_exists('songs',$_POST) ){
+	    		$songs = $_POST['songs'];
+	    						    		update_post_meta($post_id,'songs',$songs);
+
+			}
+			else {
+								    		update_post_meta($post_id,'songs',NULL);
+
+			}
+
+		}
 
 	});
 
