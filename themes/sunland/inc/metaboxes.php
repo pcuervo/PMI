@@ -15,7 +15,7 @@ add_action('add_meta_boxes', function(){
 				add_meta_box( 'ingredients_for_recipe', 'ingredients', 'metabox_ingredients_for_recipe', 'recipe', 'advanced', 'high' );
 				add_meta_box( 'nutrition_facts', 'nutrition_facts', 'metabox_nutrition_facts', 'recipe', 'advanced', 'high' );
 				add_meta_box( 'percentage_per_serving', 'percentage_per_serving', 'metabox_percentage_per_serving', 'recipe', 'advanced', 'high' );
-				add_meta_box('dynamic_sectionid',__( 'My Tracks', 'myplugin_textdomain' ),'dynamic_inner_custom_box','recipe1');
+				add_meta_box('dynamic_sectionid',__( 'My Tracks', 'myplugin_textdomain' ),'dynamic_inner_custom_box','recipe');
 	});
 
 	function dynamic_inner_custom_box() {
@@ -34,8 +34,8 @@ add_action('add_meta_boxes', function(){
 	    	if (is_array($songs) )
 			{
 	        foreach( $songs as $track ) {
-	            if ( isset( $track['title'] ) || isset( $track['track'] ) ) {
-	                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], __( 'Remove Track' ) );
+	            if ( isset( $track['title'] ) || isset( $track['track'] )|| isset( $track['percentage'] ) ) {
+	                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], $track['percentage'], __( 'Remove Track' ) );
 	                $c = $c +1;
 	            }
 	        }
@@ -52,7 +52,7 @@ add_action('add_meta_boxes', function(){
 	        $(".add").click(function() {
 	            count = count + 1;
 
-	            $('#here').append('<p> Song Title <input type="text" name="songs['+count+'][title]" value="" /> -- Track number : <input type="text" name="songs['+count+'][track]" value="" /><span class="remove">Remove Track</span></p>' );
+	            $('#here').append('<p> Song Title <input type="text" name="songs['+count+'][title]" value="" /> -- Track number : <input type="text" name="songs['+count+'][track]" value="" /> -- Percentage : <input type="text" name="songs['+count+'][percentage]" value="" /><span class="remove">Remove Track</span></p>' );
 	            return false;
 	        });
 	        $(".remove").live('click', function() {

@@ -68,7 +68,7 @@
 		<!-- RECIPE POSTS START -->
 		<?php
 		$recipe_args = array(
-			'post_type' 		=> 'recipe1',
+			'post_type' 		=> 'recipe',
 			'posts_per_page' 	=> 3,
 		); 
 		$query_recipe = new WP_Query( $recipe_args );
@@ -87,7 +87,7 @@
 			        foreach( $songs as $track ) {
 			            if ( isset( $track['title'] ) || isset( $track['track'] ) ) {
 			                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], __( 'Remove Track' ) );
-			                echo "Song ".$c." ".  $track['title']."   ". $track['track'];
+			                echo "Song ".$c." ".  $track['title']."   ". $track['track'] . " ". $track['percentage'];
 			                $c = $c +1;
 			            }
 			        }
