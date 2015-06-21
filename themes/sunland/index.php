@@ -74,26 +74,42 @@
 		$query_recipe = new WP_Query( $recipe_args );
 			if ( $query_recipe->have_posts() ) : while ( $query_recipe->have_posts() ) : $query_recipe->the_post();
 				$img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' );
-				$songs = get_post_meta( $post->ID, 'songs', TRUE );
+				$nutritions = get_post_meta( $post->ID, 'nutritions', TRUE );
+				$nutritions_facts = get_post_meta( $post->ID, 'nutritions_facts', TRUE );
 				
 			?>
 				<?php the_title() ?>
 				<?php the_content()?>
+				<!-- Get all nutrition percentage -->
 				<?php 
 				$c = 0;
-			    if ( count( $songs ) > 0 ) {
-			    	if (is_array($songs) )
-					{
-			        foreach( $songs as $track ) {
-			            if ( isset( $track['title'] ) || isset( $track['track'] ) ) {
-			                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], __( 'Remove Track' ) );
-			                echo "Song ".$c." ".  $track['title']."   ". $track['track'] . " ". $track['percentage'];
-			                $c = $c +1;
-			            }
-			        }
-			    }
+			    if ( count( $nutritions ) > 0 ) {
+			    	if (is_array($nutritions) ){
+				        foreach( $nutritions as $nutrition ) {
+				            if ( isset( $nutrition['name'] ) || isset( $nutrition['weight']) || isset( $nutrition['percentage'] ) ) {
+				                echo "Song ".$c." ".  $nutrition['name']."   ". $nutrition['weight'] . " ". $nutrition['percentage'];
+				                $c = $c +1;
+				            }
+				        }
+				    }
 			    }
 			    ?>
+			    </br></br></br>
+				<!-- Get all nutrition facts -->
+				<?php 
+				$c = 0;
+			    if ( count( $nutritions_facts ) > 0 ) {
+			    	if (is_array($nutritions_facts) ){
+				        foreach( $nutritions_facts as $nutritions_fact ) {
+				            if ( isset( $nutritions_fact['name'] ) || isset( $nutritions_fact['weight']) ) {
+				                echo "nutritions_facts ".$c." ".  $nutritions_fact['name']."   ". $nutritions_fact['weight'] ;
+				                $c = $c +1;
+				            }
+				        }
+			    	}
+			    }
+			    ?>
+	
 				
 				<img src="<?php echo $img_url[0] ?>" >
 		<?php endwhile; endif; wp_reset_query(); ?>

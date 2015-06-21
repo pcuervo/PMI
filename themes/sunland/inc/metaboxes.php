@@ -13,46 +13,41 @@ add_action('add_meta_boxes', function(){
 				add_meta_box( 'time', 'Time', 'metabox_time', 'recipe', 'advanced', 'high' );
 				add_meta_box( 'instructions', 'instructions', 'metabox_instructions', 'recipe', 'advanced', 'high' );
 				add_meta_box( 'ingredients_for_recipe', 'ingredients', 'metabox_ingredients_for_recipe', 'recipe', 'advanced', 'high' );
-				add_meta_box( 'nutrition_facts', 'nutrition_facts', 'metabox_nutrition_facts', 'recipe', 'advanced', 'high' );
-				add_meta_box( 'percentage_per_serving', 'percentage_per_serving', 'metabox_percentage_per_serving', 'recipe', 'advanced', 'high' );
-				add_meta_box('dynamic_sectionid',__( 'My Tracks', 'myplugin_textdomain' ),'dynamic_inner_custom_box','recipe');
+				add_meta_box('dynamic_nutrition_facts',__( 'Nutrition facts', 'myplugin_textdomain' ),'metabox_nutrition_facts','recipe');
+				add_meta_box('dynamic_nutrition_percentage',__( 'Nutrition percentage', 'myplugin_textdomain' ),'metabox_nutrition_percentage','recipe');
 	});
 
-	function dynamic_inner_custom_box() {
+	function metabox_nutrition_facts() {
 	    global $post;
-	    // Use nonce for verification
-	    wp_nonce_field( plugin_basename( __FILE__ ), 'dynamicMeta_noncename' );
+	    wp_nonce_field( plugin_basename( __FILE__ ), 'nutrition_facts_nonce' );
 	    ?>
 	    <div id="meta_inner">
 	    <?php
 
-	    //get the saved meta as an arry
-	    $songs = get_post_meta($post->ID,'songs',true);
-
+	    $nutritions_facts = get_post_meta($post->ID,'nutritions_facts',true);
 	    $c = 0;
-	    if ( count( $songs ) >0 ) {
-	    	if (is_array($songs) )
-			{
-	        foreach( $songs as $track ) {
-	            if ( isset( $track['title'] ) || isset( $track['track'] )|| isset( $track['percentage'] ) ) {
-	                printf( '<p>Song Title <input type="text" name="songs[%1$s][title]" value="%2$s" /> -- Track number : <input type="text" name="songs[%1$s][track]" value="%3$s" /><span class="remove">%4$s</span></p>', $c, $track['title'], $track['track'], $track['percentage'], __( 'Remove Track' ) );
-	                $c = $c +1;
-	            }
-	        }
-	      }
+	    if ( count( $nutritions_facts ) >0 ) {
+	    	if (is_array($nutritions_facts) ){
+		        foreach( $nutritions_facts as $nutritions_fact ) {
+		            if ( isset( $nutritions_fact['name'] ) || isset( $nutritions_fact['weight']) ) {
+		                printf( '<p>Nutrition name <input type="text" name="nutritions[%1$s][name]" value="%2$s" /> -- Weight per 100g : <input type="text" name="nutritions[%1$s][weight]" value="%3$s" /> <span class="remove">%4$s</span></p>', $c, $nutritions_fact['name'], $nutritions_fact['weight'], __( 'Remove Component' ) );
+		                $c = $c +1;
+		            }
+		        }
+	      	}
 	    }
 
 	    ?>
-	<span id="here"></span>
-	<span class="add"><?php _e('Add Tracks'); ?></span>
+	<span id="facts"></span>
+	<span class="add_fact"><?php _e('Add Component'); ?></span>
 	<script>
 	    var $ =jQuery.noConflict();
 	    $(document).ready(function() {
 	        var count = <?php echo $c; ?>;
-	        $(".add").click(function() {
+	        $(".add_fact").click(function() {
 	            count = count + 1;
 
-	            $('#here').append('<p> Song Title <input type="text" name="songs['+count+'][title]" value="" /> -- Track number : <input type="text" name="songs['+count+'][track]" value="" /> -- Percentage : <input type="text" name="songs['+count+'][percentage]" value="" /><span class="remove">Remove Track</span></p>' );
+	            $('#facts').append('<p>Nutrition name <input type="text" name="nutritions_facts['+count+'][name]" value="" /> -- Weight per 100g : <input type="text" name="nutritions_facts['+count+'][weight]" value="" /><span class="remove">Remove Component</span></p>' );
 	            return false;
 	        });
 	        $(".remove").live('click', function() {
@@ -62,7 +57,49 @@ add_action('add_meta_boxes', function(){
 	    </script>
 	</div><?php
 
-	}
+	}// metabox_nutrition_facts
+
+	function metabox_nutrition_percentage() {
+	    global $post;
+	    wp_nonce_field( plugin_basename( __FILE__ ), 'nutrition_percentage_nonce' );
+	    ?>
+	    <div id="meta_inner">
+	    <?php
+
+	    $nutritions = get_post_meta($post->ID,'nutritions',true);
+	    $c = 0;
+	    if ( count( $nutritions ) >0 ) {
+	    	if (is_array($nutritions) ){
+		        foreach( $nutritions as $nutrition ) {
+		            if ( isset( $nutrition['name'] ) || isset( $nutrition['weight'] )|| isset( $nutrition['percentage'] ) ) {
+		                printf( '<p>Nutrition name <input type="text" name="nutritions[%1$s][name]" value="%2$s" /> -- Weight per 100g : <input type="text" name="nutritions[%1$s][weight]" value="%3$s" /> -- Percentage : <input type="text" name="nutritions[%1$s][percentage]" value="%4$s" /><span class="remove">%5$s</span></p>', $c, $nutrition['name'], $nutrition['weight'], $nutrition['percentage'], __( 'Remove Component' ) );
+		                $c = $c +1;
+		            }
+		        }
+	      	}
+	    }
+
+	    ?>
+	<span id="here"></span>
+	<span class="add"><?php _e('Add Component'); ?></span>
+	<script>
+	    var $ =jQuery.noConflict();
+	    $(document).ready(function() {
+	        var count = <?php echo $c; ?>;
+	        $(".add").click(function() {
+	            count = count + 1;
+
+	            $('#here').append('<p>Nutrition name <input type="text" name="nutritions['+count+'][name]" value="" /> -- Weight per 100g : <input type="text" name="nutritions['+count+'][weight]" value="" /> -- Percentage : <input type="text" name="nutritions['+count+'][percentage]" value="" /><span class="remove">Remove Component</span></p>' );
+	            return false;
+	        });
+	        $(".remove").live('click', function() {
+	            $(this).parent().remove();
+	        });
+	    });
+	    </script>
+	</div><?php
+
+	}// metabox_nutrition_percentage
 
 	function metabox_weight($post){
 		$weight = get_post_meta($post->ID, '_weight_meta', true);
@@ -164,37 +201,6 @@ echo <<<END
 END;
 	}// metabox_ingredients_for_recipe
 
-	
-function metabox_nutrition_facts($post){
-		$nutrition_facts = get_post_meta($post->ID, '_nutrition_facts_meta', true);
-		wp_nonce_field(__FILE__, '_nutrition_facts_meta_nonce');
-
-echo <<<END
-
-	<label>nutrition_facts:</label>
-	<input type="text" class="[ widefat ]" name="_nutrition_facts_meta" value="$nutrition_facts" />
-
-END;
-	}// metabox_nutrition_facts
-
-	
-function metabox_percentage_per_serving($post){
-		$percentage_per_serving = get_post_meta($post->ID, '_percentage_per_serving_meta', true);
-		wp_nonce_field(__FILE__, '_percentage_per_serving_meta_nonce');
-
-echo <<<END
-
-	<label>percentage_per_serving:</label>
-	<input type="text" class="[ widefat ]" name="_percentage_per_serving_meta" value="$percentage_per_serving" />
-
-END;
-	}// metabox_percentage_per_serving
-
-
-
-
-
-
 /*
 ** FUNCTION TO SAVE POST'S TAXONOMIES VALUES INTO DATABASE
 */
@@ -240,27 +246,30 @@ add_action('save_post', function($post_id){
 		if ( isset($_POST['_percentage_per_serving_meta']) and check_admin_referer(__FILE__, '_percentage_per_serving_meta_nonce') ){
 			update_post_meta($post_id, '_percentage_per_serving_meta', $_POST['_percentage_per_serving_meta']);
 		}
-
-    // verify this came from the our screen and with proper authorization,
-    // because save_post can be triggered at other times
-    if ( isset( $_POST['dynamicMeta_noncename'] ) ){
-       
-
-    if ( !wp_verify_nonce( $_POST['dynamicMeta_noncename'], plugin_basename( __FILE__ ) ) )
-        return;
-
-    // OK, we're authenticated: we need to find and save the data
-	     if(array_key_exists('songs',$_POST) ){
-	    		$songs = $_POST['songs'];
-	    						    		update_post_meta($post_id,'songs',$songs);
-
+	    if ( isset( $_POST['nutrition_percentage_nonce'] ) ){
+    		if ( !wp_verify_nonce( $_POST['nutrition_percentage_nonce'], plugin_basename( __FILE__ ) ) )
+        		return;
+     	if(array_key_exists('nutritions',$_POST) ){
+    		$nutritions = $_POST['nutritions'];
+    		update_post_meta($post_id,'nutritions',$nutritions);
+		}
+		else {
+			update_post_meta($post_id,'nutritions',NULL);
+		}
+		    
+	   }
+	    if ( isset( $_POST['nutrition_facts_nonce'] ) ){
+    		if ( !wp_verify_nonce( $_POST['nutrition_facts_nonce'], plugin_basename( __FILE__ ) ) )
+        		return;
+	     	if(array_key_exists('nutritions_facts',$_POST) ){
+	    		$nutritions = $_POST['nutritions_facts'];
+	    		update_post_meta($post_id,'nutritions_facts',$nutritions);
 			}
 			else {
-								    		update_post_meta($post_id,'songs',NULL);
-
+				update_post_meta($post_id,'nutritions_facts',NULL);
 			}
-
 		}
+
 
 	});
 
