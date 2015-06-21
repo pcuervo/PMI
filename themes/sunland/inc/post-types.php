@@ -68,4 +68,35 @@
 			);
 			register_post_type( 'product', $args );
 
+		// RECIPE
+		$labels = array(
+				'name'          => 'Recipes',
+				'singular_name' => 'Recipe',
+				'add_new'       => 'Nueva Recipe',
+				'add_new_item'  => 'Nueva Recipe',
+				'edit_item'     => 'Editar Recipe',
+				'new_item'      => 'Nuevo Recipe',
+				'all_items'     => 'Todas',
+				'view_item'     => 'Ver Feature',
+				'search_items'  => 'Buscar Recipes',
+				'not_found'     => 'No se encontró',
+				'menu_name'     => 'Recipes'
+			);
+			$args = array(
+				'labels'             => $labels,
+				'public'             => true,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'show_in_menu'       => true,
+				'query_var'          => true,
+				'rewrite'            => array( 'slug' => 'recipe' ),
+				'capability_type'    => 'post',
+				'has_archive'        => true,
+				'hierarchical'       => false,
+				'menu_position'      => 6,
+				'taxonomies'         => array( 'category' ),
+				'supports'           => array( 'title', 'editor', 'thumbnail' )
+			);
+			register_post_type( 'recipe', $args );
+
 	});

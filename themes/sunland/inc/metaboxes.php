@@ -26,6 +26,13 @@ add_action('add_meta_boxes', function(){
 				add_meta_box( 'portions', 'Portions', 'metabox_portions', 'product', 'advanced', 'high' );
 				add_meta_box( 'ingredients', 'Ingredients', 'metabox_ingredients', 'product', 'advanced', 'high' );
 
+				add_meta_box( 'quantity', 'Quantity', 'metabox_quantity', 'recipe', 'advanced', 'high' );
+				add_meta_box( 'time', 'Time', 'metabox_time', 'recipe', 'advanced', 'high' );
+				add_meta_box( 'instructions', 'instructions', 'metabox_instructions', 'recipe', 'advanced', 'high' );
+				add_meta_box( 'ingredients_for_recipe', 'ingredients', 'metabox_ingredients_for_recipe', 'recipe', 'advanced', 'high' );
+				add_meta_box( 'nutrition_facts', 'nutrition_facts', 'metabox_nutrition_facts', 'recipe', 'advanced', 'high' );
+				add_meta_box( 'percentage_per_serving', 'percentage_per_serving', 'metabox_percentage_per_serving', 'recipe', 'advanced', 'high' );
+
 	});
 
 	function metabox_weight($post){
@@ -77,7 +84,91 @@ END;
 	}// metabox_portions
 
 
+	function metabox_quantity($post){
+		$quantity = get_post_meta($post->ID, '_quantity_meta', true);
+		wp_nonce_field(__FILE__, '_quantity_meta_nonce');
 
+echo <<<END
+
+	<label>quantity:</label>
+	<input type="text" class="[ widefat ]" name="_quantity_meta" value="$quantity" />
+
+END;
+	}// metabox_quantity
+
+
+	function metabox_time($post){
+		$time = get_post_meta($post->ID, '_time_meta', true);
+		wp_nonce_field(__FILE__, '_time_meta_nonce');
+
+echo <<<END
+
+	<label>time:</label>
+	<input type="text" class="[ widefat ]" name="_time_meta" value="$time" />
+
+END;
+	}// metabox_time	
+
+
+function metabox_instructions($post){
+		$instructions = get_post_meta($post->ID, '_instructions_meta', true);
+		wp_nonce_field(__FILE__, '_instructions_meta_nonce');
+
+echo <<<END
+
+	<label>instructions:</label>
+	<input type="text" class="[ widefat ]" name="_instructions_meta" value="$instructions" />
+
+END;
+	}// metabox_instructions
+
+	
+function metabox_ingredients_for_recipe($post){
+		$ingredients_for_recipe = get_post_meta($post->ID, '_ingredients_for_recipe_meta', true);
+		wp_nonce_field(__FILE__, '_ingredients_for_recipe_meta_nonce');
+
+echo <<<END
+
+	<label>ingredients_for_recipe:</label>
+	<input type="text" class="[ widefat ]" name="_ingredients_for_recipe_meta" value="$ingredients_for_recipe" />
+
+END;
+	}// metabox_ingredients_for_recipe
+
+	
+function metabox_nutrition_facts($post){
+		$nutrition_facts = get_post_meta($post->ID, '_nutrition_facts_meta', true);
+		wp_nonce_field(__FILE__, '_nutrition_facts_meta_nonce');
+
+echo <<<END
+
+	<label>nutrition_facts:</label>
+	<input type="text" class="[ widefat ]" name="_nutrition_facts_meta" value="$nutrition_facts" />
+
+END;
+	}// metabox_nutrition_facts
+
+	
+function metabox_percentage_per_serving($post){
+		$percentage_per_serving = get_post_meta($post->ID, '_percentage_per_serving_meta', true);
+		wp_nonce_field(__FILE__, '_percentage_per_serving_meta_nonce');
+
+echo <<<END
+
+	<label>percentage_per_serving:</label>
+	<input type="text" class="[ widefat ]" name="_percentage_per_serving_meta" value="$percentage_per_serving" />
+
+END;
+	}// metabox_percentage_per_serving
+
+
+
+
+
+
+/*
+** FUNCTION TO SAVE POST'S TAXONOMIES VALUES INTO DATABASE
+*/
 add_action('save_post', function($post_id){
 
 
@@ -102,8 +193,25 @@ add_action('save_post', function($post_id){
 		if ( isset($_POST['_portions_meta']) and check_admin_referer(__FILE__, '_portions_meta_nonce') ){
 			update_post_meta($post_id, '_portions_meta', $_POST['_portions_meta']);
 		}
+		if ( isset($_POST['_quantity_meta']) and check_admin_referer(__FILE__, '_quantity_meta_nonce') ){
+			update_post_meta($post_id, '_quantity_meta', $_POST['_quantity_meta']);
+		}
+		if ( isset($_POST['_time_meta']) and check_admin_referer(__FILE__, '_time_meta_nonce') ){
+			update_post_meta($post_id, '_time_meta', $_POST['_time_meta']);
+		}
+		if ( isset($_POST['_instructions_meta']) and check_admin_referer(__FILE__, '_instructions_meta_nonce') ){
+			update_post_meta($post_id, '_instructions_meta', $_POST['_instructions_meta']);
+		}
+		if ( isset($_POST['_ingredients_for_recipe_meta']) and check_admin_referer(__FILE__, '_ingredients_for_recipe_meta_nonce') ){
+			update_post_meta($post_id, '_ingredients_for_recipe_meta', $_POST['_ingredients_for_recipe_meta']);
+		}
+		if ( isset($_POST['_nutrition_facts_meta']) and check_admin_referer(__FILE__, '_nutrition_facts_meta_nonce') ){
+			update_post_meta($post_id, '_nutrition_facts_meta', $_POST['_nutrition_facts_meta']);
+		}
+		if ( isset($_POST['_percentage_per_serving_meta']) and check_admin_referer(__FILE__, '_percentage_per_serving_meta_nonce') ){
+			update_post_meta($post_id, '_percentage_per_serving_meta', $_POST['_percentage_per_serving_meta']);
+		}
 
-		
 
 	});
 
