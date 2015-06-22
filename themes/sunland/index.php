@@ -4,6 +4,7 @@
 <?php get_header(); ?>
   		<!-- INFO HOME PAGE START -->
 		<?php
+		//include( get_template_directory() . '/page-contacto.php' );
 			$home_info_query = new WP_Query( 'pagename=info-home' );
 			if ( $home_info_query->have_posts() ) : $home_info_query->the_post();
 		?>
