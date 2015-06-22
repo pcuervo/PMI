@@ -3,7 +3,7 @@
 // CUSTOM METABOXES //////////////////////////////////////////////////////////////////
 
 add_action('add_meta_boxes', function(){
-		
+		global $post;
 				add_meta_box( 'weight', 'Weight', 'metabox_weight', 'product', 'advanced', 'high' );
 				add_meta_box( 'indications', 'Indications', 'metabox_indications', 'product', 'advanced', 'high' );
 				add_meta_box( 'portions', 'Portions', 'metabox_portions', 'product', 'advanced', 'high' );
@@ -15,6 +15,12 @@ add_action('add_meta_boxes', function(){
 				add_meta_box( 'ingredients_for_recipe', 'ingredients', 'metabox_ingredients_for_recipe', 'recipe', 'advanced', 'high' );
 				add_meta_box('dynamic_nutrition_facts',__( 'Nutrition facts', 'myplugin_textdomain' ),'metabox_nutrition_facts','recipe');
 				add_meta_box('dynamic_nutrition_percentage',__( 'Nutrition percentage', 'myplugin_textdomain' ),'metabox_nutrition_percentage','recipe');
+			
+			if( $post->post_name == 'contacto'){
+				add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
+				add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
+				add_meta_box( 'address', 'Address', 'metabox_address', 'page', 'advanced', 'high' );		
+			}
 	});
 
 	function metabox_nutrition_facts() {
@@ -200,6 +206,49 @@ echo <<<END
 
 END;
 	}// metabox_ingredients_for_recipe
+	
+	function metabox_telefono($post){
+		$telefono1 = get_post_meta($post->ID, '_telefono1_meta', true);
+		$telefono2 = get_post_meta($post->ID, '_telefono2_meta', true);
+
+		wp_nonce_field(__FILE__, '_telefono1_meta_nonce');
+		wp_nonce_field(__FILE__, '_telefono2_meta_nonce');
+
+echo <<<END
+
+	<label>Teléfono 1:</label>
+	<input type="text" class="[ widefat ]" name="_telefono1_meta" value="$telefono1" />
+	<label>Teléfono 2:</label>
+	<input type="text" class="[ widefat ]" name="_telefono2_meta" value="$telefono2" />
+
+END;
+	}// metabox_telefono
+
+	function metabox_email($post){
+		$email = get_post_meta($post->ID, '_email_meta', true);
+
+		wp_nonce_field(__FILE__, '_email_meta_nonce');
+
+echo <<<END
+
+	<label>Email:</label>
+	<input type="text" class="[ widefat ]" name="_email_meta" value="$email" />
+
+END;
+	}// metabox_email
+
+	function metabox_address($post){
+		$address 	= get_post_meta($post->ID, '_address_meta', true);
+
+		wp_nonce_field(__FILE__, '_address_meta_nonce');
+
+echo <<<END
+
+	<label>Ingresa los motivos de contacto separado por comas (ej. Informes, Ayuda, Pasar a saludar...):</label>
+	<input type="text" class="[ widefat ]" name="_address_meta" value="$address" />
+
+END;
+	}// metabox_address
 
 /*
 ** FUNCTION TO SAVE POST'S TAXONOMIES VALUES INTO DATABASE
@@ -249,13 +298,13 @@ add_action('save_post', function($post_id){
 	    if ( isset( $_POST['nutrition_percentage_nonce'] ) ){
     		if ( !wp_verify_nonce( $_POST['nutrition_percentage_nonce'], plugin_basename( __FILE__ ) ) )
         		return;
-     	if(array_key_exists('nutritions',$_POST) ){
-    		$nutritions = $_POST['nutritions'];
-    		update_post_meta($post_id,'nutritions',$nutritions);
-		}
-		else {
-			update_post_meta($post_id,'nutritions',NULL);
-		}
+	     	if(array_key_exists('nutritions',$_POST) ){
+	    		$nutritions = $_POST['nutritions'];
+	    		update_post_meta($post_id,'nutritions',$nutritions);
+			}
+			else {
+				update_post_meta($post_id,'nutritions',NULL);
+			}
 		    
 	   }
 	    if ( isset( $_POST['nutrition_facts_nonce'] ) ){
@@ -268,6 +317,22 @@ add_action('save_post', function($post_id){
 			else {
 				update_post_meta($post_id,'nutritions_facts',NULL);
 			}
+		}
+
+		// Teléfonos
+		if ( isset($_POST['_telefono1_meta']) and check_admin_referer(__FILE__, '_telefono1_meta_nonce') ){
+			update_post_meta($post_id, '_telefono1_meta', $_POST['_telefono1_meta']);
+		}
+		if ( isset($_POST['_telefono2_meta']) and check_admin_referer(__FILE__, '_telefono2_meta_nonce') ){
+			update_post_meta($post_id, '_telefono2_meta', $_POST['_telefono2_meta']);
+		}
+		// Email
+		if ( isset($_POST['_email_meta']) and check_admin_referer(__FILE__, '_email_meta_nonce') ){
+			update_post_meta($post_id, '_email_meta', $_POST['_email_meta']);
+		}
+		// address
+		if ( isset($_POST['_address_meta']) and check_admin_referer(__FILE__, '_address_meta_nonce') ){
+			update_post_meta($post_id, '_address_meta', $_POST['_address_meta']);
 		}
 
 
