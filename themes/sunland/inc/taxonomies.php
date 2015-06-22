@@ -2,8 +2,7 @@
 
 
 // TAXONOMIES ////////////////////////////////////////////////////////////////////////
-
-
+	
 	add_action( 'init', 'custom_taxonomies_callback', 0 );
 
 	function custom_taxonomies_callback(){
@@ -94,6 +93,26 @@
 		insert_term_filter();
 
 	}// custom_taxonomies_callback
+
+	/**
+	* Insert terms dynamically fot "recipe"
+	**/
+	add_action('save_post', function($post_ID){
+		 $post = get_post( $post_ID ); // get post object
+         if ('recipe' == $post->post_type){
+			wp_insert_term( $post->post_title, 'recipe' );
+       }
+	});
+	/**
+	* Delete terms dynamically fot "recipe"
+	**/
+	add_action('wp_trash_post', function($post_ID){
+		$post = get_post($post_ID);
+	    $term = get_term_by('name', $post->post_title, 'recipe');
+	    if ('recipe' == $post->post_type && $term->count == 0){
+	       wp_delete_term($term->term_id, 'recipe');
+	    }
+	});
 
 	/**
 	* Insert terms for "Brands"
