@@ -11,8 +11,7 @@
 	wp_reset_query();
 	?>
 	<div class="[ bg-image ] [ margin-bottom--large ]" style="background-image: url(<?php echo $cover_url[0] ?>)">
-		<div class="[ opacity-gradient banner-height ]">
-		</div>
+		<?php the_content(); ?>
 	</div>
 
 
