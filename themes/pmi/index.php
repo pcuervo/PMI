@@ -9,7 +9,6 @@
 	?>
 			<div class="[ relative ]">
 				<div class="[ bg-image bg-image-home ] [ margin-bottom--large ]">
-
 					<div class="[ opacity-gradient square ]">
 						<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
 							<h1 class="[ text-center light ]">La mas alta calidad</h1>
