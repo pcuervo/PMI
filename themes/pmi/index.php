@@ -13,7 +13,11 @@
 						<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
 							<h1 class="[ text-center light ]">La mas alta calidad</h1>
 							<?php the_content() ?>
+							<?php the_title() ?>
 							<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">Cónoce nuestros productos</a>
+						</div>
+						</div>
+							<img src="<?php echo $home_banner_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
 						</div>
 					</div>
 				</div>
@@ -63,7 +67,7 @@
 				$productos_args = array(
 					'post_type' 		=> 'productos',
 					'posts_per_page' 	=> 3,
-					'orderby'			=> 'rand',
+					'orderby'			=> 'date',
 				);
 				$query_productos = new WP_Query( $productos_args );
 				if ( $query_productos->have_posts() ) : while ( $query_productos->have_posts() ) : $query_productos->the_post();
@@ -96,7 +100,7 @@
 				$productos_args = array(
 					'post_type' 		=> 'recetas',
 					'posts_per_page' 	=> 3,
-					'orderby'			=> 'rand',
+					'orderby'			=> 'date',
 				);
 				$query_productos = new WP_Query( $productos_args );
 				if ( $query_productos->have_posts() ) : while ( $query_productos->have_posts() ) : $query_productos->the_post();
