@@ -29,6 +29,10 @@
 \*------------------------------------*/
 
 
+
+	/**
+	* Add metaboxes for page type "Contacto"
+	**/
 	function add_metaboxes_contacto(){
 		add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
 		add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
@@ -37,6 +41,9 @@
 		
 	}
 	
+	/**
+	* Add metaboxes for page type "Productos"
+	**/
 	function add_metaboxes_products(){
 		add_meta_box( 'net_content', 'Contenido neto', 'metabox_net_content', 'productos', 'advanced', 'high' );
 		add_meta_box( 'product_portions', 'Porciones', 'metabox_product_portions', 'productos', 'advanced', 'high' );
@@ -44,6 +51,9 @@
 		add_meta_box( 'ingredients', 'Ingredientes', 'metabox_ingredients', 'productos', 'advanced', 'high' );
 	}
 
+	/**
+	* Add metaboxes for page type "Recetas"
+	**/
 	function add_metaboxes_recipes(){
 		add_meta_box( 'recipe_portions', 'Porciones', 'metabox_recipe_portions', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'cook_time', 'Tiempo', 'metabox_cook_time', 'recetas', 'advanced', 'high' );
@@ -52,6 +62,7 @@
 		add_meta_box( 'nutrition_facts', 'Información nutricional', 'metabox_nutrition_facts', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'percentage_value', 'Información nutricional', 'metabox_percentage_value', 'recetas', 'advanced', 'high' );
 	}
+
 
 
 
@@ -76,6 +87,7 @@ echo <<<END
 
 END;
 	}// metabox_social
+
 function metabox_telefono($post){
 		$telefono1 = get_post_meta($post->ID, '_telefono_meta', true);
 
