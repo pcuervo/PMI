@@ -3,7 +3,7 @@
 	the_post();
 	
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-	$nosotros_info_query = new WP_Query( 'pagename=nosotros' );
+	$nosotros_info_query = new WP_Query( 'pagename=servicios' );
 	if ( $nosotros_info_query->have_posts() ) : $nosotros_info_query->the_post(); 
 	?>
 	    <h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
@@ -15,16 +15,16 @@
 		</div>
 	</div>
     
-	<!-- Duo Rages Constructio -->
+	<!-- Asesoria comercial -->
 	<?php
-		$duo_rages_constructio_query = new WP_Query( 'pagename=duo_rages_constructio' );
-		if ( $duo_rages_constructio_query->have_posts() ) : $duo_rages_constructio_query->the_post();
+		$asesoria_comercial_query = new WP_Query( 'pagename=asesoria_comercial' );
+		if ( $asesoria_comercial_query->have_posts() ) : $asesoria_comercial_query->the_post();
 	?>
 			<div class="[ relative ]">
 				<div class="[ bg-image bg-image-home ] [ margin-bottom--large ]">
 					<div class="[ opacity-gradient square ]">
 						<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
-							<h1 class="[ text-center light ]">Duo Rages Constructio</h1>
+							<h1 class="[ text-center light ]">Asesoria comercial</h1>
 							<?php the_title() ?>
 							<?php the_content() ?>
 							<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">Cónoce nuestros productos</a>
@@ -37,16 +37,16 @@
 			</div>
 	<?php endif; wp_reset_query(); ?>
 
-	<!-- Quae Probabilia Videantur -->
+	<!-- Importacion y exportacion -->
 	<?php
-		$quae_probabilia_videantur_query = new WP_Query( 'pagename=quae_probabilia_videantur' );
-		if ( $quae_probabilia_videantur_query->have_posts() ) : $quae_probabilia_videantur_query->the_post();
+		$importacion_y_exportacion_query = new WP_Query( 'pagename=importacion_y_exportacion' );
+		if ( $importacion_y_exportacion_query->have_posts() ) : $importacion_y_exportacion_query->the_post();
 	?>
 			<div class="[ relative ]">
 				<div class="[ bg-image bg-image-home ] [ margin-bottom--large ]">
 					<div class="[ opacity-gradient square ]">
 						<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
-							<h1 class="[ text-center light ]">Quae Probabilia Videantur</h1>
+							<h1 class="[ text-center light ]">Importacion y exportacion</h1>
 							<?php the_title() ?>
 							<?php the_content() ?>
 							<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">Cónoce nuestros productos</a>
@@ -58,6 +58,7 @@
 				</div>
 			</div>
 	<?php endif; wp_reset_query(); ?>
+
 
 <?php
 	get_footer();

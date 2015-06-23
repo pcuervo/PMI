@@ -105,5 +105,29 @@
 			wp_insert_post( $page, true );
 		}
 
+		 // Asesoria comercial
+		if( ! get_page_by_path('asesoria_comercial') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Asesoria comercial',
+				'post_name'   => 'asesoria_comercial',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		 // Importacion y exportacion
+		if( ! get_page_by_path('importacion_y_exportacion') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Importacion y exportacion',
+				'post_name'   => 'importacion_y_exportacion',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
 	
 	});
