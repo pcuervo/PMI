@@ -63,23 +63,48 @@
 
 			register_taxonomy( 'producto-utilizado', 'recetas', $args );
 		}
-		insert_term_brand();
-		insert_producto_utilizado();
+
 	}// custom_taxonomies_callback
 
-	/**
-	* Insert terms for "Marcas"
-	**/
-	function insert_term_brand(){
-		// if ( ! term_exists( 'Nike', 'brand' ) ){
-		// 	wp_insert_term( 'Nike', 'brand' );
-		// }
-	}// insert_term_brands
+	/*
+	 * Insert dynamic taxonomy terms after a post has been created/saved.
+	 */
+	function update_taxonomies(){
+		global $post;
 
-	function insert_producto_utilizado(){
-		// if ( ! term_exists( 'Nike', 'brand' ) ){
-		// 	wp_insert_term( 'Nike', 'brand' );
-		// }
-	}// insert_producto_utilizado
+		// Exist of post doesn't exist or it has been moved to trash
+		if( NULL === $post || 'trash' === get_post_status( $post->ID ) ) {
+			return;
+		}
+
+		switch ( $post->post_type ) {
+			case 'marcas':
+				insert_dynamic_taxonomy_term( $post->post_title, 'marcas' );
+				break;
+			default:
+				# code...
+				break;
+		}
+		
+	}// update_taxonomies
+	add_action('save_post', 'update_taxonomies');
+
+	/*
+	 * Insert  $new_term to $taxonomy based on the title of new post
+	 *
+	 * @param string $new_term
+	 * @param string $taxonomy
+	 */
+	function insert_dynamic_taxonomy_term( $new_term, $taxonomy ){
+
+		$term = term_exists( $new_term, $taxonomy );
+		if ( FALSE !== $term && NULL !== $term ) {
+			return;
+		}
+		wp_insert_term( $new_term, $taxonomy );
+
+	}// insert_dynamic_taxonomy_term
+
+
 
 	

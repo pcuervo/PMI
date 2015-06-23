@@ -172,6 +172,79 @@
 \*------------------------------------*/
 
 
+	
+	/**
+	 * Get all products by brand.
+	 * @param string $brand 
+	 * @return mixed $products
+	 */
+	function get_products_by_brand( $brand ){
+
+		$products_args = array(
+			'post_type' 		=> 'productos',
+			'posts_per_page' 	=> -1,
+			'tax_query' => array(
+		        array(
+			        'taxonomy' => 'marcas',
+			        'field' => 'name',
+			        'terms' => array( $brand ),
+			   	)
+		    ),
+		);
+
+		$query_products = new WP_Query( $products_args );
+		if ( ! $query_products->have_posts() ) {
+			return 0;
+		}
+
+		$i = 0;
+		while ( $query_products->have_posts() ) : $query_products->the_post();
+
+			$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' );
+
+			$products[$i] = array(
+				'title'		=> get_the_title(),
+				'content'	=> get_the_content(),
+				'permalink'	=> get_permalink( get_the_ID() ),
+				'image_url'	=> $product_img_url[0],
+				);
+			$i++;
+		endwhile; wp_reset_query();
+
+		return $products;
+
+	}// get_products_by_brand
+
+	/**
+	 * Get logo of a given brand.
+	 * @param string $brand 
+	 * @return string $brand_logo_url
+	 */
+	function get_brand_logo( $brand ){
+
+		$brand_args = array(
+			'post_type' 		=> 'marcas',
+			'posts_per_page' 	=> 1,
+			'name'				=> $brand
+		);
+
+		$query_brand = new WP_Query( $brand_args );
+		if ( ! $query_brand->have_posts() ) {
+			return 0;
+		}
+
+		$query_brand->the_post();
+		$brand_logo_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' );
+		wp_reset_query();
+
+		if( empty( $brand_logo_url ) ){
+			return 0;
+		}
+		return $brand_logo_url[0];
+
+	}// get_brand_logo
+
+
 
 
 

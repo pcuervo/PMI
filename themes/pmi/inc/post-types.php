@@ -70,4 +70,35 @@
 		);
 		register_post_type( 'recetas', $args );
 
+		// BRANDS
+		$labels = array(
+			'name'          => 'Marcas',
+			'singular_name' => 'Marca',
+			'add_new'       => 'Nueva marca',
+			'add_new_item'  => 'Nueva marca',
+			'edit_item'     => 'Editar marca',
+			'new_item'      => 'Nueva marca',
+			'all_items'     => 'Todas',
+			'view_item'     => 'Ver marca',
+			'search_items'  => 'Buscar marcas',
+			'not_found'     => 'No se encontró',
+			'menu_name'     => 'Marcas'
+		);
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'marcas' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'taxonomies'         => array( 'category' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'marcas', $args );
+
 	});
