@@ -10,7 +10,8 @@
 		global $post;
 
 		switch ( $post->post_name ) {
-			case 'some-page':
+			case 'contacto':
+				add_metaboxes_contacto();
 				break;
 			default:
 				add_metaboxes_products();
@@ -28,7 +29,14 @@
 \*------------------------------------*/
 
 
-
+	function add_metaboxes_contacto(){
+		add_meta_box( 'social', 'Redes sociales', 'metabox_social', 'page', 'advanced', 'high' );
+		add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
+		add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
+		add_meta_box( 'address', 'Address', 'metabox_address', 'page', 'advanced', 'high' );
+		
+	}
+	
 	function add_metaboxes_products(){
 		add_meta_box( 'net_content', 'Contenido neto', 'metabox_net_content', 'productos', 'advanced', 'high' );
 		add_meta_box( 'product_portions', 'Porciones', 'metabox_product_portions', 'productos', 'advanced', 'high' );
@@ -52,6 +60,60 @@
 	CUSTOM METABOXES CALLBACK FUNCTIONS
 \*-----------------------------------------*/
 	
+	function metabox_social($post){
+		$facebook = get_post_meta($post->ID, '_facebook_meta', true);
+		$twitter = get_post_meta($post->ID, '_twitter_meta', true);
+	
+		wp_nonce_field(__FILE__, '_facebook_meta_nonce');
+		wp_nonce_field(__FILE__, '_twitter_meta_nonce');
+
+echo <<<END
+
+	<label>Facebook:</label>
+	<input type="text" class="[ widefat ]" name="_facebook_meta" value="$facebook" />
+	<label>Twitter:</label>
+	<input type="text" class="[ widefat ]" name="_twitter_meta" value="$twitter" />
+
+END;
+	}// metabox_social
+function metabox_telefono($post){
+		$telefono1 = get_post_meta($post->ID, '_telefono_meta', true);
+
+		wp_nonce_field(__FILE__, '_telefono_meta_nonce');
+
+echo <<<END
+
+	<label>Teléfono:</label>
+	<input type="text" class="[ widefat ]" name="_telefono_meta" value="$telefono1" />
+
+END;
+	}// metabox_telefono
+
+function metabox_email($post){
+		$email = get_post_meta($post->ID, '_email_meta', true);
+
+		wp_nonce_field(__FILE__, '_email_meta_nonce');
+
+echo <<<END
+
+	<label>Email:</label>
+	<input type="text" class="[ widefat ]" name="_email_meta" value="$email" />
+
+END;
+	}// metabox_email
+
+function metabox_address($post){
+		$address = get_post_meta($post->ID, '_address_meta', true);
+
+		wp_nonce_field(__FILE__, '_address_meta_nonce');
+
+echo <<<END
+
+	<label>Address:</label>
+	<input type="text" class="[ widefat ]" name="_address_meta" value="$address" />
+
+END;
+	}// metabox_email
 
 
 	function metabox_net_content( $post ){
@@ -209,6 +271,7 @@
 
 		save_metabox_products( $post_id );
 		save_metabox_recipes( $post_id );
+		save_metabox_contacto( $post_id );
 	});
 
 	/**
@@ -232,7 +295,36 @@
 			update_post_meta($post_id, '_ingredients_meta', $_POST['_ingredients_meta']);
 		}
 	}// save_metabox_products
+	
+	/**
+	* Save the metaboxes for page type "Contacto"
+	**/
+	function save_metabox_contacto($post_id){
+			// Social
+		if ( isset($_POST['_facebook_meta']) and check_admin_referer(__FILE__, '_facebook_meta_nonce') ){
+			update_post_meta($post_id, '_facebook_meta', $_POST['_facebook_meta']);
+		}
+		if ( isset($_POST['_twitter_meta']) and check_admin_referer(__FILE__, '_twitter_meta_nonce') ){
+			update_post_meta($post_id, '_twitter_meta', $_POST['_twitter_meta']);
+		}
 
+		// Teléfonos
+		if ( isset($_POST['_telefono_meta']) and check_admin_referer(__FILE__, '_telefono_meta_nonce') ){
+			update_post_meta($post_id, '_telefono_meta', $_POST['_telefono_meta']);
+		}
+
+		// Email
+		if ( isset($_POST['_email_meta']) and check_admin_referer(__FILE__, '_email_meta_nonce') ){
+			update_post_meta($post_id, '_email_meta', $_POST['_email_meta']);
+		}
+
+		// Address
+		if ( isset($_POST['_address_meta']) and check_admin_referer(__FILE__, '_address_meta_nonce') ){
+			update_post_meta($post_id, '_address_meta', $_POST['_address_meta']);
+		}
+
+
+	}
 	/**
 	* Save the metaboxes for post type "Productos"
 	**/
@@ -269,50 +361,57 @@
 		if ( isset($_POST['_protein_meta']) and check_admin_referer( __FILE__, '_protein_meta_nonce') ){
 			update_post_meta($post_id, '_protein_meta', $_POST['_protein_meta']);
 		}
+		// Saturatedfat
 		if ( isset($_POST['_saturated_fat_meta']) and check_admin_referer( __FILE__, '_saturated_fat_meta_nonce') ){
 			update_post_meta($post_id, '_saturated_fat_meta', $_POST['_saturated_fat_meta']);
 		}
+		// Saturatedfat Percantage
 		if ( isset($_POST['_saturated_fat_percentage_meta']) and check_admin_referer( __FILE__, '_saturated_fat_percentage_meta_nonce') ){
 			update_post_meta($post_id, '_saturated_fat_percentage_meta', $_POST['_saturated_fat_percentage_meta']);
 		}
+		// Transfat
 		if ( isset($_POST['_trans_fat_meta']) and check_admin_referer( __FILE__, '_trans_fat_meta_nonce') ){
 			update_post_meta($post_id, '_trans_fat_meta', $_POST['_trans_fat_meta']);
 		}
+		// Transfat Percantage
 		if ( isset($_POST['_trans_fat_percentage_meta']) and check_admin_referer( __FILE__, '_trans_fat_percentage_meta_nonce') ){
 			update_post_meta($post_id, '_trans_fat_percentage_meta', $_POST['_trans_fat_percentage_meta']);
 		}
+		// Sodium
 		if ( isset($_POST['_sodium_meta']) and check_admin_referer( __FILE__, '_sodium_meta_nonce') ){
 			update_post_meta($post_id, '_sodium_meta', $_POST['_sodium_meta']);
 		}
+		// Sodium Percentage
 		if ( isset($_POST['_sodium_percentage_meta']) and check_admin_referer( __FILE__, '_sodium_percentage_meta_nonce') ){
 			update_post_meta($post_id, '_sodium_percentage_meta', $_POST['_sodium_percentage_meta']);
 		}
+		// Carbohydrates
 		if ( isset($_POST['_carbohydrates_meta']) and check_admin_referer( __FILE__, '_carbohydrates_meta_nonce') ){
 			update_post_meta($post_id, '_carbohydrates_meta', $_POST['_carbohydrates_meta']);
 		}
+		// Carbohydrates Percentage
 		if ( isset($_POST['_carbohydrates_percentage_meta']) and check_admin_referer( __FILE__, '_carbohydrates_percentage_meta_nonce') ){
 			update_post_meta($post_id, '_carbohydrates_percentage_meta', $_POST['_carbohydrates_percentage_meta']);
 		}
+		// Suger Percentage
 		if ( isset($_POST['_sugar_percentage_meta']) and check_admin_referer( __FILE__, '_sugar_percentage_meta_nonce') ){
 			update_post_meta($post_id, '_sugar_percentage_meta', $_POST['_sugar_percentage_meta']);
 		}
+		// Suger
 		if ( isset($_POST['_sugar_meta']) and check_admin_referer( __FILE__, '_sugar_meta_nonce') ){
 			update_post_meta($post_id, '_sugar_meta', $_POST['_sugar_meta']);
 		}
+		// Iron
 		if ( isset($_POST['_iron_meta']) and check_admin_referer( __FILE__, '_iron_meta_nonce') ){
 			update_post_meta($post_id, '_iron_meta', $_POST['_iron_meta']);
 		}
+		// Fiber
 		if ( isset($_POST['_fiber_meta']) and check_admin_referer( __FILE__, '_fiber_meta_nonce') ){
 			update_post_meta($post_id, '_fiber_meta', $_POST['_fiber_meta']);
 		}
+		// Calcium
 		if ( isset($_POST['_calcium_meta']) and check_admin_referer( __FILE__, '_calcium_meta_nonce') ){
 			update_post_meta($post_id, '_calcium_meta', $_POST['_calcium_meta']);
 		}
-
-
-
-
-
-		// TODO: SAVE META FIELDS FOR metabox_nutrition_facts AND metabox_percentage_value
 
 	}// save_metabox_recipes
