@@ -209,7 +209,6 @@
 
 		save_metabox_products( $post_id );
 		save_metabox_recipes( $post_id );
-		
 	});
 
 	/**
@@ -270,6 +269,49 @@
 		if ( isset($_POST['_protein_meta']) and check_admin_referer( __FILE__, '_protein_meta_nonce') ){
 			update_post_meta($post_id, '_protein_meta', $_POST['_protein_meta']);
 		}
+		if ( isset($_POST['_saturated_fat_meta']) and check_admin_referer( __FILE__, '_saturated_fat_meta_nonce') ){
+			update_post_meta($post_id, '_saturated_fat_meta', $_POST['_saturated_fat_meta']);
+		}
+		if ( isset($_POST['_saturated_fat_percentage_meta']) and check_admin_referer( __FILE__, '_saturated_fat_percentage_meta_nonce') ){
+			update_post_meta($post_id, '_saturated_fat_percentage_meta', $_POST['_saturated_fat_percentage_meta']);
+		}
+		if ( isset($_POST['_trans_fat_meta']) and check_admin_referer( __FILE__, '_trans_fat_meta_nonce') ){
+			update_post_meta($post_id, '_trans_fat_meta', $_POST['_trans_fat_meta']);
+		}
+		if ( isset($_POST['_trans_fat_percentage_meta']) and check_admin_referer( __FILE__, '_trans_fat_percentage_meta_nonce') ){
+			update_post_meta($post_id, '_trans_fat_percentage_meta', $_POST['_trans_fat_percentage_meta']);
+		}
+		if ( isset($_POST['_sodium_meta']) and check_admin_referer( __FILE__, '_sodium_meta_nonce') ){
+			update_post_meta($post_id, '_sodium_meta', $_POST['_sodium_meta']);
+		}
+		if ( isset($_POST['_sodium_percentage_meta']) and check_admin_referer( __FILE__, '_sodium_percentage_meta_nonce') ){
+			update_post_meta($post_id, '_sodium_percentage_meta', $_POST['_sodium_percentage_meta']);
+		}
+		if ( isset($_POST['_carbohydrates_meta']) and check_admin_referer( __FILE__, '_carbohydrates_meta_nonce') ){
+			update_post_meta($post_id, '_carbohydrates_meta', $_POST['_carbohydrates_meta']);
+		}
+		if ( isset($_POST['_carbohydrates_percentage_meta']) and check_admin_referer( __FILE__, '_carbohydrates_percentage_meta_nonce') ){
+			update_post_meta($post_id, '_carbohydrates_percentage_meta', $_POST['_carbohydrates_percentage_meta']);
+		}
+		if ( isset($_POST['_sugar_percentage_meta']) and check_admin_referer( __FILE__, '_sugar_percentage_meta_nonce') ){
+			update_post_meta($post_id, '_sugar_percentage_meta', $_POST['_sugar_percentage_meta']);
+		}
+		if ( isset($_POST['_sugar_meta']) and check_admin_referer( __FILE__, '_sugar_meta_nonce') ){
+			update_post_meta($post_id, '_sugar_meta', $_POST['_sugar_meta']);
+		}
+		if ( isset($_POST['_iron_meta']) and check_admin_referer( __FILE__, '_iron_meta_nonce') ){
+			update_post_meta($post_id, '_iron_meta', $_POST['_iron_meta']);
+		}
+		if ( isset($_POST['_fiber_meta']) and check_admin_referer( __FILE__, '_fiber_meta_nonce') ){
+			update_post_meta($post_id, '_fiber_meta', $_POST['_fiber_meta']);
+		}
+		if ( isset($_POST['_calcium_meta']) and check_admin_referer( __FILE__, '_calcium_meta_nonce') ){
+			update_post_meta($post_id, '_calcium_meta', $_POST['_calcium_meta']);
+		}
+
+
+
+
 
 		// TODO: SAVE META FIELDS FOR metabox_nutrition_facts AND metabox_percentage_value
 
