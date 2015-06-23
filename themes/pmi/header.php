@@ -39,10 +39,59 @@
 		<![endif]-->
 		<div class="container">
 			<header class="[ bg-dark-shade ]">
-				
+				<!-- <nav id="sunland-mmenu" class="[ hide ][ bg-highlight ] [ light ]">
+					<ul class="[ no-margin ]">
+						<li><a href="<?php echo site_url() ?>">Inicio</a></li>
+						<li><a href="<?php echo site_url() . '/nosotros' ?>">Nosotros</a></li>
+						<li><a href="#artes">Oferta académica</a>
+							<ul>
+								<li><a href="#artes/talleres">Talleres</a>
+									<ul>
+										<li><a href="<?php echo site_url( 'danza' ) ?>">Danza</a></li>
+										<li><a href="<?php echo site_url( 'musica' ) ?>">Música</a></li>
+										<li><a href="<?php echo site_url( 'teatro' ) ?>">Teatro</a></li>
+									</ul>
+								</li>
+								<li><a href="<?php echo site_url( 'intensivo' );?>">Programa intensivo</a></li>
+							</ul>
+						</li>
+						<li><a href="<?php echo site_url() . '/foro-sunland' ?>">Foro Sunland</a></li>
+						<li><a href="<?php echo site_url() . '/sunland-studios' ?>">Sunland Studios</a></li>
+						<li><a href="<?php echo site_url() . '/sunland-express' ?>">Sunland Express</a></li>
+						<li><a href="<?php echo site_url() . '/contacto' ?>">Contacto</a></li>
+					</ul>
+				</nav> -->
 				<div class="[ wrapper ]">
 					<div class="[ row ]">
-						
+						<div class="[ xmall-6 large-1 ][ inline-block align-middle ]">
+							<div class="[ logo ]">
+								<a href="<?php echo site_url() ?>">
+									<img alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png" class="[ image-responsive ]">
+								</a>
+							</div>
+
+						</div><div class="[ xmall-6 ][ hidden--large-inline ][ light ][ padding ][ inline-block align-middle ]">
+							<a class="[ pull-right ]" href="#"><i class="fa fa-bars fa-2x"></i></a>
+						</div>
+
+						<a class="[ pull-right ]" href="#"><i class="fa fa-search fa-2x"></i></a>
+						<a class="[ pull-right ]" href="#"><i class="fa fa-flag fa-2x"></i></a>
+						<a class="[ pull-right ]" href="#"><i class="fa fa-flag fa-2x"></i></a>
+
+						<nav class="[ shown--large--inline ] [ large-11 ] [ bg-dark-shade ] [ clearfix ] [ menu-container ] [ inline-block align-middle ]">
+							<a class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url( 'nosotros') ?>">
+								Nosotros
+							</a>
+							<a class="<?php echo ( 'Productos' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url( 'productos' ) ?>">
+								Productos
+							</a>
+							<a class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/sunland-studios' ?>">
+								Servicios
+							</a>
+							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/foro-sunland' ?>">
+								Contacto
+							</a>
+						</nav>
 					</div>
 				</div>
 			</header>

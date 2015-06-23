@@ -39,37 +39,6 @@
 		);
 		register_post_type( 'productos', $args );
 
-		// EXPERTS
-		$labels = array(
-			'name'          => 'Expertos',
-			'singular_name' => 'Expertos',
-			'add_new'       => 'Nuevo experto',
-			'add_new_item'  => 'Nuevo experto',
-			'edit_item'     => 'Editar experto',
-			'new_item'      => 'Nuevo experto',
-			'all_items'     => 'Todas',
-			'view_item'     => 'Ver experto',
-			'search_items'  => 'Buscar expertos',
-			'not_found'     => 'No se encontró',
-			'menu_name'     => 'Expertos'
-		);
-		$args = array(
-			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'experto' ),
-			'capability_type'    => 'post',
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => 6,
-			'taxonomies'         => array( 'category' ),
-			'supports'           => array( 'title', 'editor', 'thumbnail' )
-		);
-		register_post_type( 'expertos', $args );
-
 		// RECIPES
 		$labels = array(
 			'name'          => 'Recetas',

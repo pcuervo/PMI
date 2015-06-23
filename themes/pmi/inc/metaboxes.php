@@ -13,19 +13,8 @@
 			case 'some-page':
 				break;
 			default:
-				// Metaboxes for products
-				add_meta_box( 'net_content', 'Contenido neto', 'metabox_net_content', 'productos', 'advanced', 'high' );
-				add_meta_box( 'product_portions', 'Porciones', 'metabox_product_portions', 'productos', 'advanced', 'high' );
-				add_meta_box( 'indications', 'Indicaciones', 'metabox_indications', 'productos', 'advanced', 'high' );
-				add_meta_box( 'ingredients', 'Ingredientes', 'metabox_ingredients', 'productos', 'advanced', 'high' );
-
-				// Metabox for recipes
-				add_meta_box( 'recipe_portions', 'Porciones', 'metabox_recipe_portions', 'recetas', 'advanced', 'high' );
-				add_meta_box( 'cook_time', 'Tiempo', 'metabox_cook_time', 'recetas', 'advanced', 'high' );
-				add_meta_box( 'instructions', 'Instrucciones', 'metabox_instructions', 'recetas', 'advanced', 'high' );
-				add_meta_box( 'recipe_ingredients', 'Ingredientes', 'metabox_recipe_ingredients', 'recetas', 'advanced', 'high' );
-				add_meta_box( 'nutrition_facts', 'Información nutricional', 'metabox_nutrition_facts', 'recetas', 'advanced', 'high' );
-				add_meta_box( 'percentage_value', 'Información nutricional', 'metabox_percentage_value', 'recetas', 'advanced', 'high' );
+				add_metaboxes_products();
+				add_metaboxes_recipes();
 		}
 
 	});
@@ -35,11 +24,36 @@
 
 
 /*------------------------------------*\
-	CUSTOM METABOXES CALLBACK FUNCTIONS
+	CUSTOM METABOXES FUNCTIONS
 \*------------------------------------*/
 
 
+
+	function add_metaboxes_products(){
+		add_meta_box( 'net_content', 'Contenido neto', 'metabox_net_content', 'productos', 'advanced', 'high' );
+		add_meta_box( 'product_portions', 'Porciones', 'metabox_product_portions', 'productos', 'advanced', 'high' );
+		add_meta_box( 'indications', 'Indicaciones', 'metabox_indications', 'productos', 'advanced', 'high' );
+		add_meta_box( 'ingredients', 'Ingredientes', 'metabox_ingredients', 'productos', 'advanced', 'high' );
+	}
+
+	function add_metaboxes_recipes(){
+		add_meta_box( 'recipe_portions', 'Porciones', 'metabox_recipe_portions', 'recetas', 'advanced', 'high' );
+		add_meta_box( 'cook_time', 'Tiempo', 'metabox_cook_time', 'recetas', 'advanced', 'high' );
+		add_meta_box( 'instructions', 'Instrucciones', 'metabox_instructions', 'recetas', 'advanced', 'high' );
+		add_meta_box( 'recipe_ingredients', 'Ingredientes', 'metabox_recipe_ingredients', 'recetas', 'advanced', 'high' );
+		add_meta_box( 'nutrition_facts', 'Información nutricional', 'metabox_nutrition_facts', 'recetas', 'advanced', 'high' );
+		add_meta_box( 'percentage_value', 'Información nutricional', 'metabox_percentage_value', 'recetas', 'advanced', 'high' );
+	}
+
+
+
+
+/*-----------------------------------------*\
+	CUSTOM METABOXES CALLBACK FUNCTIONS
+\*-----------------------------------------*/
 	
+
+
 	function metabox_net_content( $post ){
 		$net_content = get_post_meta( $post->ID, '_net_content_meta', true );
 
@@ -135,6 +149,7 @@
 		$carbohydrates = get_post_meta( $post->ID, '_carbohydrates_meta', true );
 		$carbohydrates_percentage = get_post_meta( $post->ID, '_carbohydrates_percentage_meta', true );
 		$sugar_percentage = get_post_meta( $post->ID, '_sugar_percentage_meta', true );
+		$sugar = get_post_meta( $post->ID, '_sugar_meta', true );
 		$iron = get_post_meta( $post->ID, '_iron_meta', true );
 		$fiber = get_post_meta( $post->ID, '_fiber_meta', true );
 		$calcium = get_post_meta( $post->ID, '_calcium_meta', true );
@@ -222,7 +237,7 @@
 	/**
 	* Save the metaboxes for post type "Productos"
 	**/
-	function save_metabox_recipes(){
+	function save_metabox_recipes( $post_id ){
 		// Recipe Portions
 		if ( isset($_POST['_recipe_portions_meta']) and check_admin_referer( __FILE__, '_recipe_portions_meta_nonce') ){
 			update_post_meta($post_id, '_recipe_portions_meta', $_POST['_recipe_portions_meta']);
@@ -255,5 +270,7 @@
 		if ( isset($_POST['_protein_meta']) and check_admin_referer( __FILE__, '_protein_meta_nonce') ){
 			update_post_meta($post_id, '_protein_meta', $_POST['_protein_meta']);
 		}
+
+		// TODO: SAVE META FIELDS FOR metabox_nutrition_facts AND metabox_percentage_value
 
 	}// save_metabox_recipes
