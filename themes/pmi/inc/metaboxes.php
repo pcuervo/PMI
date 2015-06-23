@@ -8,7 +8,6 @@
 
 	add_action('add_meta_boxes', function(){
 		global $post;
-
 		switch ( $post->post_name ) {
 			case 'contacto':
 				add_metaboxes_contacto();
@@ -17,11 +16,7 @@
 				add_metaboxes_products();
 				add_metaboxes_recipes();
 		}
-
 	});
-
-
-
 
 
 /*------------------------------------*\
@@ -38,7 +33,6 @@
 		add_meta_box( 'telefono', 'Teléfonos', 'metabox_telefono', 'page', 'advanced', 'high' );
 		add_meta_box( 'email', 'E-mail de contacto', 'metabox_email', 'page', 'advanced', 'high' );
 		add_meta_box( 'address', 'Address', 'metabox_address', 'page', 'advanced', 'high' );
-		
 	}
 	
 	/**
@@ -71,6 +65,7 @@
 	CUSTOM METABOXES CALLBACK FUNCTIONS
 \*-----------------------------------------*/
 	
+
 	function metabox_social($post){
 		$facebook = get_post_meta($post->ID, '_facebook_meta', true);
 		$twitter = get_post_meta($post->ID, '_twitter_meta', true);
@@ -78,59 +73,39 @@
 		wp_nonce_field(__FILE__, '_facebook_meta_nonce');
 		wp_nonce_field(__FILE__, '_twitter_meta_nonce');
 
-echo <<<END
-
-	<label>Facebook:</label>
-	<input type="text" class="[ widefat ]" name="_facebook_meta" value="$facebook" />
-	<label>Twitter:</label>
-	<input type="text" class="[ widefat ]" name="_twitter_meta" value="$twitter" />
-
-END;
+		echo "<label>Facebook:</label>";
+		echo "<input type='text' class='[ widefat ]' name='_facebook_meta' value='$facebook' />";
+		echo "<label>Twitter:</label>";
+		echo "<input type='text' class='[ widefat ]' name='_twitter_meta' value='$twitter' />";
 	}// metabox_social
 
-function metabox_telefono($post){
+	function metabox_telefono($post){
 		$telefono1 = get_post_meta($post->ID, '_telefono_meta', true);
-
 		wp_nonce_field(__FILE__, '_telefono_meta_nonce');
 
-echo <<<END
-
-	<label>Teléfono:</label>
-	<input type="text" class="[ widefat ]" name="_telefono_meta" value="$telefono1" />
-
-END;
+		echo "<label>Teléfono:</label>";
+		echo "<input type='text' class='[ widefat ]' name='_telefono_meta' value='$telefono1' />";
 	}// metabox_telefono
 
-function metabox_email($post){
+	function metabox_email($post){
 		$email = get_post_meta($post->ID, '_email_meta', true);
-
 		wp_nonce_field(__FILE__, '_email_meta_nonce');
 
-echo <<<END
-
-	<label>Email:</label>
-	<input type="text" class="[ widefat ]" name="_email_meta" value="$email" />
-
-END;
+		echo "<label>Email:</label>";
+	 	echo "<input type='text' class='[ widefat ]' name='_email_meta' value='$email' />";
 	}// metabox_email
 
-function metabox_address($post){
+	function metabox_address($post){
 		$address = get_post_meta($post->ID, '_address_meta', true);
-
 		wp_nonce_field(__FILE__, '_address_meta_nonce');
 
-echo <<<END
-
-	<label>Address:</label>
-	<input type="text" class="[ widefat ]" name="_address_meta" value="$address" />
-
-END;
+		echo "<label>Address:</label>";
+		echo" <input type='text' class='[ widefat ]' name='_address_meta' value='$address' />";
 	}// metabox_email
 
 
 	function metabox_net_content( $post ){
 		$net_content = get_post_meta( $post->ID, '_net_content_meta', true );
-
 		wp_nonce_field( __FILE__, '_net_content_meta_nonce' );
 
 		echo "<input type='text' class='[ widefat ]' name='_net_content_meta' value='$net_content' />";
@@ -138,7 +113,6 @@ END;
 
 	function metabox_product_portions( $post ){
 		$product_portions = get_post_meta( $post->ID, '_product_portions_meta', true );
-
 		wp_nonce_field( __FILE__, '_product_portions_meta_nonce' );
 
 		echo "<input type='text' class='[ widefat ]' name='_product_portions_meta' value='$product_portions' />";
@@ -146,7 +120,6 @@ END;
 
 	function metabox_indications( $post ){
 		$indications = get_post_meta( $post->ID, '_indications_meta', true );
-
 		wp_nonce_field( __FILE__, '_indications_meta_nonce' );
 
 		echo "<textarea class='[ widefat ]' name='_indications_meta'>$indications</textarea>";
@@ -154,15 +127,13 @@ END;
 
 	function metabox_ingredients( $post ){
 		$ingredients = get_post_meta( $post->ID, '_ingredients_meta', true );
-
 		wp_nonce_field( __FILE__, '_ingredients_meta_nonce' );
 
 		echo "<textarea class='[ widefat ]' name='_ingredients_meta'>$ingredients</textarea>";
 	}// metabox_ingredients
 
 	function metabox_recipe_portions( $post ){
-		$recipe_portions = get_post_meta( $post->ID, '_recipe_portions_meta', true );
-
+		$recipe_portions = get_post_meta( $post->ID, '_recipe_portions_meta', true );	
 		wp_nonce_field( __FILE__, '_recipe_portions_meta_nonce' );
 
 		echo "<input type='text' class='[ widefat ]' name='_recipe_portions_meta' value='$recipe_portions' />";
@@ -170,7 +141,6 @@ END;
 
 	function metabox_cook_time( $post ){
 		$cook_time = get_post_meta( $post->ID, '_cook_time_meta', true );
-
 		wp_nonce_field( __FILE__, '_cook_time_meta_nonce' );
 
 		echo "<input type='text' class='[ widefat ]' name='_cook_time_meta' value='$cook_time' />";
@@ -178,7 +148,6 @@ END;
 
 	function metabox_instructions( $post ){
 		$instructions = get_post_meta( $post->ID, '_instructions_meta', true );
-
 		wp_nonce_field( __FILE__, '_instructions_meta_nonce' );
 
 		echo "<textarea class='[ widefat ]' name='_instructions_meta'>$instructions</textarea>";
@@ -186,7 +155,6 @@ END;
 
 	function metabox_recipe_ingredients( $post ){
 		$recipe_ingredients = get_post_meta( $post->ID, '_recipe_ingredients_meta', true );
-
 		wp_nonce_field( __FILE__, '_recipe_ingredients_meta_nonce' );
 
 		echo "<textarea class='[ widefat ]' name='_recipe_ingredients_meta'>$recipe_ingredients</textarea>";
