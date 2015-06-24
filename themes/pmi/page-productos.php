@@ -52,8 +52,7 @@
 						endforeach;
 						echo '<div class="clear"></div>';
 					endforeach;
-					?>
-					
+					?>	
 				</div>
 			</div>
 		</div>

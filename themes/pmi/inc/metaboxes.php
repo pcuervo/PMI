@@ -43,6 +43,7 @@
 		add_meta_box( 'product_portions', 'Porciones', 'metabox_product_portions', 'productos', 'advanced', 'high' );
 		add_meta_box( 'indications', 'Indicaciones', 'metabox_indications', 'productos', 'advanced', 'high' );
 		add_meta_box( 'ingredients', 'Ingredientes', 'metabox_ingredients', 'productos', 'advanced', 'high' );
+		add_meta_box( 'text_banner', 'Texto en banner', 'metabox_text_banner', 'productos', 'advanced', 'high' );
 	}
 
 	/**
@@ -103,13 +104,19 @@
 		echo" <input type='text' class='[ widefat ]' name='_address_meta' value='$address' />";
 	}// metabox_email
 
-
 	function metabox_net_content( $post ){
 		$net_content = get_post_meta( $post->ID, '_net_content_meta', true );
 		wp_nonce_field( __FILE__, '_net_content_meta_nonce' );
 
 		echo "<input type='text' class='[ widefat ]' name='_net_content_meta' value='$net_content' />";
 	}// metabox_net_content
+
+	function metabox_text_banner( $post ){
+		$text_banner = get_post_meta( $post->ID, '_text_banner_meta', true );
+		wp_nonce_field( __FILE__, '_text_banner_meta_nonce' );
+
+		echo "<textarea class='[ widefat ]' name='_text_banner_meta'>$text_banner</textarea>";
+	}// metabox_text_banner
 
 	function metabox_product_portions( $post ){
 		$product_portions = get_post_meta( $post->ID, '_product_portions_meta', true );
@@ -273,6 +280,10 @@
 		// Ingredients
 		if ( isset($_POST['_ingredients_meta']) and check_admin_referer( __FILE__, '_ingredients_meta_nonce') ){
 			update_post_meta($post_id, '_ingredients_meta', $_POST['_ingredients_meta']);
+		}
+		// Text in banner
+		if ( isset($_POST['_text_banner_meta']) and check_admin_referer( __FILE__, '_text_banner_meta_nonce') ){
+			update_post_meta($post_id, '_text_banner_meta', $_POST['_text_banner_meta']);
 		}
 	}// save_metabox_products
 	
