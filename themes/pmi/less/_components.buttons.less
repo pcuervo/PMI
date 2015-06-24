@@ -3,7 +3,7 @@
 \*------------------------------------*/
 .button{
 	padding: 8px 8px 6px 8px;
-	.font( 1em, 1, 100, 'lato' ); text-align: center; text-decoration: none; color: @light; background-color: @highlight;
+	.font( 1em, 1, 100, 'lato' ); text-align: center; text-decoration: none; color: @light; background-color: @primary;
 	cursor: pointer;
 }
 
@@ -16,14 +16,14 @@
 	.transition;
 
 	&:hover, &:active{
-		background-color: @highlight;
+		background-color: @primary;
 		opacity: 1;
 		.transition;
 	}
 
 	&.active{
 		cursor: default;
-		background-color: @highlight;
+		background-color: @primary;
 	}
 }
 
@@ -39,7 +39,7 @@
 
 .button-ink{
 	padding: 5px !important; border: none;
-	color: @highlight; background: none;
+	color: @primary; background: none;
 	-webkit-appearance: none;
 }
 
@@ -86,9 +86,9 @@
 }
 
 .button--highlight{
-	background: @highlight;
+	background: @primary;
 	color: @light;
 	border: none;
 	.transition;
-	&:hover{ background-color: darken(@highlight, 10%); }
+	&:hover{ background-color: darken(@primary, 10%); }
 }
