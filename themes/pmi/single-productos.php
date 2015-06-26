@@ -3,11 +3,13 @@
 	the_post();
 
 	// Product's metadata
-	$text_banner 		= get_post_meta( $post->ID, '_text_banner_meta', TRUE );
-	$net_content 		= get_post_meta( $post->ID, '_net_content_meta', TRUE );
-	$product_portions 	= get_post_meta( $post->ID, '_product_portions_meta', TRUE );
-	$indications 		= get_post_meta( $post->ID, '_indications_meta', TRUE );
-	$ingredients 		= get_post_meta( $post->ID, '_ingredients_meta', TRUE );
+	$text_banner      = get_post_meta( $post->ID, '_text_banner_meta', TRUE );
+	$net_content      = get_post_meta( $post->ID, '_net_content_meta', TRUE );
+	$product_portions = get_post_meta( $post->ID, '_product_portions_meta', TRUE );
+	$indications      = get_post_meta( $post->ID, '_indications_meta', TRUE );
+	$ingredients      = get_post_meta( $post->ID, '_ingredients_meta', TRUE );
+	$img_url          = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+
 ?>
 	<!-- BANNER -->
 	<section class="[]">
@@ -51,6 +53,13 @@
 			</div>
 		</div>
 	</section><!-- PRODUCT INFO -->
+
+	<div class="[ span xmall-12 medium-4 ] [ padding ]">
+		<div class="[ bg-light ] [ relative ]">
+			<img src="<?php echo $img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+		</div>
+		<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
+	</div>
 
 <?php 
 	get_footer();

@@ -73,13 +73,15 @@
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
 					$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+					<a href="<?php echo get_permalink( get_the_ID() ) ?>">
+						<div class="[ span xmall-12 medium-4 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ]">
 							<img src="<?php echo $product_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
 						</div>
 						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						<?php the_excerpt(); ?>
-					</div>
+						</div>
+					</a>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
@@ -106,12 +108,14 @@
 				if ( $query_brands->have_posts() ) : while ( $query_brands->have_posts() ) : $query_brands->the_post();
 					$brand_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
-						<div class="[ bg-light ] [ relative ]">
-							<img src="<?php echo $brand_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+					<a href="<?php echo get_permalink( get_the_ID() ) ?>">
+						<div class="[ span xmall-12 medium-4 ] [ padding ]">
+							<div class="[ bg-light ] [ relative ]">
+								<img src="<?php echo $brand_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+							</div>
+							<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						</div>
-						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
-					</div>
+				    </a>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
