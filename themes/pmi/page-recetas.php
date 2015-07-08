@@ -40,14 +40,14 @@
 							}
 					?>
 							<!-- Chance esto esta de la verga jaja pero toda la zona debe ser clickeable no? -->
-							<!-- <a href="<?php echo $product['permalink'] ?>"> -->
+							<a href="<?php echo $product['permalink'] ?>">
 								<div class="[ columna xmall-12 medium-4 ][ padding ]">
 									<div class="[ bg-light ][ relative ]">
 										<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ] [ margin-bottom ]">
 									</div>
 									<h3 class=""><?php echo $product['title'] ?></h3>
 								</div>
-							<!-- </a> -->
+							</a>
 					<?php 
 						endforeach;
 						echo '<div class="clear"></div>';

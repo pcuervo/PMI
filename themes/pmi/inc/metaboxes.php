@@ -168,10 +168,10 @@
 	}// metabox_recipe_ingredients
 
 	function metabox_nutrition_facts( $post ){
-		$calories = get_post_meta( $post->ID, '_calories_meta', true );
-		$fat = get_post_meta( $post->ID, '_fat_meta', true );
+		$calories    = get_post_meta( $post->ID, '_calories_meta', true );
+		$fat         = get_post_meta( $post->ID, '_fat_meta', true );
 		$cholesterol = get_post_meta( $post->ID, '_cholesterol_meta', true );
-		$protein = get_post_meta( $post->ID, '_protein_meta', true );
+		$protein     = get_post_meta( $post->ID, '_protein_meta', true );
 
 		wp_nonce_field( __FILE__, '_calories_meta_nonce' );
 		wp_nonce_field( __FILE__, '_fat_meta_nonce' );
@@ -189,19 +189,19 @@
 	}// metabox_nutrition_facts
 
 	function metabox_percentage_value( $post ){
-		$saturated_fat = get_post_meta( $post->ID, '_saturated_fat_meta', true );
+		$saturated_fat            = get_post_meta( $post->ID, '_saturated_fat_meta', true );
 		$saturated_fat_percentage = get_post_meta( $post->ID, '_saturated_fat_percentage_meta', true );
-		$trans_fat = get_post_meta( $post->ID, '_trans_fat_meta', true );
-		$trans_fat_percentage = get_post_meta( $post->ID, '_trans_fat_percentage_meta', true );
-		$sodium = get_post_meta( $post->ID, '_sodium_meta', true );
-		$sodium_percentage = get_post_meta( $post->ID, '_sodium_percentage_meta', true );
-		$carbohydrates = get_post_meta( $post->ID, '_carbohydrates_meta', true );
+		$trans_fat                = get_post_meta( $post->ID, '_trans_fat_meta', true );
+		$trans_fat_percentage     = get_post_meta( $post->ID, '_trans_fat_percentage_meta', true );
+		$sodium                   = get_post_meta( $post->ID, '_sodium_meta', true );
+		$sodium_percentage        = get_post_meta( $post->ID, '_sodium_percentage_meta', true );
+		$carbohydrates            = get_post_meta( $post->ID, '_carbohydrates_meta', true );
 		$carbohydrates_percentage = get_post_meta( $post->ID, '_carbohydrates_percentage_meta', true );
-		$sugar_percentage = get_post_meta( $post->ID, '_sugar_percentage_meta', true );
-		$sugar = get_post_meta( $post->ID, '_sugar_meta', true );
-		$iron = get_post_meta( $post->ID, '_iron_meta', true );
-		$fiber = get_post_meta( $post->ID, '_fiber_meta', true );
-		$calcium = get_post_meta( $post->ID, '_calcium_meta', true );
+		$sugar_percentage         = get_post_meta( $post->ID, '_sugar_percentage_meta', true );
+		$sugar                    = get_post_meta( $post->ID, '_sugar_meta', true );
+		$iron                     = get_post_meta( $post->ID, '_iron_meta', true );
+		$fiber                    = get_post_meta( $post->ID, '_fiber_meta', true );
+		$calcium                  = get_post_meta( $post->ID, '_calcium_meta', true );
 
 		wp_nonce_field( __FILE__, '_saturated_fat_meta_nonce' );
 		wp_nonce_field( __FILE__, '_saturated_fat_percentage_meta_nonce' );

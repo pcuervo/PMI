@@ -95,7 +95,7 @@
 	-o-transform: 		rotateY(@deg);
 }
 
-.translate(@x; @y) {
+.translate(@x, @y) {
 	-webkit-transform: translate(@x, @y);
 	-ms-transform: translate(@x, @y);
 	-o-transform: translate(@x, @y);
@@ -120,18 +120,40 @@
 	.translate(-50%, 0);
 }
 
-.opacity-gradient() {
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.5) 81%, rgba(0,0,0,0.7) 100%);
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255,255,255,0)), color-stop(0.01, rgba(0,0,0,0)), color-stop(0.35, rgba(0,0,0,0.07)), color-stop(0.81, rgba(0,0,0,0.5)), to(rgba(0,0,0,0.7)));
-	background: -webkit-linear-gradient(rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.07) 35%, rgba(0,0,0,0.5) 81%, rgba(0,0,0,0.7) 100%);
-	background: -moz-linear-gradient(rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.07) 35%, rgba(0,0,0,0.5) 81%, rgba(0,0,0,0.7) 100%);
-	background: -o-linear-gradient(rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.07) 35%, rgba(0,0,0,0.5) 81%, rgba(0,0,0,0.7) 100%);
-	background: linear-gradient(rgba(255,255,255,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.07) 35%, rgba(0,0,0,0.5) 81%, rgba(0,0,0,0.7) 100%);
+.opacity(@ms, @modern){
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity={@ms})";
+	filter: alpha(opacity=@ms);
+	-moz-opacity: @modern;
+	-khtml-opacity: @modern;
+	opacity: @modern;
+}
+
+.bg-gradient() {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7ecbef+25,66b245+75&amp;0.8+0,0.8+100 */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2VjYmVmIiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgPHN0b3Agb2Zmc2V0PSIyNSUiIHN0b3AtY29sb3I9IiM3ZWNiZWYiIHN0b3Atb3BhY2l0eT0iMC44Ii8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iIzY2YjI0NSIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY2YjI0NSIgc3RvcC1vcGFjaXR5PSIwLjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(-45deg,  rgba(126,203,239,0.8) 0%, rgba(126,203,239,0.8) 25%, rgba(102,178,69,0.8) 75%, rgba(102,178,69,0.8) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(126,203,239,0.8)), color-stop(25%,rgba(126,203,239,0.8)), color-stop(75%,rgba(102,178,69,0.8)), color-stop(100%,rgba(102,178,69,0.8))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(-45deg,  rgba(126,203,239,0.8) 0%,rgba(126,203,239,0.8) 25%,rgba(102,178,69,0.8) 75%,rgba(102,178,69,0.8) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(-45deg,  rgba(126,203,239,0.8) 0%,rgba(126,203,239,0.8) 25%,rgba(102,178,69,0.8) 75%,rgba(102,178,69,0.8) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(-45deg,  rgba(126,203,239,0.8) 0%,rgba(126,203,239,0.8) 25%,rgba(102,178,69,0.8) 75%,rgba(102,178,69,0.8) 100%); /* IE10+ */
+	background: linear-gradient(135deg,  rgba(126,203,239,0.8) 0%,rgba(126,203,239,0.8) 25%,rgba(102,178,69,0.8) 75%,rgba(102,178,69,0.8) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc7ecbef', endColorstr='#cc66b245',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
 
 .font-smoothing(){
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.35)) {
+	text-shadow: @string;
+}
+
+.drop-shadow (@x: 0, @y: 1px, @blur: 10px, @spread: 1px, @alpha: 0.35) {
+	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:		@x @y @blur @spread rgba(0, 0, 0, @alpha);
 }
 
 

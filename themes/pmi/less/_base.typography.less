@@ -3,13 +3,13 @@
 \*------------------------------------*/
 
 @font-face {
-	font-family: 'sunland';
-	src: url('fonts/sunland.eot');
-	src: url('fonts/sunland.eot?#iefix') format('embedded-opentype'),
-		url('fonts/sunland.woff2') format('woff2'),
-		url('fonts/sunland.woff') format('woff'),
-		url('fonts/sunland.ttf') format('truetype'),
-		url('fonts/sunland.svg#font-name') format('svg');
+	font-family: 'pmi';
+	src: url('fonts/pmi.eot');
+	src: url('fonts/pmi.eot?#iefix') format('embedded-opentype'),
+		url('fonts/pmi.woff2') format('woff2'),
+		url('fonts/pmi.woff') format('woff'),
+		url('fonts/pmi.ttf') format('truetype'),
+		url('fonts/pmi.svg#font-name') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -24,7 +24,7 @@
 /**
  * HTML general elements
 **/
-body{ font-family: 'lato'; color: @dark; }
+body{ font-family: 'proxima-nova'; color: @dark; }
 
 /**
  * Headers
@@ -32,9 +32,18 @@ body{ font-family: 'lato'; color: @dark; }
 h1, h2, h3, h4, h5, h6{
 	margin-top: 0;
 	margin-bottom: 0;
-	font-family: 'lato';
+	font-family: 'proxima-nova';
 	font-weight: 900;
-	color: @highlight;
+	color: @primary;
+}
+
+h1{
+	@media (min-width: @medium){
+	}
+	@media (min-width: @xmedium){
+	}
+	@media (min-width: @large){
+	}
 }
 
 /**
@@ -48,8 +57,8 @@ h1, h2, h3, h4, h5, h6{
 	.dark{ color: @dark; }
 }
 
-.text-jumbo{ 
-	font-size: 7em; 
+.text-jumbo{
+	font-size: 7em;
 	font-family: 'serif';
 	margin-bottom: 0;
 	line-height: .5;
@@ -65,14 +74,18 @@ h1, h2, h3, h4, h5, h6{
  * Content
 **/
 p{
-	margin: 0 0 1em 0;
-	.font( 18px, 30px, 'museo-sans' );
+	margin-bottom: @unidad;
+	.font( 18px, 30px, );
+
+	&:last-of-type{
+		margin-bottom: 0;
+	}
 }
 
-a{ text-decoration: none; 
+a{ text-decoration: none;
 }
 
-i{  
+i{
 	font-size: 22px;
 }
 
@@ -82,7 +95,7 @@ i{
  * Image captions
 **/
 .image-caption{
-	//.font( 18px, 28px, normal, 'font-name' ); color: @light-dark;
+	//.font( 18px, 28px, normal, 'font-name' ); color: @secondary;
 }
 
 
