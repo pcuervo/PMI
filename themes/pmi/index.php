@@ -31,7 +31,7 @@
 
 
 	<!-- FEATURES -->
-	<section class="[ margin-bottom--large ]">
+	<section class="[ margin-bottom--large padding-bottom ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
@@ -59,13 +59,13 @@
 		</div>
 	</section><!-- FEATURES -->
 
+	<hr class="[ gradient-separator ]">
+
 	<!-- PRODUCTS -->
-	<section class="[ hidden--xmall shown--medium ][ margin-bottom--large ]">
-		<div class="wrapper">
+	<section class="[ margin-bottom--large ]">
+		<div class="[ wrapper ]">
 			<div class="[ row ]">
-				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Productos</h2>
-				</div>
+				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
 				<?php
 				$products_args = array(
 					'post_type' 		=> 'productos',
@@ -74,17 +74,18 @@
 				);
 				$query_products = new WP_Query( $products_args );
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
-					$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+					//$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<a href="<?php echo get_permalink( get_the_ID() ) ?>">
-						<div class="[ span xmall-12 medium-4 ] [ padding ]">
-						<div class="[ bg-light ] [ relative ]">
-							<img src="<?php echo $product_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+					<div class="[ post ][ drop-shadow ]">
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail('medium', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+						</a>
+						<div class="[ post-title ][ padding ]">
+							<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						</div>
-						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
+
 						<?php the_excerpt(); ?>
-						</div>
-					</a>
+					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
