@@ -22,6 +22,7 @@
 				</div>
 			</div>
 		</div>
+
 	<?php endif; wp_reset_query(); ?>
 
 	<div class="[ scroll-anchor ]"></div>
