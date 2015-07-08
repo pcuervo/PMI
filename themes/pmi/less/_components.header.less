@@ -2,20 +2,25 @@
 	#HEADER
 \*------------------------------------*/
 header{
-	height:100px;
+	height: 80px;
+	.transition();
 }
 
-h1{
-	width: 90px;
-	padding: 10px 15px;
-	z-index: 10;
-	@media (min-width: @medium){
+.logo{
+	width: 150px;
+
+	@media (min-width: @small){
+		width: 150px;
 	}
-	@media (min-width: @xmedium){
+	@media (min-width: @medium){
+		width: 150px;
 	}
 	@media (min-width: @large){
+		width: 150px;
 	}
-
+	@media (min-width: @xlarge){
+		width: 150px;
+	}
 }
 
 .menu-container{
@@ -34,15 +39,6 @@ h1{
 .header-wrapper--fixed{ background: rgba(255, 255, 255, 0.5); }
 .header-wrapper--fixed .header{ margin-top: (@unidad/2); margin-bottom: (@unidad/2); }
 
-.header{
-	margin-top: @unidad; margin-bottom: @unidad;
-	.transition();
-}
-.menu-trigger{}
-.menu-trigger i{
-	padding: (@unidad/3) 0;
-	font-size: 1.4em;
-}
 
 .bg-logo-wrapper--logo-name{
 	.img-retina('images/logo.png'; 'images/logo@2x.png';)

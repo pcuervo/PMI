@@ -4,20 +4,17 @@
 	<?php
 	$home_info_query = new WP_Query( 'pagename=inicio' );
 	if ( $home_info_query->have_posts() ) : $home_info_query->the_post();
-		// TODO: Meter el banner del home
 		$home_banner_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	?>
 		<div class="[ relative ]">
-			<div class="[ bg-image bg-image-home ] [ margin-bottom--large ]">
+			<div class="[ bg-image bg-image-home ][ margin-bottom--large ]" style="background-image: url('<?php echo $home_banner_url[0] ?>')">
 				<div class="[ opacity-gradient square ]">
-					<div class="[ media-info ] [ xmall-10 medium-7 center-bottom ]">
-						<h1 class="[ text-center light ]">La mas alta calidad</h1>
-						<?php the_content() ?>
-						<?php the_title() ?>
-						<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ] [ inline-block ]">Cónoce nuestros productos</a>
-					</div>
-					</div>
-						<img src="<?php echo $home_banner_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+					<div class="[ padding ]">
+						<div class="[ center-full ][ text-center text-shadow ][ xmall-10 medium-7 ]">
+							<h1 class="[ uppercase ][ light ][ text-shadow ]">La más alta calidad</h1>
+							<h2 class="[ light ][ text-shadow ]"><?php the_content() ?></h2>
+							<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ][ inline-block ]">cónoce nuestros productos</a>
+						</div>
 					</div>
 				</div>
 			</div>

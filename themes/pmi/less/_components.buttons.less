@@ -2,28 +2,18 @@
 	#BUTTONS
 \*------------------------------------*/
 .button{
-	padding: 8px 8px 6px 8px;
+	padding: 8px 12px 6px 12px;
 	.font( 1em, 1, 100, 'lato' ); text-align: center; text-decoration: none; color: @light; background-color: @primary;
 	cursor: pointer;
+	.drop-shadow();
+	.transition();
 }
 
-.button--menu{
-	width: auto;
-	padding: 20px;
-	font-size: 16px;
-	background: none;
-	position: relative;
-	.transition;
+.hamburguer--button{
+
 
 	&:hover, &:active{
-		background-color: @primary;
-		opacity: 1;
-		.transition;
-	}
 
-	&.active{
-		cursor: default;
-		background-color: @primary;
 	}
 }
 
@@ -33,8 +23,13 @@
 	#STYLES
 \*------------------------------------*/
 .button--hollow{
-	border: 3px solid @light;
-	background: transparent;
+	span{
+		border: 6px solid rgb(255, 255, 255);
+		border: 6px solid transparent;
+		border: 6px solid rgba(255, 255, 255, 0);
+		-webkit-background-clip: padding-box; /* for Safari */
+		background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	}
 }
 
 .button-ink{
