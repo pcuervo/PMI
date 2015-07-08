@@ -5,14 +5,20 @@
 	$home_info_query = new WP_Query( 'pagename=inicio' );
 	if ( $home_info_query->have_posts() ) : $home_info_query->the_post();
 		$home_banner_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+
+	ob_start();
+	the_content();
+	$content = ob_get_clean();
+	$content = str_replace('<p>', '', $content);
+	$content = str_replace('</p>', '', $content);
 	?>
 		<div class="[ relative ]">
-			<div class="[ bg-image bg-image-home ][ margin-bottom--large ]" style="background-image: url('<?php echo $home_banner_url[0] ?>')">
-				<div class="[ opacity-gradient square ]">
-					<div class="[ padding ]">
-						<div class="[ center-full ][ text-center text-shadow ][ xmall-10 medium-7 ]">
-							<h1 class="[ uppercase ][ light ][ text-shadow ]">La más alta calidad</h1>
-							<h2 class="[ light ][ text-shadow ]"><?php the_content() ?></h2>
+			<div class="[ bg-image bg-image-home ][ margin-bottom ]" style="background-image: url('<?php echo $home_banner_url[0] ?>')">
+				<div class="[ opacity-gradient ]">
+					<div class="[ padding--large ]">
+						<div class="[ center ][ text-center text-shadow ][ xmall-12 medium-7 ]">
+							<h1 class="[ uppercase ][ light ][ text-shadow ][ margin-bottom--large ]">La más alta calidad</h1>
+							<h2 class="[ light ][ text-shadow ][ margin-bottom--large ]"><?php echo $content; ?></h2>
 							<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ][ inline-block ]">cónoce nuestros productos</a>
 						</div>
 					</div>
@@ -28,19 +34,19 @@
 	<section class="[ margin-bottom--large ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
-				<div class="[ span xmall-12 medium-4 ] [ padding ] [ margin-bottom ]">
+				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
 					<i class="[ icon-icon-dance ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
 					<p class="[ text-center ]">
 						Expertos en logística
 					</p>
 				</div>
-				<div class="[ span xmall-12 medium-4 ] [ padding ] [ margin-bottom ]">
+				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
 					<i class="[ icon-icon-music-47 ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
 					<p class="[ text-center ]">
 						Alimentos de primera calidad
 					</p>
 				</div>
-				<div class="[ span xmall-12 medium-4 ] [ padding ] [ margin-bottom ]">
+				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
 					<i class="[ icon-icon-theater ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
 					<p class="[ text-center ]">
 						Marcas reconocidas a nivel internacional

@@ -74,8 +74,12 @@ h1{
  * Content
 **/
 p{
-	margin: 0 0 1em 0;
-	.font( 18px, 30px, 'museo-sans' );
+	margin-bottom: @unidad;
+	.font( 18px, 30px, );
+
+	&:last-of-type{
+		margin-bottom: 0;
+	}
 }
 
 a{ text-decoration: none;
