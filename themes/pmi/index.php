@@ -115,14 +115,16 @@
 				if ( $query_brands->have_posts() ) : while ( $query_brands->have_posts() ) : $query_brands->the_post();
 					$brand_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<a href="<?php echo get_permalink( get_the_ID() ) ?>">
-						<div class="[ span xmall-12 medium-4 ] [ padding ]">
-							<div class="[ bg-light ] [ relative ]">
-								<img src="<?php echo $brand_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ]">
+						<div class="[ drop-shadow ]">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+							</a>
+							<div class="[ padding ][ bg-primary ]">
+								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
 							</div>
-							<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						</div>
-				    </a>
+					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
