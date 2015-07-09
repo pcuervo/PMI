@@ -64,8 +64,8 @@
 	<!-- PRODUCTS -->
 	<section class="[ margin-bottom--large ]">
 		<div class="[ wrapper ]">
+			<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
 			<div class="[ row ]">
-				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
 				<?php
 				$products_args = array(
 					'post_type' 		=> 'productos',
@@ -76,15 +76,18 @@
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
 					//$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ post ][ drop-shadow ]">
-						<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail('medium', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
-						</a>
-						<div class="[ post-title ][ padding ]">
-							<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
+					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ]">
+						<div class="[ drop-shadow ]">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+							</a>
+							<div class="[ padding ][ bg-primary ]">
+								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
+							</div>
+							<div class="[ padding ][ bg-secondary ][ post-info ]">
+								<?php the_excerpt() ?>
+							</div>
 						</div>
-
-						<?php the_excerpt(); ?>
 					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
