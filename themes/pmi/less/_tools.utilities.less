@@ -104,9 +104,17 @@
 **/
 .gradient-separator{
 	border: 0;
-    height: 10px;
-    background: #333;
-    background-image: linear-gradient(to right, rgba(102,178,69,.8), rgba(126,203,239,.8));
+	height: 10px;
+	background: #333;
+	background-image: -webkit-linear-gradient(left, rgba(102,178,69,.8), rgba(126,203,239,.8));
+	background-image: -o-linear-gradient(left, rgba(102,178,69,.8), rgba(126,203,239,.8));
+	background-image: linear-gradient(to right, rgba(102,178,69,.8), rgba(126,203,239,.8));
+}
+
+.light-separator{
+	border: 0;
+	height: 1px;
+	background: @light;
 }
 
 
@@ -187,7 +195,7 @@
 
 
 /*------------------------------------*\
-    #MEDIUM
+	#MEDIUM
 \*------------------------------------*/
 @media (min-width: @medium) {
 
@@ -208,7 +216,7 @@
 
 
 /*------------------------------------*\
-    #EXTRA-MEDIUM
+	#EXTRA-MEDIUM
 \*------------------------------------*/
 @media (min-width: @xmedium) {
 
@@ -229,7 +237,7 @@
 
 
 /*------------------------------------*\
-    #LARGE
+	#LARGE
 \*------------------------------------*/
 @media (min-width: @large) {
 

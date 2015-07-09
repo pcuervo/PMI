@@ -5,8 +5,8 @@
 	padding: 8px 12px 6px 12px;
 	.font( 1em, 1, 100, 'lato' ); text-align: center; text-decoration: none; color: @light; background-color: @primary;
 	cursor: pointer;
-	.drop-shadow();
-	.transition();
+	.drop-shadow;
+	.transition;
 }
 
 .hamburguer--button{
@@ -80,10 +80,16 @@
 	color: @light;
 }
 
-.button--highlight{
+.button--primary{
 	background: @primary;
 	color: @light;
 	border: none;
-	.transition;
 	&:hover{ background-color: darken(@primary, 10%); }
+}
+
+.button--secondary{
+	background: @secondary;
+	color: @light;
+	border: none;
+	&:hover{ background-color: darken(@secondary, 10%); }
 }
