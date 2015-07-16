@@ -56,7 +56,7 @@
 					<p class="[ text-center ]">
 						<a class="light" href="#">Aviso de privacidad</a>
 					</p>
-					<hr class="[  ]">
+					<hr class="[ light-separator ]">
 					<div class="row">
 						<div class="[ columna xmall-12 ][ margin-bottom ]">
 							<h4 class="[ light ][ text-center ][ uppercase ]">Proveedores</h4>
