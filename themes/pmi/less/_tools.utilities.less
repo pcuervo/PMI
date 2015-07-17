@@ -17,7 +17,8 @@
 /**
  * Visibility
 **/
-.hide { display: none; }
+.hidden { display: none !important; visibility: hidden !important;}
+.shown{ display: block !important; }
 
 
 
@@ -41,6 +42,10 @@
 .padding--bottom{ padding-bottom: @unidad; }
 .padding--bottom--small{ padding-bottom: (@unidad/2); }
 .padding--bottom--large{ padding-bottom: (@unidad*2); }
+
+.padding--sides{ padding-left: @unidad; padding-right: @unidad; }
+.padding--sides--small{ padding-left: (@unidad/2); padding-right: (@unidad/2); }
+.padding--sides--large{ padding-left: (@unidad*2); padding-right: (@unidad*2); }
 
 
 /**
@@ -98,34 +103,50 @@
 	.drop-shadow;
 }
 
+/**
+ * Text
+**/
+
+.ellipsis{
+	.ellipsis;
+}
 
 
 
+/**
+ * hr
+**/
 
-/*------------------------------------*\
-	#SCREENS
-\*------------------------------------*/
-.fill-gradient{
-	.bg-gradient;
+hr{
+	width: 100%; border: 0;
+	.clearfix;
+}
+
+.gradient-separator{
+	height: 10px;
+	background: rgba(102,178,69,.8);
+	background-image: -webkit-linear-gradient(left, rgba(102,178,69,.8), rgba(126,203,239,.8));
+	background-image: -o-linear-gradient(left, rgba(102,178,69,.8), rgba(126,203,239,.8));
+	background-image: linear-gradient(to right, rgba(102,178,69,.8), rgba(126,203,239,.8));
+}
+
+.light-separator{
+	height: 1px;
+	background: @light;
 }
 
 
 
 
-
 /*------------------------------------*\
-	#SCREENS
+	#GRADIENTS
 \*------------------------------------*/
-.opacity-gradient{
-	width: 100%;
-	.bg-gradient;
-	position: relative;
+.diagonal-green-to-blue-gradient{
+	.diagonal-green-to-blue-gradient;
 }
 
-.opacity-gradient--full{
-	width: 100%; height: 100%;
-	.bg-gradient;
-	position: absolute; top: 0; left: 0;
+.diagonal-dark-blue-to-light-blue{
+	.diagonal-dark-blue-to-light-blue;
 }
 
 
@@ -177,7 +198,7 @@
 
 
 /*------------------------------------*\
-    #MEDIUM
+	#MEDIUM
 \*------------------------------------*/
 @media (min-width: @medium) {
 
@@ -198,7 +219,7 @@
 
 
 /*------------------------------------*\
-    #EXTRA-MEDIUM
+	#EXTRA-MEDIUM
 \*------------------------------------*/
 @media (min-width: @xmedium) {
 
@@ -219,7 +240,7 @@
 
 
 /*------------------------------------*\
-    #LARGE
+	#LARGE
 \*------------------------------------*/
 @media (min-width: @large) {
 

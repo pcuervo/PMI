@@ -11,12 +11,12 @@ input, button[type='submit']{
 /*------------------------------------*\
     #FORM ELEMENTS
 \*------------------------------------*/
-input, button[type='submit']{
-	height: 30px;
+input{
+	height: 31px;
 	padding: 4px;
 }
 input, textarea{
-	border: 2px solid @secondary;
+
 	&:focus, &:active{ outline-color: @primary; }
 }
 
@@ -26,8 +26,3 @@ input, textarea{
 }
 
 .message{ font-size: .8em; }
-
-button[type='submit']{
-	background: @primary;
-	color: @light;
-}

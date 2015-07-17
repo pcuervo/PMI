@@ -9,9 +9,37 @@
 		if( wp_script_is( 'functions', 'done' ) ) {
 ?>
 			<script type="text/javascript">
-				
+
+
+				/*------------------------------------*\
+					#GLOBAL
+				\*------------------------------------*/
+
+				/**
+				 * On load
+				**/
+
+
+				/**
+				 * Triggered events
+				**/
+
+				$('.js-modal-opener').on('click', function(e){
+					e.preventDefault();
+					var modal = $(this).data('modal');
+					console.log(modal);
+					var modal = '.modal-'+modal;
+					console.log(modal);
+					openModal(modal);
+				});
+
+				$('.js-modal-closer').on('click', function(e){
+					e.preventDefault();
+					closeModal();
+				});
+
 			</script>
-<?php 
+<?php
 		}
 	}// footer_scripts
 ?>

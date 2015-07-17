@@ -4,6 +4,22 @@ var $=jQuery.noConflict();
 	#FUNCTIONS
 \*------------------------------------*/
 
+/**
+ * Opens Modal
+ * @param element to be shown
+**/
+function openModal(element){
+	$(element).removeClass('hide');
+	$('body').css('overflow', 'hidden');
+}//openModal
+
+/**
+ * Closes Modal
+**/
+function closeModal(){
+	$('.modal-wrapper').addClass('hide');
+	$('body').css('overflow', 'visible');
+}//closeModal
 
 
 /**

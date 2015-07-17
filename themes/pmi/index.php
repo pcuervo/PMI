@@ -14,12 +14,12 @@
 	?>
 		<div class="[ relative ]">
 			<div class="[ bg-image bg-image-home ][ margin-bottom ]" style="background-image: url('<?php echo $home_banner_url[0] ?>')">
-				<div class="[ opacity-gradient ]">
+				<div class="[ diagonal-green-to-blue-gradient ]">
 					<div class="[ padding--large ]">
 						<div class="[ center ][ text-center text-shadow ][ xmall-12 medium-7 ]">
 							<h1 class="[ uppercase ][ light ][ text-shadow ][ margin-bottom--large ]">La más alta calidad</h1>
 							<h2 class="[ light ][ text-shadow ][ margin-bottom--large ]"><?php echo $content; ?></h2>
-							<a href="<?php echo site_url('productos'); ?>" class="[ button button--small button--highlight ][ inline-block ]">cónoce nuestros productos</a>
+							<a href="<?php echo site_url('productos'); ?>" class="[ button button--highlight ][ inline-block ]">conoce nuestros productos</a>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 
 
 	<!-- FEATURES -->
-	<section class="[ margin-bottom--large ]">
+	<section class="[ margin-bottom--large padding-bottom ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
@@ -54,19 +54,19 @@
 					</p>
 				</div>
 				<div class="[ xmall-12 ][ text-center ]">
-					<a href="<?php echo site_url('blog'); ?>" class="[ button button--small button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
+					<a href="<?php echo site_url('blog'); ?>" class="[ button button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
 				</div>
 			</div>
 		</div>
 	</section><!-- FEATURES -->
 
+	<hr class="[ gradient-separator ]">
+
 	<!-- PRODUCTS -->
-	<section class="[ hidden--xmall shown--medium ][ margin-bottom--large ]">
-		<div class="wrapper">
+	<section class="[ margin-bottom--large ]">
+		<div class="[ wrapper ]">
+			<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
 			<div class="[ row ]">
-				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Productos</h2>
-				</div>
 				<?php
 				$products_args = array(
 					'post_type' 		=> 'productos',
@@ -75,21 +75,25 @@
 				);
 				$query_products = new WP_Query( $products_args );
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
-					$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+					//$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<a href="<?php echo get_permalink( get_the_ID() ) ?>">
-						<div class="[ span xmall-12 medium-4 ] [ padding ]">
-						<div class="[ bg-light ] [ relative ]">
-							<img src="<?php echo $product_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+					<div class="[ post ][ columna xmall-12 small-6 medium-4 large-3 ][ margin-bottom--large ]">
+						<div class="[ drop-shadow ]">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+							</a>
+							<div class="[ padding--small ][ bg-primary ]">
+								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
+							</div>
+							<div class="[ padding--small ][ bg-secondary ][ post-info ]">
+								<p class="[ ellipsis ]"><?php echo  get_the_excerpt(); ?></p>
+							</div>
 						</div>
-						<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
-						<?php the_excerpt(); ?>
-						</div>
-					</a>
+					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
-					<a href="<?php echo site_url('productos'); ?>" class="[ button button--large ] [ inline-block ]">ver más productos</a>
+					<a href="<?php echo site_url('productos'); ?>" class="[ button ] [ inline-block ]">ver más productos</a>
 				</div>
 			</div>
 		</div>
@@ -112,14 +116,16 @@
 				if ( $query_brands->have_posts() ) : while ( $query_brands->have_posts() ) : $query_brands->the_post();
 					$brand_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<a href="<?php echo get_permalink( get_the_ID() ) ?>">
-						<div class="[ span xmall-12 medium-4 ] [ padding ]">
-							<div class="[ bg-light ] [ relative ]">
-								<img src="<?php echo $brand_img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
+					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ]">
+						<div class="[ drop-shadow ]">
+							<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+							</a>
+							<div class="[ padding--small ][ bg-primary ]">
+								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
 							</div>
-							<h2 class="[ sub-title ] [ ]"><?php the_title() ?></h2>
 						</div>
-				    </a>
+					</div>
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">

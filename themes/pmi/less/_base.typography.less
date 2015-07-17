@@ -51,6 +51,20 @@ h1{
 **/
 .title{
 	font-size: 30px;
+	position: relative;
+	padding-bottom: 0;
+	&:after{
+		content: "";
+		position: absolute;
+		bottom: -5px;
+		left: 25%;
+		height: 2px;
+		width: 50%;
+		background: #444;
+		background-image: -webkit-linear-gradient(left, rgba(102,178,69,.8), rgba(126,203,239,.8));
+		background-image: -o-linear-gradient(left, rgba(102,178,69,.8), rgba(126,203,239,.8));
+		background-image: linear-gradient(to right, rgba(102,178,69,.8), rgba(126,203,239,.8));
+	}
 }
 .sub-title{
 	font-size: 22px;
@@ -74,7 +88,7 @@ h1{
  * Content
 **/
 p{
-	margin-bottom: @unidad;
+	margin: 0 0 @unidad 0;
 	.font( 18px, 30px, );
 
 	&:last-of-type{
