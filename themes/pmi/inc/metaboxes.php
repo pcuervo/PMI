@@ -254,11 +254,14 @@
 	SAVE METABOXES DATA
 \*------------------------------------*/
 
+
+
 	add_action('save_post', function( $post_id ){
 
 		save_metabox_products( $post_id );
 		save_metabox_recipes( $post_id );
 		save_metabox_contacto( $post_id );
+		
 	});
 
 	/**
