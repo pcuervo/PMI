@@ -15,14 +15,12 @@
 							</div><!-- row -->
 						</article>
 
-						<article class="[  ]">
-							<div class="[ row ]">
-								<a href="" class="">Nosotros</a>
-								<a href="" class="">Productos</a>
-								<a href="" class="">Servicios</a>
-								<a href="" class="">Contacto</a>
-							</div>
-						</article><!-- categorias -->
+						<nav class="[ center-full ]">
+							<a href="" class="[ light ][ block ]">Nosotros</a>
+							<a href="" class="[ light ][ block ]">Productos</a>
+							<a href="" class="[ light ][ block ]">Servicios</a>
+							<a href="" class="[ light ][ block ]">Contacto</a>
+						</nav><!-- categorias -->
 					</div><!-- modal-content -->
 				</div>
 			</section>
