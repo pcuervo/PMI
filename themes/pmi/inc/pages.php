@@ -45,6 +45,18 @@
 			wp_insert_post( $page, true );
 		}
 
+		// RECIPES
+		if( ! get_page_by_path('recetas') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Recetas',
+				'post_name'   => 'recetas',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
 		// SERVICES
 		if( ! get_page_by_path('servicios') ){
 			$page = array(
