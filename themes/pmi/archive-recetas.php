@@ -1,4 +1,4 @@
-<?php 
+<?php
 	get_header();
 ?>
 	<!-- PRODUCTS -->
@@ -14,15 +14,15 @@
 					<h3>Marcas</h3>
 					<div class="[ margin-bottom ][ filtro-marcas ]">
 						<button class="button" data-filter="">Todas</button>
-						<?php 
+						<?php
 						$args = array(
 							'orderby'		=> 'name',
-							'hide_empty'	=> true,	
+							'hide_empty'	=> true,
 							);
 						$brands = get_terms( 'marcas', $args );
 
 						foreach( $brands as $brand ) {
-							echo '<button class="button" data-filter=".' . $brand->slug . '">' . $brand->name . '</button>';
+							echo '<button class="[ button ]" data-filter=".' . $brand->slug . '">' . $brand->name . '</button>';
 						}
 						?>
 					</div>
@@ -30,7 +30,7 @@
 					<h3>Tipo de comida</h3>
 					<div class="[ margin-bottom ][ filtro-tipo-comida ]">
 						<button class="button" data-filter="">Todas</button>
-						<?php 
+						<?php
 
 						$tipos_comida = get_terms( 'tipos-comida' );
 						foreach( $tipos_comida as $tipo ) {
@@ -42,7 +42,7 @@
 					<h3>Porciones</h3>
 					<div class="[ margin-bottom ][ filtro-porciones ]">
 						<button class="button" data-filter="">Todas</button>
-						<?php 
+						<?php
 
 						$porciones = get_terms( 'porciones-recetas' );
 						foreach( $porciones as $porcion ) {
@@ -54,7 +54,7 @@
 					<h3>Tipo de producto</h3>
 					<div class="[ margin-bottom ][ filtro-tipo-producto ]">
 						<button class="button" data-filter="">Todos</button>
-						<?php 
+						<?php
 
 						$tipos_producto = get_terms( 'tipo-producto' );
 						foreach( $tipos_producto as $tipo ) {
@@ -65,8 +65,8 @@
 				</div><!-- filtros -->
 
 				<div>
-					<?php 
-					if ( have_posts()) : while ( have_posts() ) : the_post(); 
+					<?php
+					if ( have_posts()) : while ( have_posts() ) : the_post();
 						$recipe_filter_info = get_recipe_filter_info( $post->ID );
 						$recipe_filter_classes = '';
 						foreach ( $recipe_filter_info as $key => $value ) {
