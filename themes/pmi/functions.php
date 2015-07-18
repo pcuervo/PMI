@@ -244,6 +244,89 @@
 
 	}// get_brand_logo
 
+	/**
+	 * Get recipe info for filters.
+	 * @param integer $post_id 
+	 * @return mixed $brand_info
+	 */
+	function get_recipe_filter_info( $post_id ){
+
+		$product_info = get_recipe_product_info( $post_id );
+		
+		$brand_info = array(
+			'brand'			=> $product_info['brand'],
+			'meal_type'		=> get_recipe_meal_type_slug( $post_id ),
+			'portion'		=> get_recipe_portion_slug( $post_id ),
+			'product_type'	=> $product_info['product_type'],
+			);
+
+		return $brand_info;
+
+	}// get_recipe_filter_info
+
+	/**
+	 * Get product info for a given Recipe.
+	 * @param integer $post_id 
+	 * @return string $product_info
+	 */
+	function get_recipe_product_info( $post_id ){
+
+		$recipe_product_term = wp_get_post_terms( $post_id, 'productos-receta' );
+
+		if( empty ( $recipe_product_term ) ) 
+			return array( 'brand' => '', 'product_type' => '' );
+
+		$args = array(
+		  'name'        => $recipe_product_term[0]->slug,
+		  'post_type'   => 'productos',
+		  'numberposts' => 1
+		);
+		$product_post = get_posts( $args );
+
+		if( ! $product_post ) return '';
+
+		$brand_product_term = wp_get_post_terms( $product_post[0]->ID, 'marcas' );
+		$brand_slug = ! empty( $brand_product_term ) ? $brand_product_term[0]->slug : '';
+		$product_type_term = wp_get_post_terms( $product_post[0]->ID, 'tipo-producto' );
+		$product_type_slug = empty( $product_type_term ) ? '' : $product_type_term[0]->slug;
+
+		$product_info = array(
+			'brand'			=> $brand_slug,
+			'product_type'	=> $product_type_slug,
+			);
+
+		return $product_info;
+
+	}// get_recipe_product_info
+
+	/**
+	 * Get meal type slug for a given Recipe.
+	 * @param integer $post_id 
+	 * @return string $meal_type_slug
+	 */
+	function get_recipe_meal_type_slug( $post_id ){
+
+		$recipe_meal_type_term = wp_get_post_terms( $post_id, 'tipos-comida' );
+		$recipe_meal_type_slug = empty( $recipe_meal_type_term ) ? '' : $recipe_meal_type_term[0]->slug;
+		
+		return $recipe_meal_type_slug;
+
+	}// get_recipe_meal_type_slug
+
+	/**
+	 * Get portion slug for a given Recipe.
+	 * @param integer $post_id 
+	 * @return string $portion_slug
+	 */
+	function get_recipe_portion_slug( $post_id ){
+
+		$recipe_portion_term = wp_get_post_terms( $post_id, 'porciones-recetas' );
+		$recipe_portion_slug = empty( $recipe_portion_term ) ? '' : $recipe_portion_term[0]->slug;
+		
+		return $recipe_portion_slug;
+
+	}// get_recipe_portion_slug
+
 
 
 

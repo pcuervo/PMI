@@ -50,7 +50,6 @@
 	* Add metaboxes for page type "Recetas"
 	**/
 	function add_metaboxes_recipes(){
-		add_meta_box( 'recipe_portions', 'Porciones', 'metabox_recipe_portions', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'cook_time', 'Tiempo', 'metabox_cook_time', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'instructions', 'Instrucciones', 'metabox_instructions', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'recipe_ingredients', 'Ingredientes', 'metabox_recipe_ingredients', 'recetas', 'advanced', 'high' );
@@ -138,13 +137,6 @@
 
 		echo "<textarea class='[ widefat ]' name='_ingredients_meta'>$ingredients</textarea>";
 	}// metabox_ingredients
-
-	function metabox_recipe_portions( $post ){
-		$recipe_portions = get_post_meta( $post->ID, '_recipe_portions_meta', true );	
-		wp_nonce_field( __FILE__, '_recipe_portions_meta_nonce' );
-
-		echo "<input type='text' class='[ widefat ]' name='_recipe_portions_meta' value='$recipe_portions' />";
-	}// metabox_recipe_portions
 
 	function metabox_cook_time( $post ){
 		$cook_time = get_post_meta( $post->ID, '_cook_time_meta', true );
