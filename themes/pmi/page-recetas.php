@@ -1,5 +1,5 @@
-<?php 
-	//get_header();
+<?php
+	get_header();
 	the_post();
 ?>
 	<!-- PRODUCTS -->
@@ -10,11 +10,11 @@
 					<h2 class="[ text-center ][ margin-bottom ]"><?php the_title() ?></h2>
 					<?php the_content() ?>
 					<ul class="[ margin-bottom ]">
-						<?php 
+						<?php
 						// Show all brands that have products assigned
 						$args = array(
 							'orderby'		=> 'name',
-							'hide_empty'	=> true,	
+							'hide_empty'	=> true,
 							);
 						$brands = get_terms( 'marcas', $args );
 						foreach( $brands as $brand ) {
@@ -30,7 +30,7 @@
 					// Get products by brand
 					foreach( $brands as $brand ) :
 						$brand_logo_url = get_brand_logo( $brand->name );
-						$products = get_products_by_brand( $brand->name );	
+						$products = get_products_by_brand( $brand->name );
 
 						// Display products by brand
 						foreach ( $products as $key => $product ) :
@@ -48,11 +48,11 @@
 									<h3 class=""><?php echo $product['title'] ?></h3>
 								</div>
 							</a>
-					<?php 
+					<?php
 						endforeach;
 						echo '<div class="clear"></div>';
 					endforeach;
-					?>	
+					?>
 				</div>
 			</div>
 		</div>
