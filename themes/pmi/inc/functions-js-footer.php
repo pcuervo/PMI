@@ -18,6 +18,7 @@
 				/**
 				 * On load
 				**/
+				imgToSvg();
 
 
 				/**

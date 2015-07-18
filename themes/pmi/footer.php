@@ -6,23 +6,34 @@
 						<article>
 							<div class="[ row ][ padding ]">
 								<div class="[ xmall-6 ][ pull-right ][ hidden--large-inline ][ inline-block align-middle ]">
-									<a class="[ block ][ button--light button--hollow ][ pull-right ][  ][ js-modal-closer ]" href="#">
+									<a class="[ block ][ button--light button--hollow ][ pull-right ][ bg-transparent ][ js-modal-closer ]" data-modal="nav" href="#">
 										<span class="[ block ]">
-											<i class="[ fa fa-times fa-2x ][ padding--small ][ light ]"></i>
+											<img class="[ image-responsive ][ svg ][ square--button ][ padding--small ][ light ]" src="<?php echo THEMEPATH; ?>images/close.svg" alt="menu">
 										</span>
 									</a>
 								</div>
 							</div><!-- row -->
 						</article>
 
-						<article class="[  ]">
-							<div class="[ row ]">
-								<a href="" class="">Nosotros</a>
-								<a href="" class="">Productos</a>
-								<a href="" class="">Servicios</a>
-								<a href="" class="">Contacto</a>
+						<nav class="[ center-full ][ hidden--large ]">
+							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Nosotros</a>
+							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Productos</a>
+							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Servicios</a>
+							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Contacto</a>
+							<div class="[ nav-item ][ padding ]">
+								<div class="[ row ]">
+									<div class="[ columna xmall-4 ]">
+										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+									</div>
+									<div class="[ columna xmall-4 ][ opacity-3 ]">
+										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+									</div>
+									<div class="[ columna xmall-4 ]">
+										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+									</div>
+								</div><!-- row -->
 							</div>
-						</article><!-- categorias -->
+						</nav><!-- categorias -->
 					</div><!-- modal-content -->
 				</div>
 			</section>
