@@ -129,7 +129,7 @@
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
-					<a href="<?php echo site_url('productos'); ?>" class="[ button button--large ] [ inline-block ]">ver más recetas</a>
+					<a href="<?php echo site_url('recetas'); ?>" class="[ button button--large ] [ inline-block ]">ver más recetas</a>
 				</div>
 			</div>
 		</div>
