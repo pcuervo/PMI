@@ -13,10 +13,11 @@
 				<section class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ][ filtros ]">
 					<h3>Marcas</h3>
 					<div class="[ margin-bottom ][ filtro-marcas ][ button-group ]" data-filter-group="marcas">
-
-
-
-						<button class="[ button ]" data-filter="">Todas</button>
+						<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter="">
+							<span class="[ block ][ bg-light ]">
+								Todas
+							</span>
+						</button>
 						<?php
 						$args = array(
 							'orderby'		=> 'name',
@@ -25,43 +26,73 @@
 						$brands = get_terms( 'marcas', $args );
 
 						foreach( $brands as $brand ) {
-							echo '<button class="[ button ]" data-filter=".' . $brand->slug . '">' . $brand->name . '</button>';
+							echo '<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter=".' . $brand->slug . '">
+								<span class="[ block ][ bg-light ]">'
+								. $brand->name .
+								'</span>
+							</button>';
+
+
 						}
 						?>
-					</div>
+					</div><!-- filtro-marcas -->
 
 					<h3>Tipo de comida</h3>
-					<div class="[ margin-bottom ][ filtro-tipo-comida ]">
-						<button class="button" data-filter="">Todas</button>
+					<div class="[ margin-bottom ][ filtro-tipo-comida ][ button-group ]" data-filter-group="tipo-comida">
+						<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter="">
+							<span class="[ block ][ bg-light ]">
+								Todos
+							</span>
+						</button>
 						<?php
 
 						$tipos_comida = get_terms( 'tipos-comida' );
 						foreach( $tipos_comida as $tipo ) {
-							echo '<button class="button" data-filter=".' . $tipo->slug . '">' . $tipo->name . '</button>';
+							echo '<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter=".' . $tipo->slug . '">
+								<span class="[ block ][ bg-light ]">'
+								. $tipo->name .
+								'</span>
+							</button>';
 						}
 						?>
 					</div>
 
 					<h3>Porciones</h3>
-					<div class="[ margin-bottom ][ filtro-porciones ]">
-						<button class="button" data-filter="">Todas</button>
+					<div class="[ margin-bottom ][ filtro-porciones ][ button-group ]" data-filter-group="porciones">
+						<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter="">
+							<span class="[ block ][ bg-light ]">
+								Todas
+							</span>
+						</button>
 						<?php
 
 						$porciones = get_terms( 'porciones-recetas' );
 						foreach( $porciones as $porcion ) {
-							echo '<button class="button" data-filter=".' . $porcion->slug . '">' . $porcion->name . '</button>';
+							echo '<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter=".' . $porcion->slug . '">
+								<span class="[ block ][ bg-light ]">'
+								. $porcion->name .
+								'</span>
+							</button>';
 						}
 						?>
 					</div>
 
 					<h3>Tipo de producto</h3>
-					<div class="[ margin-bottom ][ filtro-tipo-producto ]">
-						<button class="button" data-filter="">Todos</button>
+					<div class="[ margin-bottom ][ filtro-tipo-producto ][ button-group ]" data-filter-group="tipo-producto">
+						<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter="">
+							<span class="[ block ][ bg-light ]">
+								Todos
+							</span>
+						</button>
 						<?php
 
 						$tipos_producto = get_terms( 'tipo-producto' );
 						foreach( $tipos_producto as $tipo ) {
-							echo '<button class="button" data-filter=".' . $tipo->slug . '">' . $tipo->name . '</button>';
+							echo '<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ]" data-filter=".' . $tipo->slug . '">
+								<span class="[ block ][ bg-light ]">'
+								. $tipo->name .
+								'</span>
+							</button>';
 						}
 						?>
 					</div>
