@@ -8,7 +8,7 @@
 								<div class="[ xmall-6 ][ pull-right ][ hidden--large-inline ][ inline-block align-middle ]">
 									<a class="[ block ][ button--light button--hollow ][ pull-right ][ bg-transparent ][ js-modal-closer ]" data-modal="nav" href="#">
 										<span class="[ block ]">
-											<img class="[ image-responsive ][ svg ][ square--button ][ padding--small ][ light ]" src="<?php echo THEMEPATH; ?>images/close.svg" alt="menu">
+											<img class="[ image-responsive ][ svg icon ][ square--button ][ padding--small ][ light ]" src="<?php echo THEMEPATH; ?>images/close.svg" alt="menu">
 										</span>
 									</a>
 								</div>
@@ -51,7 +51,7 @@
 							endif;
 							wp_reset_query();
 						?>
-						<div class="[ columna xmall-12 medium-3 ][ margin-bottom ]">
+						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">contacto</h4>
 							<address>
 								<?php echo $address; ?>
@@ -60,29 +60,30 @@
 								Tel. <?php echo $telefono ?>
 							</p>
 						</div>
-						<div class="[ columna xmall-12 medium-3 ][ margin-bottom ]">
+						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">de venta en</h4>
 							<a href="#">
-								<i class="[ icon-soriana ]"></i>
+								<img class="[ svg icon icon--large ][ light ]" src="<?php echo THEMEPATH; ?>images/soriana.svg" alt="soriana">
 							</a>
 							<a href="#">
-								<i class="[ icon-walmart ]"></i>
+								<img class="[ svg icon icon--large ][ light ]" src="<?php echo THEMEPATH; ?>images/walmart.svg" alt="walmart">
 							</a>
 						</div>
-						<div class="[ columna xmall-12 medium-3 ][ margin-bottom ]">
+						<div class="[ clear--small ]"></div>
+						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">síguenos</h4>
 							<p>
 								<a class="[ light ]" href="<?php echo $facebook ?>" target="_blank">
-									<i class="[ icon-facebook ] [ icon- ]"></i> /PMI
+									<img class="[ svg icon icon--small ][ light ]" src="<?php echo THEMEPATH; ?>images/facebook.svg" alt="facebook"> /PMI
 								</a>
 							</p>
 							<p>
 								<a class="[ light ]" href="<?php echo $twitter ?>" target="_blank">
-									<i class="[ icon-twitter ] [ icon- ]"></i> @pmi
+									<img class="[ svg icon icon--small ][ light ]" src="<?php echo THEMEPATH; ?>images/twitter.svg" alt="twitter"> @pmi
 								</a>
 							</p>
 						</div>
-						<div class="[ columna xmall-12 medium-3 ][ margin-bottom ]">
+						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">newsletter</h4>
 							<form class="[ form ]" action="">
 								<input class="[ margin-bottom--small ][ xmall-12 ]" type="text" placeholder="correo electrónico"><br />

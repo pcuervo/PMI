@@ -13,6 +13,21 @@
 **/
 .clear { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
 
+@media ( min-width: @small ) {
+	.clear--small { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
+}
+
+@media ( min-width: @medium ) {
+	.clear--small{ clear: none; }
+	.clear--medium { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
+}
+
+@media ( min-width: @large ){
+	.clear--small{ clear: none; }
+	.clear--medium{ clear: none; }
+	.clear--large { clear:both; height:1px; margin:0; padding:0; font-size: 1px; line-height: 0; }
+}
+
 
 /**
  * Visibility

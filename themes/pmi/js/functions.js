@@ -41,7 +41,7 @@ function closeModal(){
 
 
 /*------------------------------------*\
-	AJAX FUNCTIONS
+
 \*------------------------------------*/
 
 function imgToSvg(){

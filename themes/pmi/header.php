@@ -53,7 +53,7 @@
 						</div><div class="[ xmall-6 ][ hidden--large-inline ][ inline-block align-middle ]">
 							<a class="[ block ][ button--hollow ][ pull-right ][ diagonal-green-to-blue-gradient ][ js-modal-opener ]" data-modal="nav" href="#">
 								<span class="[ block ][ bg-light ]">
-									<img class="[ image-responsive ][ svg ][ square--button ][ padding--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/hamburger.svg" alt="menu">
+									<img class="[ image-responsive ][ svg icon ][ square--button ][ padding--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/hamburger.svg" alt="menu">
 								</span>
 							</a>
 						</div>
