@@ -36,19 +36,19 @@
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
-					<i class="[ icon-icon-dance ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+					<img class="[ image-responsive ][ svg icon icon--xlarge ][ primary ][ text-center center block ]" src="<?php echo THEMEPATH; ?>images/truck.svg" alt="Expertos en logística">
 					<p class="[ text-center ]">
 						Expertos en logística
 					</p>
 				</div>
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
-					<i class="[ icon-icon-music-47 ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+					<img class="[ image-responsive ][ svg icon icon--xlarge ][ primary ][ text-center center block ]" src="<?php echo THEMEPATH; ?>images/badge.svg" alt="Alimentos de primera calidad">
 					<p class="[ text-center ]">
 						Alimentos de primera calidad
 					</p>
 				</div>
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
-					<i class="[ icon-icon-theater ] [ icon-xtra-large ] [ highlight ] [ text-center center block ]"></i>
+					<img class="[ image-responsive ][ svg icon icon--xlarge ][ primary ][ text-center center block ]" src="<?php echo THEMEPATH; ?>images/globe.svg" alt="Marcas reconocidas a nivel internacional">
 					<p class="[ text-center ]">
 						Marcas reconocidas a nivel internacional
 					</p>
@@ -100,21 +100,21 @@
 	</section><!-- PRODUCTS -->
 
 	<!-- RECIPES -->
-	<section class="[ hidden--xmall shown--medium ][ margin-bottom--large ]">
+	<section class="[ margin-bottom--large ]">
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
 					<h2 class="[ title ] [ text-center ] [ padding ]">Últimas recetas</h2>
 				</div>
 				<?php
-				$brands_args = array(
+				$recetas_args = array(
 					'post_type' 		=> 'recetas',
 					'posts_per_page' 	=> 3,
 					'orderby'			=> 'date',
 				);
-				$query_brands = new WP_Query( $brands_args );
-				if ( $query_brands->have_posts() ) : while ( $query_brands->have_posts() ) : $query_brands->the_post();
-					$brand_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
+				$query_recetas = new WP_Query( $recetas_args );
+				if ( $query_recetas->have_posts() ) : while ( $query_recetas->have_posts() ) : $query_recetas->the_post();
+					$recetas_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
 					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
@@ -129,7 +129,7 @@
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
-					<a href="<?php echo site_url('productos'); ?>" class="[ button button--large ] [ inline-block ]">ver más recetas</a>
+					<a href="<?php echo site_url('recetas'); ?>" class="[ button button--large ] [ inline-block ]">ver más recetas</a>
 				</div>
 			</div>
 		</div>
