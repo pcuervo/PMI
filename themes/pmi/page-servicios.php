@@ -7,7 +7,7 @@
 	<section class="[ margin-bottom--large ]">
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
-				<h2 class="[ text-center ]"><?php the_title() ?></h2>
+				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]"><?php the_title() ?></h2>
 				<div class="[ columna xmall-12  ][ center ][ margin-bottom ]">
 					<img src="<?php echo $cover_url[0] ?>" class="[ image-responsive ]" />
 				</div>

@@ -68,7 +68,7 @@
 							<a class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url('servicios') ?>">
 								Servicios
 							</a>
-							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url() . '/foro-sunland' ?>">
+							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url('contacto') ?>">
 								Contacto
 							</a>
 						</nav>

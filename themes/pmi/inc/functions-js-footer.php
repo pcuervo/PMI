@@ -40,6 +40,12 @@
 				});
 
 
+				// Contact form
+				$('.contacto input[type="submit"]').on('click', function(e){
+					e.preventDefault();
+					sendContactEmail();
+				});
+
 				/*------------------------------------*\
 					#RECIPEES
 				\*------------------------------------*/
@@ -49,7 +55,6 @@
 					filterIsotope('.isotope-container', '.post');
 
 				<?php } ?>
-
 
 			</script>
 <?php
