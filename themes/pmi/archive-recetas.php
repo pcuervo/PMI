@@ -4,16 +4,19 @@
 	<!-- PRODUCTS -->
 	<section class="[]">
 		<div class="[ wrapper ]">
+			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
+				<h2 class="[ text-center ][ margin-bottom ]">Recetas</h2>
+				<p>Aquí va el texto de recetas...</p>
+			</div>
 			<div class="[ row ]">
-				<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
-					<h2 class="[ text-center ][ margin-bottom ]">Recetas</h2>
-					<p>Aquí va el texto de recetas...</p>
-				</div>
 
-				<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ][ filtros ]">
+				<section class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ][ filtros ]">
 					<h3>Marcas</h3>
-					<div class="[ margin-bottom ][ filtro-marcas ]">
-						<button class="button" data-filter="">Todas</button>
+					<div class="[ margin-bottom ][ filtro-marcas ][ button-group ]" data-filter-group="marcas">
+
+
+
+						<button class="[ button ]" data-filter="">Todas</button>
 						<?php
 						$args = array(
 							'orderby'		=> 'name',
@@ -62,9 +65,9 @@
 						}
 						?>
 					</div>
-				</div><!-- filtros -->
+				</section><!-- filtros -->
 
-				<div>
+				<section class="[ isotope-container ]">
 					<?php
 					if ( have_posts()) : while ( have_posts() ) : the_post();
 						$recipe_filter_info = get_recipe_filter_info( $post->ID );
@@ -84,7 +87,7 @@
 							</div>
 						</div>
 					<?php endwhile; endif; ?>
-				</div>
+				</section>
 			</div><!-- row -->
 		</div><!-- wrapper -->
 	</section><!-- PRODUCTS -->
