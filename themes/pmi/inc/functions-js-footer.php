@@ -39,6 +39,12 @@
 					closeModal();
 				});
 
+				// Contact form
+				$('.contacto input[type="submit"]').on('click', function(e){
+					e.preventDefault();
+					sendContactEmail();
+				});
+
 			</script>
 <?php
 		}

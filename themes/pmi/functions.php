@@ -129,32 +129,6 @@
 
 	}// get_month_name
 
-	/**
-	 * Send contact email to Sunland School.
-	 * @param string $name - Name of person requesting more info
-	 * @param string $email - Email of person requesting more info
-	 * @param string $tel - Telephone numbre of person requesting more info
-	 * @param string $section - Website section from where the form was sent
-	 * @param string $to_email - Email to where the info has to be sent
-	 */
-	function send_email_contacto($name, $email, $tel, $msg, $section, $to_email ){
-
-		$to = $to_email;
-		$subject = 'Informes acerca de: ' . $section;
-		$headers = 'From: My Name <' . $to_email . '>' . "\r\n";
-		$message = '<html><body>';
-		$message .= '<h3>Contacto a través de www.sunland.mx</h3>';
-		$message .= '<p>Nombre: '.$name.'</p>';
-		$message .= '<p>Email: '. $email . '</p>';
-		if( $tel != '' ) $message .= '<p>Teléfono: '. $tel . '</p>';
-		if( $msg != '' ) $message .= '<p>Mensaje: '. $msg . '</p>';
-		$message .= '</body></html>';
-
-		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
-		wp_mail($to, $subject, $message, $headers );
-
-	}// send_email_contacto	
-
 
 
 
@@ -334,6 +308,42 @@
 /*------------------------------------*\
 	AJAX FUNCTIONS
 \*------------------------------------*/
+
+	/**
+	 * Send contact email to PMI.
+	 */
+	function send_email_contacto(){
+
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$to_email = 'miguel@pcuervo.com';
+		$msg = $_POST['message'];
+
+		$to = $to_email;
+		$subject = $name . ' te ha contactado a través de www.pmi.com.mx: ';
+		$headers = 'From: My Name <' . $to_email . '>' . "\r\n";
+		$message = '<html><body>';
+		$message .= '<h3>Datos de contacto</h3>';
+		$message .= '<p>Nombre: '.$name.'</p>';
+		$message .= '<p>Email: '. $email . '</p>';
+		if( $msg != '' ) $message .= '<p>Mensaje: '. $msg . '</p>';
+		$message .= '</body></html>';
+
+		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
+		$mail = wp_mail($to, $subject, $message, $headers );
+
+		var_dump( $mail );
+
+		$message = array(
+			'error'		=> 0,
+			'message'	=> 'Mensaje enviado.',
+			);
+		echo json_encode($message , JSON_FORCE_OBJECT);
+		exit();
+
+	}// send_email_contacto
+	add_action("wp_ajax_send_email_contacto", "send_email_contacto");
+	add_action("wp_ajax_nopriv_send_email_contacto", "send_email_contacto");
 
 
 

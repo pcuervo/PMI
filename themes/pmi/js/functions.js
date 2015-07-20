@@ -37,6 +37,22 @@ function closeModal(){
 	AJAX FUNCTIONS
 \*------------------------------------*/
 
+/**
+ * Send email requesting more information.
+ */
+function sendContactEmail(){
+
+	var data = $('.contacto form').serialize();
+	console.log(data);
+	$.post(
+		ajax_url,
+		data,
+		function( response ){
+			console.log(response);
+		}
+	);
+}// sendContactEmail
+
 
 
 
