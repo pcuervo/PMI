@@ -40,39 +40,54 @@
 			<p class="chromeframe">Estás usando una versión <strong>vieja</strong> de tu explorador. Por favor <a href="http://browsehappy.com/" target="_blank"> actualiza tu explorador</a> para tener una experiencia completa.</p>
 		<![endif]-->
 		<div class="[ container ]">
-			<header class="[  ]">
-				<div class="[ wrapper ]">
-					<div class="[ row ][ padding--top--small padding--bottom--small ]">
+			<header class="[ fixed ]">
 
-						<div class="[ xmall-6 large-1 ][ inline-block align-middle ]">
-							<div class="[ logo ]">
-								<a href="<?php echo site_url() ?>">
-									<img alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png" class="[ image-responsive ]">
+				<div class="[ hidden--large ]">
+					<div class="[ wrapper ]">
+						<div class="[ row ][ padding--top--small padding--bottom--small ]">
+							<div class="[ xmall-6 large-1 ][ inline-block align-middle ]">
+								<div class="[ logo ]">
+									<a href="<?php echo site_url() ?>">
+										<img alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png" class="[ image-responsive ]">
+									</a>
+								</div>
+							</div><div class="[ xmall-6 ][ inline-block align-middle ]">
+								<a class="[ block ][ button--hollow ][ pull-right ][ diagonal-green-to-blue-gradient ][ js-modal-opener ]" data-modal="nav" href="#">
+									<span class="[ block ][ bg-light ][ no-padding ]">
+										<img class="[ image-responsive ][ svg icon ][ square--button ][ padding--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/hamburger.svg" alt="menu">
+									</span>
 								</a>
 							</div>
-						</div><div class="[ xmall-6 ][ hidden--large-inline ][ inline-block align-middle ]">
-							<a class="[ block ][ button--hollow ][ pull-right ][ diagonal-green-to-blue-gradient ][ js-modal-opener ]" data-modal="nav" href="#">
-								<span class="[ block ][ bg-light ]">
-									<img class="[ image-responsive ][ svg icon ][ square--button ][ padding--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/hamburger.svg" alt="menu">
-								</span>
-							</a>
-						</div>
+						</div><!-- row -->
+					</div><!-- wrapper -->
+				</div><!-- hidden-large -->
 
-						<nav class="[ shown--large--inline ][ large-11 ][ clearfix ][ menu-container ][ inline-block align-middle ]">
-							<a class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ shown--medium--inline middle ][ inline-block align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url( 'nosotros') ?>">
-								Nosotros
+				<div class="[ shown--large ]">
+					<div class="[ header-top ][ diagonal-dark-blue-to-light-blue ]">
+						<div class="[ wrapper ]">
+							<a class="[ block ][ padding--small ][ bg-light ][ logo ][ center ]" href="<?php echo site_url() ?>">
+								<img class="[ image-responsive ]" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png">
 							</a>
-							<a class="<?php echo ( 'Productos' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url( 'productos' ) ?>">
-								Productos
-							</a>
-							<a class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url('servicios') ?>">
-								Servicios
-							</a>
-							<a class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ shown--medium--inline align-middle ][ button button--menu ][ pull-right ]" href="<?php echo site_url('contacto') ?>">
-								Contacto
-							</a>
-						</nav>
-					</div>
-				</div>
+						</div><!-- wrapper -->
+					</div><!-- header-top -->
+					<div class="[ header-bottom ]">
+						<div class="[ wrapper ]">
+							<nav class="[ menu-container ][ padding--small ]">
+								<a class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
+									Nosotros
+								</a><a
+								class="<?php echo ( 'Productos' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
+									Productos
+								</a><span class="[ xmall-4 inline-block align-middle ]">&nbsp;</span><a
+								class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
+									Servicios
+								</a><a
+								class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
+									Contacto
+								</a>
+							</nav>
+						</div><!-- wrapper -->
+					</div><!-- header-botom -->
+				</div><!-- shown--large -->
 			</header>
 			<div class="[ main ]">
