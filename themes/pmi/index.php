@@ -54,7 +54,7 @@
 					</p>
 				</div>
 				<div class="[ xmall-12 ][ text-center ]">
-					<a href="<?php echo site_url('blog'); ?>" class="[ button button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
+					<a href="<?php echo site_url('opiniones-expertos'); ?>" class="[ button button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
 				</div>
 			</div>
 		</div>
@@ -77,7 +77,7 @@
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
 					//$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ post ][ columna xmall-12 small-6 medium-4 large-3 ][ margin-bottom--large ]">
+					<div class="[ post ][ columna xmall-12 small-6 medium-4 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
@@ -116,7 +116,7 @@
 				if ( $query_recetas->have_posts() ) : while ( $query_recetas->have_posts() ) : $query_recetas->the_post();
 					$recetas_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ]">
+					<div class="[ post ][ columna xmall-6 medium-4 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
