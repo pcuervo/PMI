@@ -51,11 +51,25 @@
 /**
  * White space
 **/
-.no-margin{ margin: 0; }
+.no-margin{ margin: 0 !important; }
 
 .margin-bottom{ margin-bottom: @unidad; }
 .margin-bottom--small{ margin-bottom: (@unidad/2); }
 .margin-bottom--large{ margin-bottom: (@unidad*2); }
+
+.margin-top{ margin-top: @unidad; }
+.margin-top--small{ margin-top: (@unidad/2); }
+.margin-top--large{ margin-top: (@unidad*2); }
+
+.margin-sides{ margin-left: @unidad; margin-right: @unidad; }
+.margin-sides--small{ margin-left: (@unidad/2); margin-right: (@unidad/2); }
+.margin-sides--large{ margin-left: (@unidad*2); margin-right: (@unidad*2); }
+
+.margin-top-bottom{ margin-top: @unidad; margin-bottom: @unidad; }
+.margin-top-bottom--small{ margin-top: (@unidad/2); margin-bottom: (@unidad/2); }
+.margin-top-bottom--large{ margin-top: (@unidad*2); margin-bottom: (@unidad*2); }
+
+.no-padding{ padding: 0 !important; }
 
 .padding{ padding: @unidad; }
 .padding--small{ padding: (@unidad/2); }

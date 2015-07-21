@@ -1,9 +1,7 @@
 
 			</div><!-- main -->
 
-			<section class="[ action-buttons action-buttons--right ]">
-				<!-- <a href="#" class="[ button button--primary button--action ][ js-modal-opener ]" data-modal="nav"><i class="[ icon-menu ]"></i></a> -->
-
+			<section class="[ action-buttons action-buttons--right ][ hidden--large ]">
 				<a class="[ block ][ button button--hollow button--action ][ diagonal-green-to-blue-gradient ][ js-modal-opener ]" data-modal="nav" href="#">
 					<span class="[ block ][ bg-light ][ no-padding ]">
 						<img class="[ svg icon ][ square--button ][ secondary ]" src="<?php echo THEMEPATH; ?>images/hamburger.svg" alt="menu">

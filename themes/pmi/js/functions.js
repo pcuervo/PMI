@@ -27,15 +27,10 @@ function filterIsotope(container, item){
 		itemSelector: item
 	});
 
-	// $(container).isotope({
-	// 	itemSelector: item,
-	// 	layoutMode: 'fitRows'
-	// });
-
 	// store filter for each group
 	var filters = {};
 
-	$('.filtros').on( 'click', '.button', function() {
+	$('.filtros').on( 'click', '.button-group .button', function() {
 		var $this = $(this);
 		// get group key
 		var $buttonGroup = $this.parents('.button-group');
@@ -52,8 +47,8 @@ function filterIsotope(container, item){
 	$('.button-group').each( function( i, buttonGroup ) {
 		var $buttonGroup = $( buttonGroup );
 		$buttonGroup.on( 'click', 'button', function() {
-			$buttonGroup.find('.is-checked').removeClass('is-checked');
-			$( this ).addClass('is-checked');
+			$buttonGroup.find('.active').removeClass('active');
+			$( this ).addClass('active');
 		});
 	});
 }
@@ -66,6 +61,36 @@ function concatValues( obj ) {
 	}
 	return value;
 }
+
+
+/**
+ * Toggle action buttons
+ */
+ function toggleActionButtons(){
+	var headerHeight = getHeaderHeight();
+	var sy = getScrollY();
+	if ( sy >= headerHeight ) {
+		$('.action-buttons').addClass('opened');
+	} else {
+		$('.action-buttons').removeClass('opened');
+	}
+}// toggleActionButtons
+
+/**
+ * Toggle action buttons
+ */
+ function toggleHeader(){
+	var headerHeight = getHeaderHeight();
+	var sy = getScrollY();
+	if ( sy >= 10 ) {
+		$('header').addClass('fixed');
+		$('.main').addClass('header-fixed');
+	} else {
+		$('header').removeClass('fixed');
+		$('.main').removeClass('header-fixed');
+	}
+}// toggleHeader
+
 
 
 /**
@@ -84,6 +109,14 @@ function closeModal(){
 	$('.modal-wrapper').addClass('hide');
 	$('body').css('overflow', 'visible');
 }//closeModal
+
+/**
+ * Toggles element
+ * @param element to be shown
+**/
+function toggleElement(element){
+	$(element).toggleClass('hide');
+}//showElement
 
 
 /**
@@ -154,3 +187,22 @@ function imgToSvg(){
 
 	});
 } //imgToSvg
+
+
+/*------------------------------------*\
+	GET/SET FUNCTIONS
+\*------------------------------------*/
+
+/**
+ * Get header's height
+ */
+function getHeaderHeight(){
+	return $('header').height();
+}// getHeaderHeight
+
+/**
+ * Get the scrolled pixels in Y axis
+ */
+function getScrollY() {
+	return $(window).scrollTop();
+}// getScrollY

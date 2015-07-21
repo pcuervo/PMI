@@ -2,11 +2,30 @@
 	#BUTTONS
 \*------------------------------------*/
 .button{
-	padding: 7px 20px 8px 20px;
-	.font( 16px, 1, 100, 'lato' ); text-align: center; text-decoration: none; color: @light; background-color: @primary;
+	padding: 7px 20px 8px 20px; border: none;
+	.font( 16px, 1, 100, 'proxima-nova' ); text-align: center; text-decoration: none; color: @light;
+	background-color: @primary;
 	cursor: pointer;
 	.drop-shadow;
 	.transition;
+}
+
+.button-group{
+	max-height: 400px;
+	margin: @unidad 0;
+	overflow: hidden;
+	.transition;
+}
+
+.button-group.hide{
+	max-height: 0;
+	margin: 0;
+
+	@media (min-width: @xmedium){
+		margin: (@unidad/2) 0 @unidad 0;
+		max-height: 200px;
+	}
+
 }
 
 
@@ -15,12 +34,23 @@
 	#STYLES
 \*------------------------------------*/
 .button--hollow{
+	padding: 0;
+	.font( 16px, 1, 600 ); text-transform: uppercase;
+	.drop-shadow (@x: 0, @y: 0, @blur: 0, @spread: 0, @alpha: 0);
+
 	span{
+		padding: 10px 20px;
 		border: 4px solid rgb(255, 255, 255);
 		border: 4px solid transparent;
 		border: 4px solid rgba(255, 255, 255, 0);
 		-webkit-background-clip: padding-box; /* for Safari */
 		background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	}
+}
+
+.button--hollow.active{
+	span{
+		background: transparent; color: @light
 	}
 }
 
@@ -37,6 +67,13 @@
 	.font(20px, 1, 100); text-overflow: ellipsis; //text-align: right;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+.button--menu{
+	// padding: 7px 20px 8px 20px;
+	.font(18px, 1); color: @primary; text-transform: uppercase;
+	background-color: transparent;
+	.drop-shadow (@x: 0, @y: 0, @blur: 0, @spread: 0, @alpha: 0);
 }
 
 
@@ -89,4 +126,44 @@
 	color: @light;
 	border: none;
 	&:hover{ background-color: darken(@secondary, 10%); }
+}
+
+
+
+
+/**
+ * Action buttons
+**/
+.action-buttons{
+	position: fixed; bottom: -100px;
+	z-index: @zIndex-5;
+	.transition;
+}
+.action-buttons--left{
+	left: 20px;
+}
+.action-buttons--right{
+	right: 20px;
+}
+
+.action-buttons.opened, .action-buttons.always-opened{
+	bottom: 20px;
+}
+.button--action{
+	padding: 0; .border-radius(50%);
+	.drop-shadow(0 2px 4px 1px rgba(0,0,0,.3));
+
+	span{
+		padding: 12px 7px; .border-radius(50%);
+		border: 4px solid rgb(255, 255, 255);
+		border: 4px solid transparent;
+		border: 4px solid rgba(255, 255, 255, 0);
+		-webkit-background-clip: padding-box; /* for Safari */
+		background-clip: padding-box; /* for IE9+, Firefox 4+, Opera, Chrome */
+	}
+
+	svg{
+		padding: 12px 9px;
+	}
+
 }
