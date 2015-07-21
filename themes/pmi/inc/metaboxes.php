@@ -41,8 +41,6 @@
 	function add_metaboxes_products(){
 		add_meta_box( 'net_content', 'Contenido neto', 'metabox_net_content', 'productos', 'advanced', 'high' );
 		add_meta_box( 'product_portions', 'Porciones', 'metabox_product_portions', 'productos', 'advanced', 'high' );
-		add_meta_box( 'indications', 'Indicaciones', 'metabox_indications', 'productos', 'advanced', 'high' );
-		add_meta_box( 'ingredients', 'Ingredientes', 'metabox_ingredients', 'productos', 'advanced', 'high' );
 		add_meta_box( 'text_banner', 'Texto en banner', 'metabox_text_banner', 'productos', 'advanced', 'high' );
 	}
 
@@ -123,20 +121,6 @@
 
 		echo "<input type='text' class='[ widefat ]' name='_product_portions_meta' value='$product_portions' />";
 	}// metabox_product_portions
-
-	function metabox_indications( $post ){
-		$indications = get_post_meta( $post->ID, '_indications_meta', true );
-		wp_nonce_field( __FILE__, '_indications_meta_nonce' );
-
-		echo "<textarea class='[ widefat ]' name='_indications_meta'>$indications</textarea>";
-	}// metabox_indications
-
-	function metabox_ingredients( $post ){
-		$ingredients = get_post_meta( $post->ID, '_ingredients_meta', true );
-		wp_nonce_field( __FILE__, '_ingredients_meta_nonce' );
-
-		echo "<textarea class='[ widefat ]' name='_ingredients_meta'>$ingredients</textarea>";
-	}// metabox_ingredients
 
 	function metabox_cook_time( $post ){
 		$cook_time = get_post_meta( $post->ID, '_cook_time_meta', true );
@@ -267,14 +251,6 @@
 		// product_Portions
 		if ( isset($_POST['_product_portions_meta']) and check_admin_referer( __FILE__, '_product_portions_meta_nonce') ){
 			update_post_meta($post_id, '_product_portions_meta', $_POST['_product_portions_meta']);
-		}
-		// Indications
-		if ( isset($_POST['_indications_meta']) and check_admin_referer( __FILE__, '_indications_meta_nonce') ){
-			update_post_meta($post_id, '_indications_meta', $_POST['_indications_meta']);
-		}
-		// Ingredients
-		if ( isset($_POST['_ingredients_meta']) and check_admin_referer( __FILE__, '_ingredients_meta_nonce') ){
-			update_post_meta($post_id, '_ingredients_meta', $_POST['_ingredients_meta']);
 		}
 		// Text in banner
 		if ( isset($_POST['_text_banner_meta']) and check_admin_referer( __FILE__, '_text_banner_meta_nonce') ){
