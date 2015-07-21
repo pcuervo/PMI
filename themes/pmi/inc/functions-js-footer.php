@@ -39,11 +39,22 @@
 					closeModal();
 				});
 
+
 				// Contact form
 				$('.contacto input[type="submit"]').on('click', function(e){
 					e.preventDefault();
 					sendContactEmail();
 				});
+
+				/*------------------------------------*\
+					#RECIPEES
+				\*------------------------------------*/
+				<?php if ( get_post_type() == 'recetas' ){ ?>
+
+					runIsotope('.isotope-container', '.post');
+					filterIsotope('.isotope-container', '.post');
+
+				<?php } ?>
 
 			</script>
 <?php

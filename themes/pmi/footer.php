@@ -1,5 +1,16 @@
 
 			</div><!-- main -->
+
+			<section class="[ action-buttons action-buttons--right ]">
+				<!-- <a href="#" class="[ button button--primary button--action ][ js-modal-opener ]" data-modal="nav"><i class="[ icon-menu ]"></i></a> -->
+
+				<a class="[ block ][ button button--hollow button--action ][ diagonal-green-to-blue-gradient ][ js-modal-opener ]" data-modal="nav" href="#">
+					<span class="[ block ][ bg-light ][ no-padding ]">
+						<img class="[ svg icon ][ square--button ][ secondary ]" src="<?php echo THEMEPATH; ?>images/hamburger.svg" alt="menu">
+					</span>
+				</a>
+			</section><!-- action-buttons -->
+
 			<section class="[ modal-wrapper modal-nav ][ hide ]">
 				<div class="[ modal modal--full ][ diagonal-green-to-blue-gradient ]">
 					<div class="[ modal-content ]">
@@ -7,7 +18,7 @@
 							<div class="[ row ][ padding ]">
 								<div class="[ xmall-6 ][ pull-right ][ hidden--large-inline ][ inline-block align-middle ]">
 									<a class="[ block ][ button--light button--hollow ][ pull-right ][ bg-transparent ][ js-modal-closer ]" data-modal="nav" href="#">
-										<span class="[ block ]">
+										<span class="[ block ][ no-padding ]">
 											<img class="[ image-responsive ][ svg icon ][ square--button ][ padding--small ][ light ]" src="<?php echo THEMEPATH; ?>images/close.svg" alt="menu">
 										</span>
 									</a>
