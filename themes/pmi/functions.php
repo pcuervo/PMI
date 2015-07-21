@@ -215,6 +215,7 @@
 		if( empty( $brand_logo_url ) ){
 			return 0;
 		}
+		
 		return $brand_logo_url[0];
 
 	}// get_brand_logo
@@ -349,7 +350,8 @@
 			'permalink'		=> get_permalink( get_the_ID() ),
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
-		
+		wp_reset_query();
+
 		return $recipe_info;
 	}// get_recommended_recipe
 
@@ -437,7 +439,7 @@
 			   	)
 		    ),
 		);
-		$query_products = new WP_Query( $products_args );
+		$query_products = new WP_Query( $similar_products_args );
 
 		// ¿Are there any other products with the same "tipo de producto"?
 		if( ! $query_products->have_posts() ) return array();
@@ -445,13 +447,18 @@
 		$similar_products = array();
 		$product_index = 0;
 		while ( $query_products->have_posts() ) : $query_products->the_post();
-		
-			$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 
-
+			$similar_products[$product_index] = array(
+				'img_url'	=> wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' ),
+				'title'		=> get_the_title(),
+				'permalink'	=> get_the_permalink(),
+			);
+			$product_index++;
 
 		endwhile;
+		wp_reset_query();
 
+		return $similar_products;
 	}// get_similar_products
 
 

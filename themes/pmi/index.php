@@ -19,7 +19,7 @@
 						<div class="[ center ][ text-center text-shadow ][ xmall-12 medium-7 ]">
 							<h1 class="[ uppercase ][ light ][ text-shadow ][ margin-bottom--large ]">La más alta calidad</h1>
 							<h2 class="[ light ][ text-shadow ][ margin-bottom--large ]"><?php echo $content; ?></h2>
-							<a href="<?php echo site_url('productos'); ?>" class="[ button button--highlight ][ inline-block ]">conoce nuestros productos</a>
+							<a href="<?php echo site_url('productos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">conoce nuestros productos</a>
 						</div>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 					</p>
 				</div>
 				<div class="[ xmall-12 ][ text-center ]">
-					<a href="<?php echo site_url('opiniones-expertos'); ?>" class="[ button button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
+					<a href="<?php echo site_url('opiniones-expertos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">Cónoce la opinión de los expertos</a>
 				</div>
 			</div>
 		</div>
@@ -93,7 +93,7 @@
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
-					<a href="<?php echo site_url('productos'); ?>" class="[ button ] [ inline-block ]">ver más productos</a>
+					<a href="<?php echo site_url('productos'); ?>" class="[ button button--large ] [ inline-block ]">ver más productos</a>
 				</div>
 			</div>
 		</div>
