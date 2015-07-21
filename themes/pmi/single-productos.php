@@ -6,9 +6,13 @@
 	$text_banner      = get_post_meta( $post->ID, '_text_banner_meta', TRUE );
 	$net_content      = get_post_meta( $post->ID, '_net_content_meta', TRUE );
 	$product_portions = get_post_meta( $post->ID, '_product_portions_meta', TRUE );
-	$indications      = get_post_meta( $post->ID, '_indications_meta', TRUE );
-	$ingredients      = get_post_meta( $post->ID, '_ingredients_meta', TRUE );
+	$indications      = rwmb_meta( '_indicaciones', '', $post->ID );
+	$ingredients      = rwmb_meta( '_ingredientes', '', $post->ID );
 	$img_url          = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+	// Recommended recipe
+	$recommended_recipe = get_recommended_recipe( $post->post_title );
+	// Similar products
+	$similar_products = get_similar_products( $post->ID );
 ?>
 
 	<!-- BANNER -->
@@ -45,20 +49,35 @@
 					<?php the_content() ?>
 				</div>
 				<div class="[ columna xmall-12 medium-6 ]">
-					<h3>Indicaciones</h3>
-					<p><?php echo $indications ?></p>
-					<h3>Ingredientes</h3>
-					<p><?php echo $ingredients ?></p>
+					<?php 
+					if( ! empty( $indications ) ) :
+						echo '<h3>Indicaciones</h3>';
+						echo '<ul>';
+						foreach ( $indications as $indication ) {
+							echo '<li>' . $indication . '</li>';
+						}
+						echo '</ul>';
+					endif;
+
+					if( ! empty( $indications ) ) :
+						echo '<h3>Ingredientes</h3>';
+						echo '<ul>';
+						foreach ( $ingredients as $ingredient ) {
+							echo '<li>' . $ingredient . '</li>';
+						}
+						echo '</ul>';
+					endif;
+					?>
 				</div>
 			</div>
 		</div>
 	</section><!-- PRODUCT INFO -->
 
+	<!-- RECOMMENDE RECIPE -->
 	<section>
 		<div class="[ wrapper ]">
 			<div class="[ row ]">
 				<div class="[ columna xmall-12 medium-8 ][ center ]">
-					<?php $recommended_recipe = get_recommended_recipe( $post->post_title ); ?>
 					<?php if( ! empty( $recommended_recipe ) ) : ?>
 						<h2 class="[ text-center ][ margin-bottom ]">Receta recomendada</h2>
 						<div class="[ columna xmall-6 ][ margin-bottom--large ]">
@@ -99,7 +118,18 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section><!-- RECOMMENDE RECIPE -->
+
+	<!-- SIMILAR PRODUCTS -->
+	<section class="[]">
+		<div class="[ wrapper ]">
+			<div class="[ row ]">
+				<div class="[ columna xmall-12 medium-6 ]">
+					Productos similares
+				</div>
+			</div>
+		</div>
+	</section><!-- SIMILAR PRODUCTS -->
 
 	<div class="[ span xmall-12 medium-4 ] [ padding ]">
 		<div class="[ bg-light ] [ relative ]">
