@@ -47,7 +47,7 @@
 					<!-- <p>
 						<?php echo $text_banner ?>
 					</p> -->
-					<div class="[ span xmall-12 medium-4 ] [ padding ]">
+					<div class="[ span xmall-12 ] [ padding ]">
 						<div class="[ bg-light ] [ relative ]">
 							<img src="<?php echo $img_url[0] ?>" class="[ image-responsive ] [ margin-bottom ]">
 						</div>
