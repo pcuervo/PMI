@@ -40,7 +40,8 @@
 			<p class="chromeframe">Estás usando una versión <strong>vieja</strong> de tu explorador. Por favor <a href="http://browsehappy.com/" target="_blank"> actualiza tu explorador</a> para tener una experiencia completa.</p>
 		<![endif]-->
 		<div class="[ container ]">
-			<header class="[ fixed ]">
+			<header class="[  ]">
+			<!-- <header class="[ fixed ]"> -->
 
 				<div class="[ hidden--large ]">
 					<div class="[ wrapper ]">
@@ -64,30 +65,56 @@
 
 				<div class="[ shown--large ]">
 					<div class="[ header-top ][ diagonal-dark-blue-to-light-blue ]">
-						<div class="[ wrapper ]">
+						<div class="[ wrapper ][ relative ]">
 							<a class="[ block ][ padding--small ][ bg-light ][ logo ][ center ]" href="<?php echo site_url() ?>">
 								<img class="[ image-responsive ]" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png">
 							</a>
+							<div class="[ menu-options ]">
+								<div class="[ columna xmall-4 ]">
+									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+								</div>
+								<div class="[ columna xmall-4 ][ opacity-3 ]">
+									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+								</div>
+								<div class="[ columna xmall-4 ]">
+									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+								</div>
+							</div><!-- menu-options -->
 						</div><!-- wrapper -->
 					</div><!-- header-top -->
 					<div class="[ header-bottom ]">
-						<div class="[ wrapper ]">
+						<div class="[ wrapper ][ relative ]">
 							<nav class="[ menu-container ][ padding--small ]">
-								<a class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
+								<a class="[ xmall-3 ][ inline-block align-middle ][ imago ]" href="<?php echo site_url() ?>">
+									<img class="" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/imago.png">
+								</a><a
+								class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
 									Nosotros
 								</a><a
 								class="<?php echo ( 'Productos' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
 									Productos
-								</a><span class="[ xmall-4 inline-block align-middle ]">&nbsp;</span><a
+								</a><span class="[ xmall-4 inline-block align-middle ][ spacer ]">&nbsp;</span><a
 								class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
 									Servicios
 								</a><a
 								class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
 									Contacto
 								</a>
+								<div class="[ menu-options ]">
+									<div class="[ columna xmall-4 ]">
+										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+									</div>
+									<div class="[ columna xmall-4 ][ opacity-3 ]">
+										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+									</div>
+									<div class="[ columna xmall-4 ]">
+										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+									</div>
+								</div><!-- menu-options -->
 							</nav>
 						</div><!-- wrapper -->
 					</div><!-- header-botom -->
 				</div><!-- shown--large -->
 			</header>
 			<div class="[ main ]">
+			<!-- <div class="[ main ][ header-fixed ]"> -->
