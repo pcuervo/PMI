@@ -64,7 +64,7 @@
 						echo '</ul>';
 					endif;
 
-					if( ! empty( $indications ) ) :
+					if( ! empty( $ingredients ) ) :
 						echo '<h3>Ingredientes</h3>';
 						echo '<ul>';
 						foreach ( $ingredients as $ingredient ) {

@@ -215,7 +215,7 @@
 		if( empty( $brand_logo_url ) ){
 			return 0;
 		}
-		
+
 		return $brand_logo_url[0];
 
 	}// get_brand_logo
@@ -449,7 +449,7 @@
 		while ( $query_products->have_posts() ) : $query_products->the_post();
 
 			$similar_products[$product_index] = array(
-				'img_url'	=> wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' ),
+				'img_url'	=> wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' ),
 				'title'		=> get_the_title(),
 				'permalink'	=> get_the_permalink(),
 			);
