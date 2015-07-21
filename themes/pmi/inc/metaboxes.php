@@ -49,8 +49,6 @@
 	**/
 	function add_metaboxes_recipes(){
 		add_meta_box( 'cook_time', 'Tiempo', 'metabox_cook_time', 'recetas', 'advanced', 'high' );
-		add_meta_box( 'instructions', 'Instrucciones', 'metabox_instructions', 'recetas', 'advanced', 'high' );
-		add_meta_box( 'recipe_ingredients', 'Ingredientes', 'metabox_recipe_ingredients', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'nutrition_facts', 'Información nutricional', 'metabox_nutrition_facts', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'percentage_value', 'Información nutricional', 'metabox_percentage_value', 'recetas', 'advanced', 'high' );
 	}
@@ -128,20 +126,6 @@
 
 		echo "<input type='text' class='[ widefat ]' name='_cook_time_meta' value='$cook_time' />";
 	}// metabox_cook_time
-
-	function metabox_instructions( $post ){
-		$instructions = get_post_meta( $post->ID, '_instructions_meta', true );
-		wp_nonce_field( __FILE__, '_instructions_meta_nonce' );
-
-		echo "<textarea class='[ widefat ]' name='_instructions_meta'>$instructions</textarea>";
-	}// metabox_instructions
-
-	function metabox_recipe_ingredients( $post ){
-		$recipe_ingredients = get_post_meta( $post->ID, '_recipe_ingredients_meta', true );
-		wp_nonce_field( __FILE__, '_recipe_ingredients_meta_nonce' );
-
-		echo "<textarea class='[ widefat ]' name='_recipe_ingredients_meta'>$recipe_ingredients</textarea>";
-	}// metabox_recipe_ingredients
 
 	function metabox_nutrition_facts( $post ){
 		$calories    = get_post_meta( $post->ID, '_calories_meta', true );
@@ -298,14 +282,6 @@
 		// Cook Time
 		if ( isset($_POST['_cook_time_meta']) and check_admin_referer( __FILE__, '_cook_time_meta_nonce') ){
 			update_post_meta($post_id, '_cook_time_meta', $_POST['_cook_time_meta']);
-		}
-		// Instructions
-		if ( isset($_POST['_instructions_meta']) and check_admin_referer( __FILE__, '_instructions_meta_nonce') ){
-			update_post_meta($post_id, '_instructions_meta', $_POST['_instructions_meta']);
-		}
-		// Recipe Ingredients
-		if ( isset($_POST['_recipe_ingredients_meta']) and check_admin_referer( __FILE__, '_recipe_ingredients_meta_nonce') ){
-			update_post_meta($post_id, '_recipe_ingredients_meta', $_POST['_recipe_ingredients_meta']);
 		}
 		// Calories
 		if ( isset($_POST['_calories_meta']) and check_admin_referer( __FILE__, '_calories_meta_nonce') ){

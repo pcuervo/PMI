@@ -302,6 +302,118 @@
 
 	}// get_recipe_portion_slug
 
+	/**
+	 * Get portion for a given Recipe.
+	 * @param integer $post_id 
+	 * @return string $portion
+	 */
+	function get_recipe_portion( $post_id ){
+
+		$recipe_portion_term = wp_get_post_terms( $post_id, 'porciones-recetas' );
+		$recipe_portion = empty( $recipe_portion_term ) ? '' : $recipe_portion_term[0]->name;
+		
+		return $recipe_portion;
+
+	}// get_recipe_portion
+
+	/**
+	 * Get recommended recipe for a given product
+	 * @param integer $product_name 
+	 * @return mixed $recipe_info
+	 */
+	function get_recommended_recipe( $product_name ){
+
+		$recipe_args = array(
+			'post_type' 		=> 'recetas',
+			'posts_per_page' 	=> 1,
+			'orderby'			=> 'rand',
+			'tax_query' => array(
+		        array(
+			        'taxonomy' => 'productos-receta',
+			        'field' => 'name',
+			        'terms' => array( $product_name ),
+			   	)
+		    ),
+		);
+		$query_recipe = new WP_Query( $recipe_args );
+
+		if( ! $query_recipe->have_posts() ) return get_random_recipe();
+
+		$query_recipe->the_post();
+		$recipe_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+		$recipe_info = array(
+			'image_url'		=> $recipe_img_url[0],
+			'title'			=> get_the_title(),
+			'portions'		=> get_recipe_portion( get_the_ID() ),
+			'cook_time'		=> get_post_meta( get_the_ID(), '_cook_time_meta', true ),
+			'permalink'		=> get_permalink( get_the_ID() ),
+			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
+			);
+		
+		return $recipe_info;
+	}// get_recommended_recipe
+
+	/**
+	 * Get a random recipe info
+	 * @return mixed $recipe_info
+	 */
+	function get_random_recipe(){
+		
+		$recipe_args = array(
+			'post_type' 		=> 'recetas',
+			'posts_per_page' 	=> 1,
+			'orderby'			=> 'rand',
+		);
+		$query_recipe = new WP_Query( $recipe_args );
+
+		if( ! $query_recipe->have_posts() ) return array();
+
+		$query_recipe->the_post();
+		$recipe_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+	
+		$recipe_info = array(
+			'image_url'		=> $recipe_img_url[0],
+			'title'			=> get_the_title(),
+			'portions'		=> get_recipe_portion( get_the_ID() ),
+			'cook_time'		=> get_post_meta( get_the_ID(), '_cook_time_meta', true ),
+			'permalink'		=> get_permalink( get_the_ID() ),
+			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
+			);
+		
+		return $recipe_info;
+
+	}// get_random_recipe
+
+	/**
+	 * Get product brand slug
+	 * @param integer $product_post_id 
+	 * @return string $brand_slug
+	 */
+	function get_product_brand_slug( $product_post_id ){
+
+		$brand_terms = wp_get_post_terms( $product_post_id, 'marcas' );
+
+		if( empty( $brand_terms ) ) return '';
+
+		return $brand_terms[0]->slug;
+
+	}// get_product_brand_slug
+
+	/**
+	 * Get product type slug
+	 * @param integer $product_post_id 
+	 * @return string $product_type_slug
+	 */
+	function get_product_type_slug( $product_post_id ){
+
+		$type_terms = wp_get_post_terms( $product_post_id, 'tipo-producto' );
+		
+		if( empty( $type_terms ) ) return '';
+
+		return $type_terms[0]->slug;
+
+	}// get_product_type_slug
+
 
 
 
