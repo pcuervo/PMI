@@ -99,4 +99,34 @@
 		);
 		register_post_type( 'marcas', $args );
 
+		// EXPERT OPINION
+		$labels = array(
+			'name'          => 'Opiniones de los expertos',
+			'singular_name' => 'Opinión de los expertos',
+			'add_new'       => 'Nueva opinión de los expertos',
+			'add_new_item'  => 'Nueva opinión de los expertos',
+			'edit_item'     => 'Editar opinión de los expertos',
+			'new_item'      => 'Nueva opinión de los expertos',
+			'all_items'     => 'Todas',
+			'view_item'     => 'Ver opinión de los expertos',
+			'search_items'  => 'Buscar opinión de los expertoss',
+			'not_found'     => 'No se encontró',
+			'menu_name'     => 'Opiniones de los expertos'
+		);
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'opiniones-expertos' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'opiniones-expertos', $args );
+
 	});

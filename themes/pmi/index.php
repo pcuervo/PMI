@@ -54,7 +54,7 @@
 					</p>
 				</div>
 				<div class="[ xmall-12 ][ text-center ]">
-					<a href="<?php echo site_url('blog'); ?>" class="[ button button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
+					<a href="<?php echo site_url('opiniones-expertos'); ?>" class="[ button button--highlight ][ inline-block ]">Cónoce la opinión de los expertos</a>
 				</div>
 			</div>
 		</div>
