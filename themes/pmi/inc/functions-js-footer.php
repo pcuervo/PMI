@@ -19,18 +19,23 @@
 				 * On load
 				**/
 				imgToSvg();
+				toggleActionButtons();
+				toggleHeader();
 
 
 				/**
 				 * Triggered events
 				**/
 
+				$(window).scroll(function(){
+					toggleActionButtons();
+					toggleHeader();
+				});
+
 				$('.js-modal-opener').on('click', function(e){
 					e.preventDefault();
 					var modal = $(this).data('modal');
-					console.log(modal);
 					var modal = '.modal-'+modal;
-					console.log(modal);
 					openModal(modal);
 				});
 
@@ -53,6 +58,13 @@
 
 					runIsotope('.isotope-container', '.post');
 					filterIsotope('.isotope-container', '.post');
+
+					$('.js-element-opener').on('click', function(e){
+						e.preventDefault();
+						var element = $(this).data('element');
+						var element = '.element-'+element;
+						toggleElement(element);
+					});
 
 				<?php } ?>
 
