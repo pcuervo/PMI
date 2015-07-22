@@ -8,6 +8,7 @@
 				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
 				<p>Quid sequatur, quid repugnet, vident. Si alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat; Quis enim potest ea, quae probabilia videantur ei, non probare? Compensabatur, inquit, cum summis doloribus laetitia. </p>
 			</div>
+
 			<article class="[ margin-bottom ]">
 				<div class="[ row ][ shown--large ]">
 					<?php
@@ -18,7 +19,7 @@
 						);
 						$brands = get_terms( 'marcas', $args );
 						foreach( $brands as $brand ) { ?>
-							<div class="[ post ][ columna xmall-1-5 ][ margin-bottom--large ]">
+							<div class="[ post ][ columna xmall-1-5 ][ margin-bottom--large ][ js-anchor ]" data-anchor="<?php echo $brand->slug; ?>">
 								<div class="[ drop-shadow ]">
 									<div class="[ padding--small ][ bg-primary ]">
 										<p class="[ post-title ][ text-center ]"><?php echo $brand->name; ?></p>
@@ -31,6 +32,7 @@
 						<?php }
 					?>
 				</div><!-- row shown-large -->
+
 				<div class="[ hidden--large ][ text-center ]">
 					<?php
 						// Show all brands that have products assigned
@@ -52,23 +54,28 @@
 
 			<a class="[ secondary ][ block ][ margin-bottom ]" href="#"><i class="[ xmall-12 ][ fa fa-angle-double-down fa-3x ][ text-center ]"></i></a>
 
-			<article class="[ row ]">
+		</div><!-- wrapper -->
 
-				<?php
-				// Get products by brand
-				foreach( $brands as $brand ) :
-					$brand_logo_url = get_brand_logo( $brand->name );
-					$products = get_products_by_brand( $brand->name );
-				?>
-					<section class="[ <?php echo $brand->slug ?> ]">
-						<img class="[ block center ][ xmall-4 ][ margin-bottom ]" src='<?php echo $brand_logo_url ?>' alt='<?php echo $brand->name ?>'>
+		<article class="[ row ]">
+
+			<?php
+			// Get products by brand
+			$counter = 1;
+			foreach( $brands as $brand ) :
+				$brand_logo_url = get_brand_logo( $brand->name );
+				$products = get_products_by_brand( $brand->name );
+			?>
+				<section class="[ margin-bottom ][ section-<?php echo $brand->slug ?> ]">
+					<img class="[ block center ][ xmall-4 medium-3 xmedium-2 ][ margin-bottom ]" src='<?php echo $brand_logo_url ?>' alt='<?php echo $brand->name ?>'>
+
+					<div class="[ hidden--large ]">
 						<div class="[ product-images ]">
 							<div class="[ overflow-holder ]">
 								<?php
 									// Display products by brand
 									foreach ( $products as $key => $product ) :
 								?>
-									<div class="[ post ][ inline-block ][ xmall-12 small-6 medium-4 ][ margin-bottom--large ]">
+									<div class="[ post ][ inline-block align-middle ]">
 										<div class="[ drop-shadow ]">
 											<a href="<?php echo $product['permalink'] ?>">
 												<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ]">
@@ -85,11 +92,44 @@
 								<?php endforeach; ?>
 							</div><!-- overflow-holder -->
 						</div><!-- product-images -->
-					</section>
-					<div class="[ clear ]"></div>
-				<?php endforeach; ?>
-			</article><!-- row -->
-		</div>
+					</div><!-- hidden-large -->
+
+					<div class="[ shown--large ][ tinycarousel-slider ]" id="slider<?php echo $counter; ?>">
+						<a class="buttons prev" href="#">
+								<i class="[ fa fa-angle-double-left ]"></i>
+							</a>
+							<div class="viewport">
+								<ul class="[ overview ][ product-images ]">
+								<?php
+									// Display products by brand
+									foreach ( $products as $key => $product ) :
+								?>
+									<li class="[ post ][ inline-block align-middle ]">
+										<div class="[ drop-shadow ]">
+											<a href="<?php echo $product['permalink'] ?>">
+												<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ]">
+											</a>
+											<div class="[ bg-primary ]">
+												<p class="[ post-title ] [ ]">
+													<a class="[ block ][ padding--small ]" href="<?php echo $product['permalink'] ?>">
+														<?php echo $product['title'] ?>
+													</a>
+												</p>
+											</div>
+										</div>
+									</li>
+								<?php endforeach; ?>
+								</ul>
+							</div>
+							<a class="buttons next" href="#">
+								<i class="[ fa fa-angle-double-right ]"></i>
+							</a>
+						</div>
+					</div><!-- shown-large -->
+				</section>
+				<?php $counter++; ?>
+			<?php endforeach; ?>
+		</article><!-- row -->
 	</section><!-- PRODUCTS -->
 
 <?php
