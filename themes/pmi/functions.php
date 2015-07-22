@@ -229,7 +229,7 @@
 
 
 
-	}// get_brand_logo
+	}// get_brand_product_image
 
 	/**
 	 * Get recipe info for filters.
