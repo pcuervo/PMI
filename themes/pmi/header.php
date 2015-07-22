@@ -95,7 +95,7 @@
 								class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
 									Nosotros
 								</a><a
-								class="<?php echo ( 'Productos' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
+								class="<?php echo ( 'Productos' == get_post_type() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
 									Productos
 								</a><span class="[ xmall-4 inline-block align-middle ][ spacer ]">&nbsp;</span><a
 								class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">

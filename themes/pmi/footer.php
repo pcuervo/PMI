@@ -25,10 +25,10 @@
 						</article>
 
 						<nav class="[ center-full ][ hidden--large ]">
-							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Nosotros</a>
-							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Productos</a>
-							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Servicios</a>
-							<a href="<?php echo site_url(''); ?>" class="[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Contacto</a>
+							<a href="<?php echo site_url('nosotros'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Nosotros</a>
+							<a href="<?php echo site_url('productos'); ?>" class="<?php echo ( 'Productos' == get_post_type() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Productos</a>
+							<a href="<?php echo site_url('servicios'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Servicios</a>
+							<a href="<?php echo site_url('contacto'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Contacto</a>
 							<div class="[ nav-item ][ padding ]">
 								<div class="[ row ]">
 									<div class="[ columna xmall-4 ]">
