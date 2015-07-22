@@ -78,6 +78,10 @@
 								</div>
 								<div class="[ columna xmall-4 ]">
 									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+									<form method="get" action="<?php echo site_url(); ?>" class="[ hidden ]">
+										<input class="sb-search-input" placeholder="¿Qué deseas buscar?" type="text" name="s" id="s">
+										<input class="sb-search-submit" type="submit" value="buscar">
+									</form>
 								</div>
 							</div><!-- menu-options -->
 						</div><!-- wrapper -->
