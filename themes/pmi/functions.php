@@ -185,7 +185,7 @@
 		}
 
 		$query_brand->the_post();
-		$brand_logo_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium' );
+		$brand_logo_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
 		wp_reset_query();
 
 		if( empty( $brand_logo_url ) ){
