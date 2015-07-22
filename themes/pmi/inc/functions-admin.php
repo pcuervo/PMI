@@ -68,3 +68,19 @@
 	add_filter('excerpt_more', function(){
 		return '…';
 	});
+
+
+
+/*------------------------------------*\
+	Multiple Post Thumbnails
+\*------------------------------------*/
+
+if (class_exists('MultiPostThumbnails')) {
+	new MultiPostThumbnails(
+		array(
+			'label' => 'Imagen del producto destacado',
+			'id' => 'secondary-image',
+			'post_type' => 'marcas'
+		)
+	);
+}

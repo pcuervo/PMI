@@ -61,8 +61,10 @@ header .header-bottom .menu-options{
 **/
 
 header.fixed{
-	height: 74px;
-	.diagonal-dark-blue-to-light-blue;
+	@media (min-width: @large){
+		height: 74px;
+		.diagonal-dark-blue-to-light-blue;
+	}
 }
 
 header.fixed .header-bottom .spacer{

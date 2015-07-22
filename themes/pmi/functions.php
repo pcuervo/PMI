@@ -147,10 +147,10 @@
 \*------------------------------------*/
 
 
-	
+
 	/**
 	 * Get all products by brand.
-	 * @param string $brand 
+	 * @param string $brand
 	 * @return mixed $products
 	 */
 	function get_products_by_brand( $brand ){
@@ -192,7 +192,7 @@
 
 	/**
 	 * Get logo of a given brand.
-	 * @param string $brand 
+	 * @param string $brand
 	 * @return string $brand_logo_url
 	 */
 	function get_brand_logo( $brand ){
@@ -220,14 +220,49 @@
 	}// get_brand_logo
 
 	/**
+	 * Get featured product image of a given brand.
+	 * @param string $brand
+	 * @return string $brand_logo_url
+	 */
+	function get_brand_product_image( $brand ){
+
+		global $post;
+
+		$brand_args = array(
+			'post_type' 		=> 'marcas',
+			'posts_per_page' 	=> 1,
+			'name'				=> $brand
+		);
+
+		$query_brand = new WP_Query( $brand_args );
+		if ( ! $query_brand->have_posts() ) {
+			return 0;
+		}
+
+		$query_brand->the_post();
+
+		$brand_product_image = MultiPostThumbnails::the_post_thumbnail( get_post_type(), 'secondary-image', $post->ID, 'medium', array('class' => '[ image-responsive ]'));
+
+		wp_reset_query();
+
+		if( empty( $brand_product_image ) ){
+			return 0;
+		}
+		return $brand_product_image;
+
+
+
+	}// get_brand_logo
+
+	/**
 	 * Get recipe info for filters.
-	 * @param integer $post_id 
+	 * @param integer $post_id
 	 * @return mixed $brand_info
 	 */
 	function get_recipe_filter_info( $post_id ){
 
 		$product_info = get_recipe_product_info( $post_id );
-		
+
 		$brand_info = array(
 			'brand'			=> $product_info['brand'],
 			'meal_type'		=> get_recipe_meal_type_slug( $post_id ),
@@ -241,14 +276,14 @@
 
 	/**
 	 * Get product info for a given Recipe.
-	 * @param integer $post_id 
+	 * @param integer $post_id
 	 * @return string $product_info
 	 */
 	function get_recipe_product_info( $post_id ){
 
 		$recipe_product_term = wp_get_post_terms( $post_id, 'productos-receta' );
 
-		if( empty ( $recipe_product_term ) ) 
+		if( empty ( $recipe_product_term ) )
 			return array( 'brand' => '', 'product_type' => '' );
 
 		$args = array(
@@ -276,49 +311,49 @@
 
 	/**
 	 * Get meal type slug for a given Recipe.
-	 * @param integer $post_id 
+	 * @param integer $post_id
 	 * @return string $meal_type_slug
 	 */
 	function get_recipe_meal_type_slug( $post_id ){
 
 		$recipe_meal_type_term = wp_get_post_terms( $post_id, 'tipos-comida' );
 		$recipe_meal_type_slug = empty( $recipe_meal_type_term ) ? '' : $recipe_meal_type_term[0]->slug;
-		
+
 		return $recipe_meal_type_slug;
 
 	}// get_recipe_meal_type_slug
 
 	/**
 	 * Get portion slug for a given Recipe.
-	 * @param integer $post_id 
+	 * @param integer $post_id
 	 * @return string $portion_slug
 	 */
 	function get_recipe_portion_slug( $post_id ){
 
 		$recipe_portion_term = wp_get_post_terms( $post_id, 'porciones-recetas' );
 		$recipe_portion_slug = empty( $recipe_portion_term ) ? '' : $recipe_portion_term[0]->slug;
-		
+
 		return $recipe_portion_slug;
 
 	}// get_recipe_portion_slug
 
 	/**
 	 * Get portion for a given Recipe.
-	 * @param integer $post_id 
+	 * @param integer $post_id
 	 * @return string $portion
 	 */
 	function get_recipe_portion( $post_id ){
 
 		$recipe_portion_term = wp_get_post_terms( $post_id, 'porciones-recetas' );
 		$recipe_portion = empty( $recipe_portion_term ) ? '' : $recipe_portion_term[0]->name;
-		
+
 		return $recipe_portion;
 
 	}// get_recipe_portion
 
 	/**
 	 * Get recommended recipe for a given product
-	 * @param integer $product_name 
+	 * @param integer $product_name
 	 * @return mixed $recipe_info
 	 */
 	function get_recommended_recipe( $product_name ){
@@ -349,7 +384,7 @@
 			'permalink'		=> get_permalink( get_the_ID() ),
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
-		
+
 		return $recipe_info;
 	}// get_recommended_recipe
 
@@ -358,7 +393,7 @@
 	 * @return mixed $recipe_info
 	 */
 	function get_random_recipe(){
-		
+
 		$recipe_args = array(
 			'post_type' 		=> 'recetas',
 			'posts_per_page' 	=> 1,
@@ -370,7 +405,7 @@
 
 		$query_recipe->the_post();
 		$recipe_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-	
+
 		$recipe_info = array(
 			'image_url'		=> $recipe_img_url[0],
 			'title'			=> get_the_title(),
@@ -379,14 +414,14 @@
 			'permalink'		=> get_permalink( get_the_ID() ),
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
-		
+
 		return $recipe_info;
 
 	}// get_random_recipe
 
 	/**
 	 * Get product brand slug
-	 * @param integer $product_post_id 
+	 * @param integer $product_post_id
 	 * @return string $brand_slug
 	 */
 	function get_product_brand_slug( $product_post_id ){
@@ -401,13 +436,13 @@
 
 	/**
 	 * Get product type slug
-	 * @param integer $product_post_id 
+	 * @param integer $product_post_id
 	 * @return string $product_type_slug
 	 */
 	function get_product_type_slug( $product_post_id ){
 
 		$type_terms = wp_get_post_terms( $product_post_id, 'tipo-producto' );
-		
+
 		if( empty( $type_terms ) ) return '';
 
 		return $type_terms[0]->slug;
