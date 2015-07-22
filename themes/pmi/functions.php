@@ -394,7 +394,6 @@
 			);
 		wp_reset_query();
 
-		// Test
 		return $recipe_info;
 
 	}// get_random_recipe
@@ -444,11 +443,12 @@
 		$similar_products_args = array(
 			'post_type' 		=> 'productos',
 			'posts_per_page' 	=> 3,
-			'tax_query' => array(
+			'post__not_in' 		=> array( $product_post_id ),
+			'tax_query' 		=> array(
 		        array(
-			        'taxonomy' => 'tipo-producto',
-			        'field' => 'slug',
-			        'terms' => array( $product_type_term[0]->slug ),
+			        'taxonomy' 	=> 'tipo-producto',
+			        'field'	 	=> 'slug',
+			        'terms' 	=> array( $product_type_term[0]->slug ),
 			   	)
 		    ),
 		);
