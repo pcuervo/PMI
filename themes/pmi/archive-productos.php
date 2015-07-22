@@ -1,60 +1,94 @@
-<?php 
+<?php
 	get_header();
-	the_post();
 ?>
 	<!-- PRODUCTS -->
 	<section class="[]">
 		<div class="[ wrapper ]">
-			<div class="[ row ]">
-				<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
-					<h2 class="[ text-center ][ margin-bottom ]"><?php the_title() ?></h2>
-					<?php the_content() ?>
-					<ul class="[ margin-bottom ]">
-						<?php 
+			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
+				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
+				<p>Quid sequatur, quid repugnet, vident. Si alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat; Quis enim potest ea, quae probabilia videantur ei, non probare? Compensabatur, inquit, cum summis doloribus laetitia. </p>
+			</div>
+			<article class="[ margin-bottom ]">
+				<div class="[ row ][ shown--large ]">
+					<?php
 						// Show all brands that have products assigned
 						$args = array(
 							'orderby'		=> 'name',
-							'hide_empty'	=> true,	
-							);
+							'hide_empty'	=> true
+						);
 						$brands = get_terms( 'marcas', $args );
-						foreach( $brands as $brand ) {
-							echo "<li><a href='#$brand->slug' class='[ button ]'>$brand->name</a></li>";
-						}
-						?>
-					</ul>
-					<a class="" href="#"><i class="fa fa-angle-double-down fa-2x"></i></a>
-					<div class="clear"></div>
-
-					<?php
-
-					// Get products by brand
-					foreach( $brands as $brand ) :
-						$brand_logo_url = get_brand_logo( $brand->name );
-						$products = get_products_by_brand( $brand->name );	
-
-						// Display products by brand
-						foreach ( $products as $key => $product ) :
-							if( $key == 0 ){
-								echo "<img src='$brand_logo_url' alt='$brand->name' id='$brand->slug'>";
-								echo "<p>$brand->name</p>";
-							}
-					?>
-							<!-- Chance esto esta de la verga jaja pero toda la zona debe ser clickeable no? -->
-							<!-- <a href="<?php echo $product['permalink'] ?>"> -->
-								<div class="[ columna xmall-12 medium-4 ][ padding ]">
-									<div class="[ bg-light ][ relative ]">
-										<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ] [ margin-bottom ]">
+						foreach( $brands as $brand ) { ?>
+							<div class="[ post ][ columna xmall-1-5 ][ margin-bottom--large ]">
+								<div class="[ drop-shadow ]">
+									<div class="[ padding--small ][ bg-primary ]">
+										<p class="[ post-title ][ text-center ]"><?php echo $brand->name; ?></p>
 									</div>
-									<h3 class=""><?php echo $product['title'] ?></h3>
+									<a href="#<?php echo $brand->slug ?>">
+										<?php get_brand_product_image($brand->name); ?>
+									</a>
 								</div>
-							<!-- </a> -->
-					<?php 
-						endforeach;
-						echo '<div class="clear"></div>';
-					endforeach;
-					?>	
-				</div>
-			</div>
+							</div>
+						<?php }
+					?>
+				</div><!-- row shown-large -->
+				<div class="[ hidden--large ][ text-center ]">
+					<?php
+						// Show all brands that have products assigned
+						$args = array(
+							'orderby'		=> 'name',
+							'hide_empty'	=> true
+						);
+						$brands = get_terms( 'marcas', $args );
+						foreach( $brands as $brand ) { ?>
+							<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ][ js-anchor ]" data-anchor="<?php echo $brand->slug; ?>">
+								<span class="[ block ][ bg-light ]">
+									<?php echo $brand->name; ?>
+								</span>
+							</button>
+						<?php }
+					?>
+				</div><!-- hidden-large -->
+			</article>
+
+			<a class="[ secondary ][ block ][ margin-bottom ]" href="#"><i class="[ xmall-12 ][ fa fa-angle-double-down fa-3x ][ text-center ]"></i></a>
+
+			<article class="[ row ]">
+
+				<?php
+				// Get products by brand
+				foreach( $brands as $brand ) :
+					$brand_logo_url = get_brand_logo( $brand->name );
+					$products = get_products_by_brand( $brand->name );
+				?>
+					<section class="[ <?php echo $brand->slug ?> ]">
+						<img class="[ block center ][ xmall-4 ][ margin-bottom ]" src='<?php echo $brand_logo_url ?>' alt='<?php echo $brand->name ?>'>
+						<div class="[ product-images ]">
+							<div class="[ overflow-holder ]">
+								<?php
+									// Display products by brand
+									foreach ( $products as $key => $product ) :
+								?>
+									<div class="[ post ][ inline-block ][ xmall-12 small-6 medium-4 ][ margin-bottom--large ]">
+										<div class="[ drop-shadow ]">
+											<a href="<?php echo $product['permalink'] ?>">
+												<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ]">
+											</a>
+											<div class="[ bg-primary ]">
+												<p class="[ post-title ] [ ]">
+													<a class="[ block ][ padding--small ]" href="<?php echo $product['permalink'] ?>">
+														<?php echo $product['title'] ?>
+													</a>
+												</p>
+											</div>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</div><!-- overflow-holder -->
+						</div><!-- product-images -->
+					</section>
+					<div class="[ clear ]"></div>
+				<?php endforeach; ?>
+			</article><!-- row -->
 		</div>
 	</section><!-- PRODUCTS -->
 
