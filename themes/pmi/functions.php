@@ -393,7 +393,8 @@
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
 		wp_reset_query();
-		
+
+		// Test
 		return $recipe_info;
 
 	}// get_random_recipe
