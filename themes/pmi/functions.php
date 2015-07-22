@@ -394,7 +394,6 @@
 			);
 		wp_reset_query();
 
-		// Test
 		return $recipe_info;
 
 	}// get_random_recipe
