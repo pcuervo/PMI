@@ -118,6 +118,17 @@ function toggleElement(element){
 	$(element).toggleClass('hide');
 }//showElement
 
+/**
+ * Animates scroll to an element
+ * @param element to scroll to
+**/
+function scrollToElement(element, offset){
+	console.log(element);
+	var position = $(element).offset().top;
+	position = position - 20;
+	$('html, body').animate({scrollTop: position}, offset);
+}//scrollToElement
+
 
 /**
  * Load Google Map

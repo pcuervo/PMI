@@ -52,9 +52,9 @@
 				});
 
 				/*------------------------------------*\
-					#RECIPEES
+					#ARCHIVE RECIPEES
 				\*------------------------------------*/
-				<?php if ( get_post_type() == 'recetas' ){ ?>
+				<?php if ( is_post_type_archive('recetas') ){ ?>
 
 					runIsotope('.isotope-container', '.post');
 					filterIsotope('.isotope-container', '.post');
@@ -65,6 +65,52 @@
 						var element = '.element-'+element;
 						toggleElement(element);
 					});
+
+				<?php } ?>
+
+				/*------------------------------------*\
+					#ARCHIVE PRODUCTS
+				\*------------------------------------*/
+				<?php if ( is_post_type_archive('productos') ){ ?>
+
+					$('.js-anchor').on('click', function(e){
+						e.preventDefault();
+						var element = $(this).data('anchor');
+						var element = '.section-'+element;
+						scrollToElement(element, '100');
+					});
+
+					if ( $('#slider1').length > 0 ){
+						$('#slider1').tinycarousel();
+					}
+					if ( $('#slider2').length > 0 ){
+						$('#slider2').tinycarousel();
+					}
+					if ( $('#slider3').length > 0 ){
+						$('#slider3').tinycarousel();
+					}
+					if ( $('#slider4').length > 0 ){
+						$('#slider4').tinycarousel();
+					}
+					if ( $('#slider5').length > 0 ){
+						$('#slider5').tinycarousel();
+					}
+					if ( $('#slider6').length > 0 ){
+						$('#slider6').tinycarousel();
+					}
+					if ( $('#slider7').length > 0 ){
+						$('#slider7').tinycarousel();
+					}
+					if ( $('#slider8').length > 0 ){
+						$('#slider8').tinycarousel();
+					}
+					if ( $('#slider9').length > 0 ){
+						$('#slider9').tinycarousel();
+					}
+					if ( $('#slider10').length > 0 ){
+						$('#slider10').tinycarousel();
+					}
+
 
 				<?php } ?>
 
