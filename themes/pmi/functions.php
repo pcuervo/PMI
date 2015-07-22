@@ -215,6 +215,7 @@
 		if( empty( $brand_logo_url ) ){
 			return 0;
 		}
+
 		return $brand_logo_url[0];
 
 	}// get_brand_logo
@@ -448,6 +449,51 @@
 		return $type_terms[0]->slug;
 
 	}// get_product_type_slug
+
+	/**
+	 * Get products similar to the given product base on product type
+	 * @param integer $product_post_id
+	 * @return string $similar_products
+	 */
+	function get_similar_products( $product_post_id ){
+
+		$product_type_term = wp_get_post_terms( $product_post_id, 'tipo-producto' );
+
+		// ¿Does the current product have an assigned "tipo de producto"?
+		if ( empty( $product_type_term ) ) return array();
+
+		$similar_products_args = array(
+			'post_type' 		=> 'productos',
+			'posts_per_page' 	=> 3,
+			'tax_query' => array(
+		        array(
+			        'taxonomy' => 'tipo-producto',
+			        'field' => 'slug',
+			        'terms' => array( $product_type_term[0]->slug ),
+			   	)
+		    ),
+		);
+		$query_products = new WP_Query( $similar_products_args );
+
+		// ¿Are there any other products with the same "tipo de producto"?
+		if( ! $query_products->have_posts() ) return array();
+
+		$similar_products = array();
+		$product_index = 0;
+		while ( $query_products->have_posts() ) : $query_products->the_post();
+
+			$similar_products[$product_index] = array(
+				'img_url'	=> wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'thumbnail' ),
+				'title'		=> get_the_title(),
+				'permalink'	=> get_the_permalink(),
+			);
+			$product_index++;
+
+		endwhile;
+		wp_reset_query();
+
+		return $similar_products;
+	}// get_similar_products
 
 
 
