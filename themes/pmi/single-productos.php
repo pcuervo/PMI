@@ -175,7 +175,7 @@
 						<div class="[ post ][ columna xmall-12 small-6 medium-4 ][ margin-bottom--large ]">
 							<div class="[ drop-shadow ]">
 								<a href="<?php echo $product['permalink'] ?>">
-									<img src="<?php echo $product['product_img_url'][0] ?>" alt="<?php echo $product['title'] ?>" class="[ image-responsive ] [ margin-bottom ]">
+									<img src="<?php echo $product['img_url'][0] ?>" alt="<?php echo $product['title'] ?>" class="[ image-responsive ] [ margin-bottom ]">
 									<div class="[ padding--small ][ bg-primary ]">
 										<p class="[ post-title ] [ ]"><?php echo $product['title'] ?></p>
 									</div>
