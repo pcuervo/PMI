@@ -361,6 +361,7 @@
 			'permalink'		=> get_permalink( get_the_ID() ),
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
+		wp_reset_query();
 
 		return $recipe_info;
 	}// get_recommended_recipe
@@ -391,7 +392,8 @@
 			'permalink'		=> get_permalink( get_the_ID() ),
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
-
+		wp_reset_query();
+		
 		return $recipe_info;
 
 	}// get_random_recipe
