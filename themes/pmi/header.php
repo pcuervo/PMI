@@ -41,8 +41,6 @@
 		<![endif]-->
 		<div class="[ container ]">
 			<header class="[  ]">
-			<!-- <header class="[ fixed ]"> -->
-
 				<div class="[ hidden--large ]">
 					<div class="[ wrapper ]">
 						<div class="[ row ][ padding--top--small padding--bottom--small ]">
@@ -121,4 +119,3 @@
 				</div><!-- shown--large -->
 			</header>
 			<div class="[ main ]">
-			<!-- <div class="[ main ][ header-fixed ]"> -->

@@ -229,7 +229,7 @@
 
 
 
-	}// get_brand_logo
+	}// get_brand_product_image
 
 	/**
 	 * Get recipe info for filters.
@@ -393,7 +393,7 @@
 			'ingredients'	=> rwmb_meta( '_ingredientes_receta', '', get_the_ID() ),
 			);
 		wp_reset_query();
-		
+
 		return $recipe_info;
 
 	}// get_random_recipe

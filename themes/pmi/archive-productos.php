@@ -103,6 +103,7 @@
 								<?php
 									// Display products by brand
 									foreach ( $products as $key => $product ) :
+
 								?>
 									<li class="[ post ][ inline-block align-middle ]">
 										<div class="[ drop-shadow ]">
