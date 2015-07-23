@@ -143,7 +143,7 @@
 					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ][ <?php echo $recipe_filter_classes; ?>]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail( 'medium', array( 'class' => '[ image-responsive ] [ margin-bottom ]' ) ); ?>
+								<?php the_post_thumbnail( 'medium', array( 'class' => '[ image-responsive ]' ) ); ?>
 							</a>
 							<div class="[ padding--small ][ bg-primary ]">
 								<p class="[ post-title ]"><?php the_title() ?></p>

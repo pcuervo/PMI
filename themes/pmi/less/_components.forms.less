@@ -4,9 +4,6 @@
 fieldset{
 	padding: 0; border: none; margin: 0;
 }
-input, button[type='submit']{
-	border: none;
-}
 
 /*------------------------------------*\
     #FORM ELEMENTS
@@ -16,8 +13,12 @@ input{
 	padding: 4px;
 }
 input, textarea{
-
+	border: 2px solid @secondary;
 	&:focus, &:active{ outline-color: @primary; }
+}
+
+button[type='submit']{
+	border: none;
 }
 
 .error{

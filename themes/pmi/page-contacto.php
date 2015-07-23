@@ -1,7 +1,7 @@
-<?php 
+<?php
 	get_header();
 	the_post();
-	
+
 	$cover_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 	$contact_info_query = new WP_Query( 'pagename=contacto' );
 	if ( $contact_info_query->have_posts() ) : $contact_info_query->the_post();
@@ -15,47 +15,55 @@
 		<div class="[ wrapper ]">
 			<div class="[ row ][ contacto ]">
 				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]"><?php the_title() ?></h2>
-				<div class="[ columna xmall-12  ][ center ][ margin-bottom ]">
-					<img src="<?php echo $cover_url[0] ?>" class="[ image-responsive ]" />
+				<div class="[ bg-image ][ margin-bottom ][ xmall-12 xmedium-10 ][ center ]" style="background-image: url('<?php echo $cover_url[0] ?>')">
+					<div class="[ diagonal-green-to-blue-gradient ][ padding--large ]">
+						<span class="[ block ][ padding--large ]">&nbsp;</span><br />
+						<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
+						<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
+					</div>
 				</div>
-				
-				<div class="[ columna xmall-12 medium-8  ][ center ][ margin-bottom ]">
-					<ul class="[ list-reset ]">
+
+				<div class="[ xmall-12 medium-8 xmedium-6 ][ center ]">
+					<ul class="[ list-reset ][ margin-bottom ]">
 						<li class="[ ]">
 							<p class="[  ]">
-								<i class="[ icon-phone ][ inline-block align-middle ]"></i>
+								<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/phone.svg" alt="phone">
 								<?php echo $telefono; ?>
 							</p>
 						</li>
 						<li class="[ ]">
 							<p class="[  ]">
-								<i class="[ icon-address ][ inline-block align-middle ]"></i>
+								<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/house.svg" alt="address">
 								<?php echo $address; ?>
 							</p>
 						</li>
 						<li class="[ ]">
 							<p class="[  ]">
-								<i class="[ icon-email ][ inline-block align-middle ]"></i>
+								<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/email.svg" alt="email">
 								<?php echo $email; ?>
 							</p>
 						</li>
 					</ul>
-					<form action="" class="[ columna xmall-12 medium-8 ]">
-						<fieldset>
-							<label for="name">Nombre</label><br>
-							<input type="text" name="name">
+					<form action="">
+						<fieldset class="[ margin-bottom ]">
+							<label class="[ secondary ]" for="name">Nombre</label><br>
+							<input class="[ xmall-12 ]" type="text" name="name">
 						</fieldset>
-						<fieldset>
-							<label for="email">Correo</label><br>
-							<input type="text" name="email">
+						<fieldset class="[ margin-bottom ]">
+							<label class="[ secondary ]" for="email">Correo</label><br>
+							<input class="[ xmall-12 ]" type="text" name="email">
 						</fieldset>
-						<fieldset>
-							<label for="message">Mensaje</label><br>
-							<textarea name="message" id="" cols="30" rows="10"></textarea>
+						<fieldset class="[ margin-bottom ]">
+							<label class="[ secondary ]" for="message">Mensaje</label><br>
+							<textarea class="[ xmall-12 ]" name="message" id="" rows="7"></textarea>
 						</fieldset>
-						<fieldset>
+						<fieldset class="[ text-center ]">
 							<input type="hidden" name="action" value="send_email_contacto">
-							<input type="submit" class="[ button ] [ inline-block ]" value="Enviar">
+							<button type="submit" class="[ inline-block ][ button--hollow ][ diagonal-green-to-blue-gradient ]">
+								<span class="[ block ][ bg-light ][ padding--small ]">
+									Enviar
+								</span>
+							</button>
 						</fieldset>
 					</form>
 				</div>

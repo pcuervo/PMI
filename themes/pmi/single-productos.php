@@ -118,7 +118,7 @@
 				<div class="[ center xmedium-8 ]">
 					<div class="[ row ]">
 
-						<div class="[ post ][ columna xmall-12 small-6 ][ margin-bottom ]">
+						<div class="[ columna xmall-12 medium-6 ][ margin-bottom ]">
 							<div class="[ drop-shadow ]">
 								<a href="<?php echo $recommended_recipe['permalink'] ?>">
 									<img src="<?php echo $recommended_recipe['image_url'] ?>" class="[ image-responsive ] [ margin-bottom ]'" />
@@ -129,19 +129,17 @@
 							</div>
 						</div>
 
-						<div class="[ post ][ columna xmall-12 small-6 ][ margin-bottom--large ]">
+						<div class="[ columna xmall-12 medium-6 ][ margin-bottom--large ]">
 							<div class="[ gradient-border ][ diagonal-green-to-blue-gradient ][ margin-bottom ]">
 								<span class="[ block ][ bg-light ][ padding--small ]">
 									<div class="[ row ]">
-										<div class="[ columna xmall-6 ]">
-											<p class="[ text-center ][ primary ][ no-margin ]"><?php echo $recommended_recipe['portions'] ?></p>
-											<p class="[ small-text text-center ][ secondary ]">porciones</p>
-											<!-- <i class="[ icon-portion ]"></i> -->
+										<div class="[ columna xmall-6 ][ text-center ]">
+											<p class="[ primary ][ no-margin ]"><?php echo $recommended_recipe['portions'] ?></p>
+											<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/porciones.svg" alt="porciones">
 										</div>
-										<div class="[ columna xmall-6 ]">
-											<p class="[ text-center ][ primary ][ no-margin ]"><?php echo $recommended_recipe['cook_time'] ?></p>
-											<p class="[ small-text text-center ][ secondary ]">tiempo</p>
-											<!-- <i class="[ icon-time ]"></i> -->
+										<div class="[ columna xmall-6 ][ text-center ]">
+											<p class="[ primary ][ no-margin ]"><?php echo $recommended_recipe['cook_time'] ?></p>
+											<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/clock.svg" alt="time">
 										</div>
 									</div><!-- row -->
 								</span>

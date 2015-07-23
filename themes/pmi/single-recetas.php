@@ -49,15 +49,13 @@
 			<div class="[ gradient-border ][ diagonal-green-to-blue-gradient ][ margin-bottom ][ xmall-12 medium-6 xmedium-4 ][ center ]">
 				<span class="[ block ][ bg-light ][ padding--small ]">
 					<div class="[ row ]">
-						<div class="[ columna xmall-6 ]">
-							<p class="[ text-center ][ primary ][ no-margin ]"><?php echo $portion ?></p>
-							<p class="[ small-text text-center ][ secondary ]">porciones</p>
-							<!-- <i class="[ icon-portion ]"></i> -->
+						<div class="[ columna xmall-6 ][ text-center ]">
+							<p class="[ primary ][ no-margin ]"><?php echo $portion ?></p>
+							<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/porciones.svg" alt="porciones">
 						</div>
-						<div class="[ columna xmall-6 ]">
-							<p class="[ text-center ][ primary ][ no-margin ]"><?php echo $cook_time ?></p>
-							<p class="[ small-text text-center ][ secondary ]">tiempo</p>
-							<!-- <i class="[ icon-time ]"></i> -->
+						<div class="[ columna xmall-6 ][ text-center ]">
+							<p class="[ primary ][ no-margin ]"><?php echo $cook_time ?></p>
+							<img class="[ svg icon icon--small ][ secondary ][ inline-block align-middle ]" src="<?php echo THEMEPATH; ?>images/clock.svg" alt="time">
 						</div>
 					</div><!-- row -->
 				</span>

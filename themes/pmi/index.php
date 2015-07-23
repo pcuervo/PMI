@@ -80,7 +80,7 @@
 					<div class="[ post ][ columna xmall-12 small-6 medium-4 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 							</a>
 							<div class="[ padding--small ][ bg-primary ]">
 								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
@@ -119,7 +119,7 @@
 					<div class="[ post ][ columna xmall-6 medium-4 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 							</a>
 							<div class="[ padding--small ][ bg-primary ]">
 								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
