@@ -29,18 +29,28 @@
 							<a href="<?php echo site_url('productos'); ?>" class="<?php echo ( 'Productos' == get_post_type() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Productos</a>
 							<a href="<?php echo site_url('servicios'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Servicios</a>
 							<a href="<?php echo site_url('contacto'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Contacto</a>
-							<div class="[ nav-item ][ padding ]">
-								<div class="[ row ]">
+							<div class="[ nav-item ][ padding ][ relative ]">
+								<div class="[ row ][ menu-options ][ hide ]">
 									<div class="[ columna xmall-4 ]">
-										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
 									</div>
 									<div class="[ columna xmall-4 ][ opacity-3 ]">
-										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
 									</div>
-									<div class="[ columna xmall-4 ]">
-										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+									<div class="[ columna xmall-4 ][ js-open-search ]" data-element="menu-options">
+										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
 									</div>
-								</div><!-- row -->
+									<form class="[ form--search ][ columna xmall-12 ]" method="get" action="<?php echo site_url(); ?>">
+										<div class="[ input-group ]">
+											<input class="[ sb-search-input ][ xmall-12 ]" placeholder="¿Qué deseas buscar?" type="text" name="s" id="s">
+											<span class="[ input-group-addon ]">
+												<button class="[ sb-search-submit ][ bg-light ]" type="submit" name="submit">
+													<img class="[ svg icon icon--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+												</button>
+											</span>
+										</div>
+									</form>
+								</div><!-- menu-options -->
 							</div>
 						</nav><!-- categorias -->
 					</div><!-- modal-content -->

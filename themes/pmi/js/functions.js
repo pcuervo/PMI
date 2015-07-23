@@ -10,9 +10,12 @@ var $=jQuery.noConflict();
  * @item element inside the container
 **/
 function runIsotope(container, item){
-	$(container).isotope({
-		itemSelector: item,
-		layoutMode: 'fitRows'
+	var $container = $(container);
+	$container.imagesLoaded( function(){
+		$container.isotope({
+			itemSelector : item,
+			layoutMode: 'fitRows'
+		});
 	});
 }
 
