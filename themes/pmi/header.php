@@ -67,20 +67,26 @@
 							<a class="[ block ][ padding--small ][ bg-light ][ logo ][ center ]" href="<?php echo site_url() ?>">
 								<img class="[ image-responsive ]" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png">
 							</a>
-							<div class="[ menu-options ]">
+							<div class="[ menu-options ][ hide ]">
 								<div class="[ columna xmall-4 ]">
-									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+									<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
 								</div>
 								<div class="[ columna xmall-4 ][ opacity-3 ]">
-									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+									<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
 								</div>
-								<div class="[ columna xmall-4 ]">
-									<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
-									<form method="get" action="<?php echo site_url(); ?>" class="[ hidden ]">
-										<input class="sb-search-input" placeholder="¿Qué deseas buscar?" type="text" name="s" id="s">
-										<input class="sb-search-submit" type="submit" value="buscar">
-									</form>
+								<div class="[ columna xmall-4 ][ js-open-search ]" data-element="menu-options">
+									<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
 								</div>
+								<form class="[ form--search ][ columna xmall-12 ]" method="get" action="<?php echo site_url(); ?>">
+									<div class="[ input-group ]">
+										<input class="[ sb-search-input ][ xmall-12 ]" placeholder="¿Qué deseas buscar?" type="text" name="s" id="s">
+										<span class="[ input-group-addon ]">
+											<button class="[ sb-search-submit ][ bg-light ]" type="submit" name="submit">
+												<img class="[ svg icon icon--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+											</button>
+										</span>
+									</div>
+								</form>
 							</div><!-- menu-options -->
 						</div><!-- wrapper -->
 					</div><!-- header-top -->

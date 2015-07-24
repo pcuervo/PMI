@@ -44,6 +44,17 @@
 					closeModal();
 				});
 
+				$(document).click( function(){
+					$('.menu-options').addClass('hide');
+				});
+
+				$('.js-open-search').on('click', function(e){
+					e.preventDefault();
+					e.stopPropagation();
+					var element = $(this).data('element');
+					var element = '.'+element;
+					toggleElement(element);
+				});
 
 				// Contact form
 				$('.contacto input[type="submit"]').on('click', function(e){

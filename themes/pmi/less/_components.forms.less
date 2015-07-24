@@ -27,3 +27,45 @@ button[type='submit']{
 }
 
 .message{ font-size: .8em; }
+
+/*------------------------------------*\
+    #INPUT GROUPS
+\*------------------------------------*/
+.input-group {
+	position: relative;
+	display: table;
+	border-collapse: separate;
+	width: 100%;
+}
+
+.input-group button,
+.input-group input[type=button],.input-group input[type=reset],.input-group input[type=submit]{
+	min-width:100%
+}
+input[type=button],input[type=reset],input[type=submit]{
+	max-width:none; width:auto;
+}
+
+.input-group input{
+	width: 100%;
+}
+
+.input-group button{
+	height: 30px;
+	border: 1px solid @secondary;
+	color: @light;
+}
+
+.input-group > *{
+	display:table-cell;
+	margin-bottom:0;
+}
+
+.input-group-addon{
+	white-space:nowrap; vertical-align:middle;
+	width:1%;
+}
+
+.input-group-addon > *{
+	margin-bottom:0!important;
+}

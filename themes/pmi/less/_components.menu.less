@@ -32,10 +32,44 @@ nav.hidden--large .nav-item:last-child{
 \*------------------------------------*/
 
 .menu-options{
-	width: 100px;
-	position: absolute; top: 16px; right: 0;
+
+	width: 200px;
+	position: absolute; top: 16px; left: 0;
+	.transition;
+
+	@media (min-width: @large){
+		right: 0; left: initial;
+	}
+
+
 }
 
-nav.shown--large--inline{
+/**
+ * Search form
+**/
+.menu-options > div{
+	display: none;
+	.transition;
+}
 
+.menu-options .form--search{
+	display: block;
+}
+
+.menu-options.hide{
+	width: 100px;
+	left: 20%;
+
+	@media (min-width: @large){
+		left: initial;
+	}
+
+	& > div{
+		display: block;
+	}
+}
+
+.menu-options.hide .form--search{
+	display: none;
+	.transition;
 }

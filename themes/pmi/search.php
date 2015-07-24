@@ -1,6 +1,6 @@
-<?php 
+<?php
 	global $post, $wp_query, $query_string;
-	get_header(); 
+	get_header();
 
 	// Search query
 	add_filter( 'posts_where', 'allowed_posts_types_only', 10, 3 );
@@ -39,7 +39,7 @@
 							<div class="[ post ][ columna xmall-12 small-6 medium-4 large-3 ][ margin-bottom--large ]">
 								<div class="[ drop-shadow ]">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+										<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 									</a>
 									<div class="[ padding--small ][ bg-primary ]">
 										<p class="[ post-title ] [ ]"><?php the_title() ?></p>
@@ -61,7 +61,7 @@
 							<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ]">
 								<div class="[ drop-shadow ]">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+										<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 									</a>
 									<div class="[ padding--small ][ bg-primary ]">
 										<p class="[ post-title ] [ ]"><?php the_title() ?></p>
@@ -69,7 +69,7 @@
 								</div>
 							</div>
 				<?php
-							break;						
+							break;
 						case 'opiniones-expertos':
 							if( $first_opinion ) {
 								echo '<div class="clear"></div>';
@@ -80,7 +80,7 @@
 							<div class="[ post ][ columna xmall-12 small-6 medium-4 large-3 ][ margin-bottom--large ]">
 								<div class="[ drop-shadow ]">
 									<a href="<?php the_permalink(); ?>">
-										<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ] [ margin-bottom ]')); ?>
+										<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 									</a>
 									<div class="[ padding--small ][ bg-primary ]">
 										<p class="[ post-title ] [ ]"><?php the_title() ?></p>
@@ -102,7 +102,7 @@
 					'current' => max( 1, get_query_var('paged') ),
 					'total' => $wp_query->max_num_pages
 				) );
-				wp_reset_query(); 
+				wp_reset_query();
 			?>
 		</div><!-- row -->
 	</div><!-- wrapper -->
