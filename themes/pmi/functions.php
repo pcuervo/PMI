@@ -424,7 +424,7 @@
 
 		if( empty( $type_terms ) ) return '';
 
-		return $type_terms[0]->slug;
+		return $type_terms[0]->slug; 
 
 	}// get_product_type_slug
 
