@@ -20,6 +20,26 @@ function runIsotope(container, item){
 }
 
 /**
+ * Run Validation plugin
+ * @form to validate
+**/
+function runValidation(form){
+	$(form).validate({
+		submitHandler:function(){
+			switch(form){
+				case '.js-form-contact':
+					sendContactEmail();
+					break;
+				default:
+					$(form).submit();
+			}
+		}
+	});
+
+}
+
+
+/**
  * Filster in Isotope plugin
  * @container element cointaining items
  * @item element inside the container
@@ -235,4 +255,4 @@ function setContainerPaddingBottom(){
 	var footerHeight = getFooterHeight();
 	console.log(footerHeight);
 	$('.main').css('padding-bottom', footerHeight + headerHeight);
-}// getFooterHeight
+}// setContainerPaddingBottom

@@ -22,6 +22,7 @@
 				toggleActionButtons();
 				toggleHeader();
 				setContainerPaddingBottom();
+				runValidation('.js-form-newsletter');
 
 
 				/**

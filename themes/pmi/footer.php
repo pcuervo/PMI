@@ -72,7 +72,7 @@
 						?>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">contacto</h4>
-							<address>
+							<address class="[ margin-bottom ]">
 								<?php echo $address; ?>
 							</address>
 							<p>
@@ -81,17 +81,13 @@
 						</div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">de venta en</h4>
-							<a href="#">
-								<img class="[ svg icon icon--large ][ light ]" src="<?php echo THEMEPATH; ?>images/soriana.svg" alt="soriana">
-							</a>
-							<a href="#">
-								<img class="[ svg icon icon--large ][ light ]" src="<?php echo THEMEPATH; ?>images/walmart.svg" alt="walmart">
-							</a>
+							<img class="[ svg icon icon--large ][ light ][ margin-bottom--small ]" src="<?php echo THEMEPATH; ?>images/soriana.svg" alt="soriana">
+							<img class="[ svg icon icon--large ][ light ]" src="<?php echo THEMEPATH; ?>images/walmart.svg" alt="walmart">
 						</div>
 						<div class="[ clear--small ]"></div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">síguenos</h4>
-							<p>
+							<p class="[ margin-bottom--small ]">
 								<a class="[ light ]" href="<?php echo $facebook ?>" target="_blank">
 									<img class="[ svg icon icon--small ][ light ]" src="<?php echo THEMEPATH; ?>images/facebook.svg" alt="facebook"> /PMI
 								</a>
@@ -104,8 +100,8 @@
 						</div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">newsletter</h4>
-							<form class="[ form ]" action="">
-								<input class="[ margin-bottom--small ][ xmall-12 ]" type="text" placeholder="correo electrónico"><br />
+							<form class="[ form ][ js-form-newsletter ]" action="">
+								<input class="[ margin-bottom--small ][ xmall-12 ][ required email ]" type="email" placeholder="correo electrónico"><br />
 								<button class="[ button button--secondary ]" type="submit" >suscribirme</button>
 							</form>
 						</div>
