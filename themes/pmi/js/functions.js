@@ -27,7 +27,7 @@ function runValidation(form){
 	$(form).validate({
 		submitHandler:function(){
 			switch(form){
-				case '.js-form-contact':
+				case '.js-contacto':
 					sendContactEmail();
 					break;
 				default:
@@ -178,7 +178,9 @@ function sendContactEmail(){
 		ajax_url,
 		data,
 		function( response ){
-			console.log(response);
+			// response = $.parseJSON(response);
+			// console.log(response.error);
+			// console.log(response);
 		}
 	);
 }// sendContactEmail

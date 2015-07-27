@@ -47,15 +47,15 @@
 					<form action="" class="[ js-contacto ]">
 						<fieldset class="[ margin-bottom ]">
 							<label class="[ secondary ]" for="name">Nombre</label><br>
-							<input class="[ xmall-12 ]" type="text" name="name">
+							<input class="[ xmall-12 ][ required ]" type="text" name="name">
 						</fieldset>
 						<fieldset class="[ margin-bottom ]">
 							<label class="[ secondary ]" for="email">Correo</label><br>
-							<input class="[ xmall-12 ]" type="text" name="email">
+							<input class="[ xmall-12 ][ required email ]" type="email" name="email">
 						</fieldset>
 						<fieldset class="[ margin-bottom ]">
 							<label class="[ secondary ]" for="message">Mensaje</label><br>
-							<textarea class="[ xmall-12 ]" name="message" id="" rows="7"></textarea>
+							<textarea class="[ xmall-12 ][ required ]" name="message" id="" rows="7"></textarea>
 						</fieldset>
 						<fieldset class="[ text-center ]">
 							<input type="hidden" name="action" value="send_email_contacto">

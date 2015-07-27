@@ -67,12 +67,6 @@
 					toggleElement(element);
 				});
 
-				// Contact form
-				$('.js-contacto button').on('click', function(e){
-					e.preventDefault();
-					sendContactEmail();
-				});
-
 				/*------------------------------------*\
 					#ARCHIVE RECIPEES
 				\*------------------------------------*/
@@ -134,6 +128,13 @@
 					}
 
 
+				<?php } ?>
+
+				/*------------------------------------*\
+					#PAGE CONTACTO
+				\*------------------------------------*/
+				<?php if ( is_page('contacto') ){ ?>
+					runValidation('.js-contacto');
 				<?php } ?>
 
 			</script>
