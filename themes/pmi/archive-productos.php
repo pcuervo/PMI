@@ -14,7 +14,7 @@
 					<?php
 						// Show all brands that have products assigned
 						$args = array(
-							'orderby'		=> 'name',
+							'orderby'		=> 'date',
 							'hide_empty'	=> true
 						);
 						$brands = get_terms( 'marcas', $args );
