@@ -114,6 +114,14 @@
 		return $wpdb->posts . '.post_type';
 	}
 
+	function remove_taxonomy_submenus(){
+		remove_submenu_page( 'edit.php?post_type=productos', 'edit-tags.php?taxonomy=marcas&amp;post_type=productos' );
+		remove_submenu_page( 'edit.php?post_type=recetas', 'edit-tags.php?taxonomy=productos-receta&amp;post_type=recetas' );
+	}
+	add_action( 'admin_menu', 'remove_taxonomy_submenus' );
+	
+
+
 
 
 
