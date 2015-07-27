@@ -133,9 +133,9 @@
 							if( ! empty( $sodium ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Sodio <span class='[ primary ]'>$sodium mg</span></p> <p class='[ pull-right ]'>$sodium_percentage%</p></div>";
 							if( ! empty( $carbohydrates ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Carbohidratos <span class='[ primary ]'>$carbohydrates g</span></p> <p class='[ pull-right ]'>$carbohydrates_percentage% </p></div>";
 							if( ! empty( $sugar ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Azúcares <span class='[ primary ]'>$sugar g</span></p> <p class='[ pull-right ]'>$sugar_percentage%</p></div>";
-							if( ! empty( $iron ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Hierro</p> <p class='[ pull-right ]'>$iron </p></div>";
-							if( ! empty( $fiber ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Fibra</p> <p class='[ pull-right ]'>$fiber </p></div>";
-							if( ! empty( $calcium ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Calcio</p> <p class='[ pull-right ]'>$calcium </p></div>";
+							if( ! empty( $iron ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Hierro</p> <p class='[ pull-right ]'>$iron%</p></div>";
+							if( ! empty( $fiber ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Fibra</p> <p class='[ pull-right ]'>$fiber%</p></div>";
+							if( ! empty( $calcium ) ) echo "<div class='[ clearfix ]'><p class='[ pull-left ][ no-margin ]'>Calcio</p> <p class='[ pull-right ]'>$calcium%</p></div>";
 							?>
 						<?php endif; ?>
 					</div>
