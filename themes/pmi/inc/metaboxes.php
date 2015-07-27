@@ -15,6 +15,7 @@
 			default:
 				add_metaboxes_products();
 				add_metaboxes_recipes();
+				add_metaboxes_brands();
 		}
 	});
 
@@ -51,6 +52,13 @@
 		add_meta_box( 'cook_time', 'Tiempo', 'metabox_cook_time', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'nutrition_facts', 'Información nutricional', 'metabox_nutrition_facts', 'recetas', 'advanced', 'high' );
 		add_meta_box( 'percentage_value', 'Información nutricional', 'metabox_percentage_value', 'recetas', 'advanced', 'high' );
+	}
+
+	/**
+	* Add metaboxes for post type "Marcas"
+	**/
+	function add_metaboxes_brands(){
+		add_meta_box( 'link', 'Página web marca', 'metabox_link', 'marcas', 'advanced', 'high' );
 	}
 
 
@@ -206,6 +214,14 @@
 		
 	}// metabox_percentage_value
 
+	function metabox_link( $post ){
+		$link = get_post_meta( $post->ID, '_link_meta', true );
+		wp_nonce_field( __FILE__, '_link_meta_nonce' );
+
+		echo "<label>Ejemplo de formato: http://www.google.com</label>";
+		echo "<input type='text' class='[ widefat ]' name='_link_meta' value='$link' />";
+	}// metabox_link
+
 
 
 
@@ -221,6 +237,7 @@
 		save_metabox_products( $post_id );
 		save_metabox_recipes( $post_id );
 		save_metabox_contacto( $post_id );
+		save_metabox_brands( $post_id );
 		
 	});
 
@@ -353,3 +370,14 @@
 		}
 
 	}// save_metabox_recipes
+
+	/**
+	* Save the metaboxes for post type "Marcas"
+	**/
+	function save_metabox_brands( $post_id ){
+		// Net content
+		if ( isset($_POST['_link_meta']) and check_admin_referer( __FILE__, '_link_meta_nonce') ){
+			update_post_meta($post_id, '_link_meta', $_POST['_link_meta']);
+		}
+
+	}// save_metabox_brands

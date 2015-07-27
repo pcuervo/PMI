@@ -127,7 +127,8 @@
 								$query_marcas = new WP_Query( $marcas_args );
 								if ( $query_marcas->have_posts() ) : while ( $query_marcas->have_posts() ) : $query_marcas->the_post();
 									$producto_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
-									echo '<p class="[ inline-block align-middle ][ no-margin padding--small ]"> <a href="#"> ' . get_the_title() . '</a></p>';
+									$brand_url = get_post_meta( $post->ID, '_link_meta', true );
+									echo '<p class="[ inline-block align-middle ][ no-margin padding--small ]"> <a href="' . $brand_url . '"> ' . get_the_title() . '</a></p>';
 								endwhile; endif; wp_reset_query();
 								?>
 							</div>

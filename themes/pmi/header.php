@@ -96,16 +96,16 @@
 								<a class="[ xmall-3 ][ inline-block align-middle ][ imago ]" href="<?php echo site_url() ?>">
 									<img class="" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/imago.png">
 								</a><a
-								class="<?php echo ( 'nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
+								class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
 									Nosotros
 								</a><a
 								class="<?php echo ( 'productos' == get_post_type() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
 									Productos
 								</a><span class="[ xmall-4 inline-block align-middle ][ spacer ]">&nbsp;</span><a
-								class="<?php echo ( 'servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
+								class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
 									Servicios
 								</a><a
-								class="<?php echo ( 'contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
+								class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
 									Contacto
 								</a>
 								<div class="[ menu-options ][ hide ]">

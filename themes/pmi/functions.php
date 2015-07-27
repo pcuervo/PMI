@@ -239,7 +239,6 @@
 	function get_recipe_filter_info( $post_id ){
 
 		$product_info = get_recipe_product_info( $post_id );
-
 		$brand_info = array(
 			'brand'			=> $product_info['brand'],
 			'meal_type'		=> get_recipe_meal_type_slug( $post_id ),
@@ -270,7 +269,8 @@
 		);
 		$product_post = get_posts( $args );
 
-		if( ! $product_post ) return '';
+		if( ! $product_post )  
+			return array( 'brand' => '', 'product_type' => '' );;
 
 		$brand_product_term = wp_get_post_terms( $product_post[0]->ID, 'marcas' );
 		$brand_slug = ! empty( $brand_product_term ) ? $brand_product_term[0]->slug : '';
