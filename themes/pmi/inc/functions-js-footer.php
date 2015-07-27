@@ -67,7 +67,7 @@
 				});
 
 				// Contact form
-				$('.contacto input[type="submit"]').on('click', function(e){
+				$('.js-contacto button').on('click', function(e){
 					e.preventDefault();
 					sendContactEmail();
 				});

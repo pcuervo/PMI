@@ -152,7 +152,7 @@ function scrollToElement(element, offset){
  */
 function sendContactEmail(){
 
-	var data = $('.contacto form').serialize();
+	var data = $('.js-contacto').serialize();
 	$.post(
 		ajax_url,
 		data,
@@ -232,6 +232,5 @@ function getScrollY() {
 function setContainerPaddingBottom(){
 	var headerHeight = getHeaderHeight();
 	var footerHeight = getFooterHeight();
-	console.log(footerHeight);
 	$('.main').css('padding-bottom', footerHeight + headerHeight);
 }// getFooterHeight

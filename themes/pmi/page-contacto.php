@@ -44,7 +44,7 @@
 							</p>
 						</li>
 					</ul>
-					<form action="">
+					<form action="" class="[ js-contacto ]">
 						<fieldset class="[ margin-bottom ]">
 							<label class="[ secondary ]" for="name">Nombre</label><br>
 							<input class="[ xmall-12 ]" type="text" name="name">

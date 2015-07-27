@@ -31,11 +31,15 @@
 							<a href="<?php echo site_url('contacto'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Contacto</a>
 							<div class="[ nav-item ][ padding ][ relative ]">
 								<div class="[ row ][ menu-options ][ hide ]">
-									<div class="[ columna xmall-4 ]">
-										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+									<div class="[ columna xmall-4 ]<?php echo isset( $_GET['lang'] ) ? '[ opacity-3 ]' : ''; ?>">
+										<a href="<?php echo site_url(); ?>">
+											<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="Español">
+										</a>
 									</div>
-									<div class="[ columna xmall-4 ][ opacity-3 ]">
-										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+									<div class="[ columna xmall-4 ]<?php echo isset( $_GET['lang'] ) ? '' : '[ opacity-3 ]'; ?>">
+										<a href="<?php echo site_url(); ?>?lang=en">
+											<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+										</a>
 									</div>
 									<div class="[ columna xmall-4 ][ js-open-search ]" data-element="menu-options">
 										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
