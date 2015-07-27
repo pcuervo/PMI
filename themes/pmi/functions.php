@@ -98,13 +98,17 @@
 	 * Only query in given post types.
 	 * @return $where
 	 */
-	function allowed_posts_types_only( $where, &$wp_query )
-	{
+	function allowed_posts_types_only( $where, &$wp_query ){
 	    global $wpdb;
 
 	    $where .= ' AND ' . $wpdb->posts . ".post_type IN ('productos', 'recetas', 'opiniones-expertos')";
 	    return $where;
 	}// allowed_posts_types_only
+
+	function order_by_post_type( $orderby, &$wp_query ){
+		global $wpdb;
+		return $wpdb->posts . '.post_type';
+	}
 
 
 

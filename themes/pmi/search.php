@@ -4,9 +4,11 @@
 
 	// Search query
 	add_filter( 'posts_where', 'allowed_posts_types_only', 10, 3 );
+	add_filter( 'posts_orderby', 'order_by_post_type', 15, 3 );
 	$search_query_args = array(
 		's' 				=> $s,
 		'posts_per_page'	=> '-1',
+		'order'
 		);
 	$search_query = new WP_Query( $search_query_args );
 	$original_query = $wp_query;
@@ -14,6 +16,7 @@
 	$key = esc_html($s, 1);
 	$count = $search_query->post_count;
 	_e('');
+	remove_filter( 'posts_orderby', 'order_by_post_type', 15, 3 );
 	remove_filter( 'posts_where', 'allowed_posts_types_only', 10, 3 );
 ?>
 	<div class="wrapper">
