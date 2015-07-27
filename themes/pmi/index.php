@@ -79,7 +79,7 @@
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
 					//$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ post ][ columna xmall-6 xmedium-3 ][ margin-bottom--large ]">
+					<div class="[ post ][ columna xmall-12 small-6 xmedium-3 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
@@ -112,7 +112,7 @@
 				$recetas_args = array(
 					'post_type' 		=> 'recetas',
 					'posts_per_page' 	=> 4,
-					'orderby'			=> 'date',
+					'orderby'			=> 'rand',
 				);
 				$query_recetas = new WP_Query( $recetas_args );
 				if ( $query_recetas->have_posts() ) : while ( $query_recetas->have_posts() ) : $query_recetas->the_post();

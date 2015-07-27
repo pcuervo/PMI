@@ -105,6 +105,10 @@
 	    return $where;
 	}// allowed_posts_types_only
 
+	/**
+	 * Order search results by post_type
+	 * @return $orderby
+	 */
 	function order_by_post_type( $orderby, &$wp_query ){
 		global $wpdb;
 		return $wpdb->posts . '.post_type';
