@@ -14,7 +14,7 @@
 					<?php
 						// Show all brands that have products assigned
 						$args = array(
-							'orderby'		=> 'date',
+							'orderby'		=> 'slug',
 							'hide_empty'	=> true
 						);
 						$brands = get_terms( 'marcas', $args );
@@ -35,12 +35,6 @@
 
 				<div class="[ hidden--large ][ text-center ]">
 					<?php
-						// Show all brands that have products assigned
-						$args = array(
-							'orderby'		=> 'name',
-							'hide_empty'	=> true
-						);
-						$brands = get_terms( 'marcas', $args );
 						foreach( $brands as $brand ) { ?>
 							<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ][ js-anchor ]" data-anchor="<?php echo $brand->slug; ?>">
 								<span class="[ block ][ bg-light ]">
