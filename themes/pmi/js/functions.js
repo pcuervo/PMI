@@ -152,13 +152,22 @@ function scrollToElement(element, offset, speed){
 	$('html, body').animate({scrollTop: position}, speed);
 }//scrollToElement
 
+/**
+ * Show HTML if contact form was sent succesfully.
+ * @param User's name
+ * @return successHTML
+**/
+function showContactSuccessHTML( name ){
+	return '<p>Gracias por tu mensaje ' + name + '</p>';
+}// showContactSuccessHTML
 
 /**
- * Load Google Map
- * @param {String} lat
- * @param {String} lon
- * @param {String} address
- */
+ * Show HTML if contact form was not sent succesfully.
+ * @return errorHTML
+**/
+function showContactErrorHTML( ){
+	return '<p>Error</p>';
+}// showContactErrorHTML
 
 
 
@@ -178,9 +187,15 @@ function sendContactEmail(){
 		ajax_url,
 		data,
 		function( response ){
-			response = $.parseJSON(response);
-			console.log(response.error);
-			console.log(response);
+			var jsonResponse = $.parseJSON( response );
+
+			console.log( jsonResponse );
+			if( jsonResponse.error === 1) {
+				showContactErrorHTML( jsonResponse.message );
+				return;
+			}
+
+			showContactSuccessHTML( jsonResponse.message );
 		}
 	);
 }// sendContactEmail

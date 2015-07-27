@@ -505,12 +505,19 @@
 		add_filter('wp_mail_content_type',create_function('', 'return "text/html"; '));
 		$mail = wp_mail($to, $subject, $message, $headers );
 
-		var_dump( $mail );
+		if( ! $mail ) {
+			$message = array(
+			'error'		=> 1,
+			'message'	=> 'No se pudo enviar el correo.',
+			);
+			echo json_encode($message , JSON_FORCE_OBJECT);
+			exit;
+		}
 
 		$message = array(
 			'error'		=> 0,
-			'message'	=> 'Mensaje enviado.',
-			);
+			'message'	=> 'Gracias por tu mensaje ' . $name . '. En breve nos pondremos en contacto contigo.',
+		);
 		echo json_encode($message , JSON_FORCE_OBJECT);
 		exit();
 
