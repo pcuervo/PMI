@@ -17,6 +17,8 @@
 				<div class="[ diagonal-green-to-blue-gradient ]">
 					<div class="[ padding--large ]">
 						<div class="[ center ][ text-center text-shadow ][ xmall-12 medium-7 ]">
+						 	<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
+							<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
 							<h1 class="[ uppercase ][ light ][ text-shadow ][ margin-bottom--large ]">La más alta calidad</h1>
 							<h2 class="[ light ][ text-shadow ][ margin-bottom--large ]"><?php echo $content; ?></h2>
 							<a href="<?php echo site_url('productos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">conoce nuestros productos</a>
@@ -70,20 +72,20 @@
 				<?php
 				$products_args = array(
 					'post_type' 		=> 'productos',
-					'posts_per_page' 	=> 3,
+					'posts_per_page' 	=> 4,
 					'orderby'			=> 'date',
 				);
 				$query_products = new WP_Query( $products_args );
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
 					//$product_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ post ][ columna xmall-12 small-6 medium-4 ][ margin-bottom--large ]">
+					<div class="[ post ][ columna xmall-6 xmedium-3 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 							</a>
 							<div class="[ padding--small ][ bg-primary ]">
-								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
+								<p class="[ post-title ][ ellipsis ]"><?php the_title() ?></p>
 							</div>
 							<div class="[ padding--small ][ bg-secondary ][ post-info ]">
 								<p class="[ ellipsis ]"><?php echo  get_the_excerpt(); ?></p>
@@ -109,20 +111,20 @@
 				<?php
 				$recetas_args = array(
 					'post_type' 		=> 'recetas',
-					'posts_per_page' 	=> 3,
+					'posts_per_page' 	=> 4,
 					'orderby'			=> 'date',
 				);
 				$query_recetas = new WP_Query( $recetas_args );
 				if ( $query_recetas->have_posts() ) : while ( $query_recetas->have_posts() ) : $query_recetas->the_post();
 					$recetas_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );
 				?>
-					<div class="[ post ][ columna xmall-6 medium-4 ][ margin-bottom--large ]">
+					<div class="[ post ][ columna xmall-6 xmedium-3 ][ margin-bottom--large ]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail('thumbnail', array('class' => '[ image-responsive ]')); ?>
 							</a>
 							<div class="[ padding--small ][ bg-primary ]">
-								<p class="[ post-title ] [ ]"><?php the_title() ?></p>
+								<p class="[ post-title ][ ellipsis ]"><?php the_title() ?></p>
 							</div>
 						</div>
 					</div>

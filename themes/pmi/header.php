@@ -96,28 +96,38 @@
 								<a class="[ xmall-3 ][ inline-block align-middle ][ imago ]" href="<?php echo site_url() ?>">
 									<img class="" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/imago.png">
 								</a><a
-								class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
+								class="<?php echo ( 'nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
 									Nosotros
 								</a><a
-								class="<?php echo ( 'Productos' == get_post_type() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
+								class="<?php echo ( 'productos' == get_post_type() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
 									Productos
 								</a><span class="[ xmall-4 inline-block align-middle ][ spacer ]">&nbsp;</span><a
-								class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
+								class="<?php echo ( 'servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
 									Servicios
 								</a><a
-								class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
+								class="<?php echo ( 'contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
 									Contacto
 								</a>
-								<div class="[ menu-options ]">
+								<div class="[ menu-options ][ hide ]">
 									<div class="[ columna xmall-4 ]">
-										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
 									</div>
 									<div class="[ columna xmall-4 ][ opacity-3 ]">
-										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
 									</div>
-									<div class="[ columna xmall-4 ]">
-										<img class="[ image-responsive ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+									<div class="[ columna xmall-4 ][ js-open-search ]" data-element="menu-options">
+										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
 									</div>
+									<form class="[ form--search ][ columna xmall-12 ]" method="get" action="<?php echo site_url(); ?>">
+										<div class="[ input-group ]">
+											<input class="[ sb-search-input ][ xmall-12 ]" placeholder="¿Qué deseas buscar?" type="text" name="s" id="s">
+											<span class="[ input-group-addon ]">
+												<button class="[ sb-search-submit ][ bg-light ]" type="submit" name="submit">
+													<img class="[ svg icon icon--small ][ secondary ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">
+												</button>
+											</span>
+										</div>
+									</form>
 								</div><!-- menu-options -->
 							</nav>
 						</div><!-- wrapper -->

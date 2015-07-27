@@ -96,36 +96,35 @@
 
 					<div class="[ shown--large ][ tinycarousel-slider ]" id="slider<?php echo $counter; ?>">
 						<a class="buttons prev" href="#">
-								<i class="[ fa fa-angle-double-left ]"></i>
-							</a>
-							<div class="viewport">
-								<ul class="[ overview ][ product-images ]">
-								<?php
-									// Display products by brand
-									foreach ( $products as $key => $product ) :
+							<i class="[ fa fa-angle-double-left ]"></i>
+						</a>
+						<div class="[ viewport ]">
+							<ul class="[ overview ][ product-images ]">
+							<?php
+								// Display products by brand
+								foreach ( $products as $key => $product ) :
 
-								?>
-									<li class="[ post ][ inline-block align-middle ]">
-										<div class="[ drop-shadow ]">
-											<a href="<?php echo $product['permalink'] ?>">
-												<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ]">
-											</a>
-											<div class="[ bg-primary ]">
-												<p class="[ post-title ] [ ]">
-													<a class="[ block ][ padding--small ]" href="<?php echo $product['permalink'] ?>">
-														<?php echo $product['title'] ?>
-													</a>
-												</p>
-											</div>
+							?>
+								<li class="[ post ][ inline-block align-middle ]">
+									<div class="[ drop-shadow ]">
+										<a href="<?php echo $product['permalink'] ?>">
+											<img src="<?php echo $product['image_url'] ?>" class="[ image-responsive ]">
+										</a>
+										<div class="[ bg-primary ]">
+											<p class="[ post-title ] [ ]">
+												<a class="[ block ][ padding--small ]" href="<?php echo $product['permalink'] ?>">
+													<?php echo $product['title'] ?>
+												</a>
+											</p>
 										</div>
-									</li>
-								<?php endforeach; ?>
-								</ul>
-							</div>
-							<a class="buttons next" href="#">
-								<i class="[ fa fa-angle-double-right ]"></i>
-							</a>
-						</div>
+									</div>
+								</li>
+							<?php endforeach; ?>
+							</ul>
+						</div><!-- viewport -->
+						<a class="buttons next" href="#">
+							<i class="[ fa fa-angle-double-right ]"></i>
+						</a>
 					</div><!-- shown-large -->
 				</section>
 				<?php $counter++; ?>

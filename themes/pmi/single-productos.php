@@ -121,7 +121,7 @@
 						<div class="[ columna xmall-12 medium-6 ][ margin-bottom ]">
 							<div class="[ drop-shadow ]">
 								<a href="<?php echo $recommended_recipe['permalink'] ?>">
-									<img src="<?php echo $recommended_recipe['image_url'] ?>" class="[ image-responsive ] [ margin-bottom ]'" />
+									<img src="<?php echo $recommended_recipe['image_url'] ?>" class="[ image-responsive ]'" />
 								</a>
 								<div class="[ padding--small ][ bg-primary ]">
 									<p class="[ post-title ] [ ]"><?php echo $recommended_recipe['title'] ?></p>
@@ -129,7 +129,7 @@
 							</div>
 						</div>
 
-						<div class="[ columna xmall-12 medium-6 ][ margin-bottom--large ]">
+						<div class="[ columna xmall-12 medium-6 ][ margin-bottom--small ]">
 							<div class="[ gradient-border ][ diagonal-green-to-blue-gradient ][ margin-bottom ]">
 								<span class="[ block ][ bg-light ][ padding--small ]">
 									<div class="[ row ]">
@@ -155,11 +155,12 @@
 									echo '</ul>';
 								endif; ?>
 							</div>
-
+						</div>
+						<div class="[ clear ]"></div>
+						<div class="[ margin-bottom--large ][ text-center ]">
 							<a href="<?php echo $recommended_recipe['permalink'] ?>" class="[ button ]">
 								leer más
 							</a>
-
 						</div>
 
 					</div><!-- row -->
@@ -175,10 +176,10 @@
 				<h2 class="[ title ][ text-center ][ margin-bottom ][ uppercase ]">Productos similares</h2>
 				<div class="[ row ]">
 					<?php foreach ( $similar_products as $product ) : ?>
-						<div class="[ post ][ columna xmall-12 medium-6 xmedium-4 ][ margin-bottom--large ]">
+						<div class="[ post ][ columna xmall-6 xmedium-3 ][ margin-bottom--large ]">
 							<div class="[ drop-shadow ]">
 								<a href="<?php echo $product['permalink'] ?>">
-									<img src="<?php echo $product['img_url'][0] ?>" alt="<?php echo $product['title'] ?>" class="[ image-responsive ] [ margin-bottom ]">
+									<img src="<?php echo $product['img_url'][0] ?>" alt="<?php echo $product['title'] ?>" class="[ image-responsive ]">
 									<div class="[ padding--small ][ bg-primary ]">
 										<p class="[ post-title ][ ]"><?php echo $product['title'] ?></p>
 									</div>

@@ -21,6 +21,7 @@
 				imgToSvg();
 				toggleActionButtons();
 				toggleHeader();
+				setContainerPaddingBottom();
 
 
 				/**
@@ -30,6 +31,11 @@
 				$(window).scroll(function(){
 					toggleActionButtons();
 					toggleHeader();
+					setContainerPaddingBottom();
+				});
+
+				$( window ).resize(function() {
+					setContainerPaddingBottom();
 				});
 
 				$('.js-modal-opener').on('click', function(e){
@@ -46,6 +52,10 @@
 
 				$(document).click( function(){
 					$('.menu-options').addClass('hide');
+				});
+
+				$('.form--search').on('click', function(e){
+					e.stopPropagation();
 				});
 
 				$('.js-open-search').on('click', function(e){
@@ -88,7 +98,7 @@
 						e.preventDefault();
 						var element = $(this).data('anchor');
 						var element = '.section-'+element;
-						scrollToElement(element, '100');
+						scrollToElement(element, '170');
 					});
 
 					if ( $('#slider1').length > 0 ){

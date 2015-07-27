@@ -21,7 +21,7 @@
 						</button>
 
 						<div class="[ filtro-marcas ][ button-group ][ hide ][ element-marcas ]" data-filter-group="marcas">
-							<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
+							<button class="[ button active button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
 								<span class="[ block ][ bg-light ]">
 									Todas
 								</span>
@@ -54,7 +54,7 @@
 						</button>
 
 						<div class="[ filtro-tipo-comida ][ button-group ][ hide ][ element-tipo-comida ]" data-filter-group="tipo-comida">
-							<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
+							<button class="[ button active button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
 								<span class="[ block ][ bg-light ]">
 									Todos
 								</span>
@@ -82,7 +82,7 @@
 						</button>
 
 						<div class="[ filtro-porciones ][ button-group ][ hide ][ element-porciones ]" data-filter-group="porciones">
-							<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
+							<button class="[ button active button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
 								<span class="[ block ][ bg-light ]">
 									Todas
 								</span>
@@ -110,7 +110,7 @@
 						</button>
 
 						<div class="[ filtro-tipo-producto ][ button-group ][ hide ][ element-tipo-producto ]" data-filter-group="tipo-producto">
-							<button class="[ button button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
+							<button class="[ button active button--hollow ][ diagonal-green-to-blue-gradient ][ margin-bottom--small margin-sides--small ]" data-filter="">
 								<span class="[ block ][ bg-light ]">
 									Todos
 								</span>
@@ -140,13 +140,13 @@
 						$recipe_filter_classes .= $value . ' ';
 					}
 				?>
-					<div class="[ post ][ columna xmall-6 medium-4 large-3 ][ margin-bottom--large ][ <?php echo $recipe_filter_classes; ?>]">
+					<div class="[ post ][ columna xmall-6 xmedium-3 ][ margin-bottom--large ][ <?php echo $recipe_filter_classes; ?>]">
 						<div class="[ drop-shadow ]">
 							<a href="<?php the_permalink(); ?>">
 								<?php the_post_thumbnail( 'medium', array( 'class' => '[ image-responsive ]' ) ); ?>
 							</a>
 							<div class="[ padding--small ][ bg-primary ]">
-								<p class="[ post-title ]"><?php the_title() ?></p>
+								<p class="[ post-title ][ ellipsis ]"><?php the_title() ?></p>
 							</div>
 						</div>
 					</div>

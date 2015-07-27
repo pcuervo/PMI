@@ -126,7 +126,6 @@ function toggleElement(element){
  * @param element to scroll to
 **/
 function scrollToElement(element, offset){
-	console.log(element);
 	var position = $(element).offset().top;
 	position = position - 20;
 	$('html, body').animate({scrollTop: position}, offset);
@@ -154,7 +153,6 @@ function scrollToElement(element, offset){
 function sendContactEmail(){
 
 	var data = $('.contacto form').serialize();
-	console.log(data);
 	$.post(
 		ajax_url,
 		data,
@@ -215,8 +213,25 @@ function getHeaderHeight(){
 }// getHeaderHeight
 
 /**
+ * Get footer's height
+ */
+function getFooterHeight(){
+	return $('footer').height();
+}// getFooterHeight
+
+/**
  * Get the scrolled pixels in Y axis
  */
 function getScrollY() {
 	return $(window).scrollTop();
 }// getScrollY
+
+/**
+ * Set conainer's padding bottom
+ */
+function setContainerPaddingBottom(){
+	var headerHeight = getHeaderHeight();
+	var footerHeight = getFooterHeight();
+	console.log(footerHeight);
+	$('.main').css('padding-bottom', footerHeight + headerHeight);
+}// getFooterHeight
