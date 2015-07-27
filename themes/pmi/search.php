@@ -26,7 +26,7 @@
 		<div class="[ row ]">
 			<?php
 			$first_product = $first_recipe = $first_opinion = TRUE;
-			if ( have_posts() ) : while( have_posts() ) : the_post(); ?>
+			if ( $wp_query->have_posts() ) : while( $wp_query->have_posts() ) : $wp_query->the_post(); ?>
 				<?php
 					switch ( get_post_type() ) {
 						case 'productos':
