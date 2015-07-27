@@ -65,6 +65,25 @@
 		}
 
 		// RECIPE PRODUCT
+		if( ! taxonomy_exists('producto-destacado')){
+
+			$labels = array(
+				'name'              => 'Producto destacado',
+				'singular_name'     => 'Producto destacado',
+			);
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'producto-destacado' ),
+			);
+
+			register_taxonomy( 'producto-destacado', 'productos', $args );
+		}
+
+		// RECIPE PRODUCT
 		if( ! taxonomy_exists('productos-receta')){
 
 			$labels = array(
@@ -176,6 +195,7 @@
 		insert_recipe_portion_terms();
 		insert_meal_type_terms();
 		insert_product_type_terms();
+		insert_featured_product_terms();
 		register_taxonomy('producto-utilizado', array());
 
 	}// custom_taxonomies_callback
@@ -258,6 +278,18 @@
 			insert_dynamic_taxonomy_term( $tipo, 'tipo-producto' );
 
 	}// insert_product_type_terms
+
+	/*
+	 * Insert "producto destacado" terms
+	 *
+	 */
+	function insert_featured_product_terms( ){
+
+		$tipo_de_producto = array( 'Si', 'No' );
+		foreach ( $tipo_de_producto as $tipo )
+			insert_dynamic_taxonomy_term( $tipo, 'producto-destacado' );
+
+	}// insert_featured_product_terms
 
 
 

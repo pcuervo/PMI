@@ -7,7 +7,7 @@
 
 			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
 				<h2 class="[ text-center ][ margin-bottom ]">Recetas</h2>
-				<p>Aquí va el texto de recetas...</p>
+				<p><?php echo get_description_page( 'Recetas' ); ?></p>
 			</div>
 
 			<section class="[ margin-bottom ][ text-center ][ filtros ]">

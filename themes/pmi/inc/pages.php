@@ -21,18 +21,6 @@
 			wp_insert_post( $page, true );
 		}
 
-		// BLOG
-		if( ! get_page_by_path('blog') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Blog',
-				'post_name'   => 'blog',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
 		// PRODUCTS
 		if( ! get_page_by_path('productos') ){
 			$page = array(
@@ -40,6 +28,18 @@
 				'post_status' => 'publish',
 				'post_title'  => 'Productos',
 				'post_name'   => 'productos',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// RECIPES
+		if( ! get_page_by_path('page-recetas') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Recetas',
+				'post_name'   => 'page-recetas',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );

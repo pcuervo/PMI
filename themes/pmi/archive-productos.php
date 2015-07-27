@@ -6,7 +6,7 @@
 		<div class="[ wrapper ]">
 			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
 				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
-				<p>Quid sequatur, quid repugnet, vident. Si alia sentit, inquam, alia loquitur, numquam intellegam quid sentiat; Quis enim potest ea, quae probabilia videantur ei, non probare? Compensabatur, inquit, cum summis doloribus laetitia. </p>
+				<p><?php echo get_description_page( 'Productos' ); ?></p>
 			</div>
 
 			<article class="[ margin-bottom ]">

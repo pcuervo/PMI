@@ -116,6 +116,8 @@
 
 	function remove_taxonomy_submenus(){
 		remove_submenu_page( 'edit.php?post_type=productos', 'edit-tags.php?taxonomy=marcas&amp;post_type=productos' );
+		remove_submenu_page( 'edit.php?post_type=productos', 'edit-tags.php?taxonomy=producto-destacado&amp;post_type=productos' );
+		remove_submenu_page( 'edit.php?post_type=productos', 'edit-tags.php?taxonomy=category&amp;post_type=productos' );
 		remove_submenu_page( 'edit.php?post_type=recetas', 'edit-tags.php?taxonomy=productos-receta&amp;post_type=recetas' );
 	}
 	add_action( 'admin_menu', 'remove_taxonomy_submenus' );
@@ -488,7 +490,20 @@
 		wp_reset_query();
 
 		return $similar_products;
+
 	}// get_similar_products
+
+	/**
+	 * Get page description 
+	 * @param string $page
+	 * @return string $page_content
+	 */
+	function get_description_page( $page ){
+
+		$page_info = get_page_by_title( $page );
+		return $page_info->post_content;
+
+	}// get_description_page
 
 
 

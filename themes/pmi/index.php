@@ -74,6 +74,13 @@
 					'post_type' 		=> 'productos',
 					'posts_per_page' 	=> 4,
 					'orderby'			=> 'date',
+					'tax_query' => array(
+				        array(
+					        'taxonomy' => 'producto-destacado',
+					        'field' => 'slug',
+					        'terms' => array( 'si' ),
+					   	)
+				    ),
 				);
 				$query_products = new WP_Query( $products_args );
 				if ( $query_products->have_posts() ) : while ( $query_products->have_posts() ) : $query_products->the_post();
