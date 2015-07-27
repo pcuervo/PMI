@@ -62,7 +62,7 @@
 				</div><!-- hidden-large -->
 
 				<div class="[ shown--large ]">
-					<div class="[ header-top ][ diagonal-dark-blue-to-light-blue ]">
+					<div class="[ header-top ][ diagonal-dark-blue-to-light-blue ][ relative z-index-1 ]">
 						<div class="[ wrapper ][ relative ]">
 							<a class="[ block ][ padding--small ][ bg-light ][ logo ][ center ]" href="<?php echo site_url() ?>">
 								<img class="[ image-responsive ]" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png">

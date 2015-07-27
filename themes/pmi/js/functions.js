@@ -125,10 +125,11 @@ function toggleElement(element){
  * Animates scroll to an element
  * @param element to scroll to
 **/
-function scrollToElement(element, offset){
+function scrollToElement(element, offset, speed){
+	console.log(speed);
 	var position = $(element).offset().top;
-	position = position - 20;
-	$('html, body').animate({scrollTop: position}, offset);
+	position = position - offset;
+	$('html, body').animate({scrollTop: position}, speed);
 }//scrollToElement
 
 

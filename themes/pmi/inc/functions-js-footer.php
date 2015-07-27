@@ -98,7 +98,7 @@
 						e.preventDefault();
 						var element = $(this).data('anchor');
 						var element = '.section-'+element;
-						scrollToElement(element, '170');
+						scrollToElement(element, '110', '200');
 					});
 
 					if ( $('#slider1').length > 0 ){
