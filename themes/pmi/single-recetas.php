@@ -35,7 +35,7 @@
 			<article class="[ xmall-12 xmedium-10 ][ center ]">
 				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Recetas</h2>
 				<div class="[ bg-image ][ margin-bottom ][ xmall-12 xmedium-10 ][ center ]" style="background-image: url('<?php echo $img_url[0] ?>')">
-					<div class="[ diagonal-green-to-blue-gradient ][ padding--large ]">
+					<div class="[ padding--large ]">
 						<span class="[ block ][ padding--large ]">&nbsp;</span><br />
 						<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
 						<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />

@@ -187,6 +187,7 @@ function sendContactEmail(){
 		ajax_url,
 		data,
 		function( response ){
+			console.log(response);
 			var jsonResponse = $.parseJSON( response );
 
 			console.log( jsonResponse );

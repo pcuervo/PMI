@@ -32,12 +32,12 @@
 							<div class="[ nav-item ][ padding ][ relative ]">
 								<div class="[ row ][ menu-options ][ hide ]">
 									<div class="[ columna xmall-4 ]<?php echo isset( $_GET['lang'] ) ? '[ opacity-3 ]' : ''; ?>">
-										<a href="<?php echo site_url(); ?>">
+										<a href="<?php echo the_permalink(); ?>">
 											<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="Español">
 										</a>
 									</div>
 									<div class="[ columna xmall-4 ]<?php echo isset( $_GET['lang'] ) ? '' : '[ opacity-3 ]'; ?>">
-										<a href="<?php echo site_url(); ?>?lang=en">
+										<a href="<?php echo the_permalink(); ?>?lang=en">
 											<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
 										</a>
 									</div>

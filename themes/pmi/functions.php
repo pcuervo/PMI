@@ -505,6 +505,21 @@
 
 	}// get_description_page
 
+	/**
+	 * Get contact email from metabox in page Contacto
+	 * @return string $contact_email
+	 */
+	function get_contact_email(){
+
+		$contact_info_query = new WP_Query( 'pagename=contacto' );
+		$contact_info_query->the_post();
+		$contact_email = get_post_meta( get_the_ID(), '_email_meta', TRUE );
+		wp_reset_query();
+
+		return $contact_email;
+
+	}// get_contact_email
+
 
 
 
@@ -520,7 +535,7 @@
 
 		$name = $_POST['name'];
 		$email = $_POST['email'];
-		$to_email = 'miguel@pcuervo.com';
+		$to_email = get_contact_email();
 		$msg = $_POST['message'];
 
 		$to = $to_email;
