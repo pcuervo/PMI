@@ -75,7 +75,9 @@
 							wp_reset_query();
 						?>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
-							<h4 class="[ light ][ uppercase ][ margin-bottom ]">contacto</h4>
+							<h4 class="[ light ][ uppercase ][ margin-bottom ]">
+								<?php echo isset( $_GET['lang'] ) ? "contact" : 'contacto'; ?>
+							</h4>
 							<address class="[ margin-bottom ]">
 								<?php echo $address; ?>
 							</address>
@@ -84,7 +86,9 @@
 							</p>
 						</div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
-							<h4 class="[ light ][ uppercase ][ margin-bottom ]">De venta en:</h4>
+							<h4 class="[ light ][ uppercase ][ margin-bottom ]">
+								<?php echo isset( $_GET['lang'] ) ? "Point of sale" : 'De venta en'; ?>:
+							</h4>
 							<?php
 							$pos_args = array(
 								'post_type' 		=> 'puntos-venta',
@@ -101,7 +105,9 @@
 						</div>
 						<div class="[ clear--small ]"></div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
-							<h4 class="[ light ][ uppercase ][ margin-bottom ]">síguenos</h4>
+							<h4 class="[ light ][ uppercase ][ margin-bottom ]">
+								<?php echo isset( $_GET['lang'] ) ? "follow us" : 'síguenos'; ?>
+							</h4>
 							<p class="[ margin-bottom--small ]">
 								<a class="[ light ]" href="<?php echo $facebook ?>" target="_blank">
 									<img class="[ svg icon icon--small ][ light ]" src="<?php echo THEMEPATH; ?>images/facebook.svg" alt="facebook"> /PMI
@@ -116,18 +122,24 @@
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
 							<h4 class="[ light ][ uppercase ][ margin-bottom ]">newsletter</h4>
 							<form class="[ form ][ js-form-newsletter ]" action="">
-								<input class="[ margin-bottom--small ][ xmall-12 ][ required email ]" type="email" placeholder="correo electrónico"><br />
-								<button class="[ button button--secondary ]" type="submit" >suscribirme</button>
+								<input class="[ margin-bottom--small ][ xmall-12 ][ required email ]" type="email" placeholder="<?php echo isset( $_GET['lang'] ) ? "email" : 'correo electrónico'; ?>"><br />
+								<button class="[ button button--secondary ]" type="submit" >
+									<?php echo isset( $_GET['lang'] ) ? "subscribe me" : 'suscribirme'; ?>
+								</button>
 							</form>
 						</div>
 					</div><!-- row -->
 					<p class="[ text-center ]">
-						<a class="[ light ]" href="#">Aviso de privacidad</a>
+						<a class="[ light ]" href="#">
+							<?php echo isset( $_GET['lang'] ) ? "Privacy Policy" : 'Aviso de privacidad'; ?>
+						</a>
 					</p>
 					<hr class="[ light-separator ]">
 					<div class="[ row ]">
 						<div class="[ columna xmall-12 ]">
-							<h4 class="[ light ][ text-center ][ uppercase ]">Proveedores</h4>
+							<h4 class="[ light ][ text-center ][ uppercase ]">
+								<?php echo isset( $_GET['lang'] ) ? "Brands" : 'Proveedores'; ?>
+							</h4>
 							<div class="[ text-center ]">
 								<?php
 								// Get all brands

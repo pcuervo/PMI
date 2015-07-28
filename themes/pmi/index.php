@@ -19,9 +19,13 @@
 						<div class="[ center ][ text-center text-shadow ][ xmall-12 medium-7 ]">
 						 	<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
 							<span class="[ padding--large ][ shown--large ]">&nbsp;</span><br />
-							<h1 class="[ uppercase ][ light ][ text-shadow ][ margin-bottom--large ]">La más alta calidad</h1>
+							<h1 class="[ uppercase ][ light ][ text-shadow ][ margin-bottom--large ]">
+								<?php echo isset( $_GET['lang'] ) ? 'The best quality' : 'La mas alta calidad'; ?>
+							</h1>
 							<h2 class="[ light ][ text-shadow ][ margin-bottom--large ]"><?php echo $content; ?></h2>
-							<a href="<?php echo site_url('productos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">conoce nuestros productos</a>
+							<a href="<?php echo site_url('productos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">
+								<?php echo isset( $_GET['lang'] ) ? 'Our products' : 'Conoce nuestros productos'; ?>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -40,23 +44,25 @@
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
 					<img class="[ image-responsive ][ svg icon icon--xlarge ][ primary ][ text-center center block ]" src="<?php echo THEMEPATH; ?>images/truck.svg" alt="Expertos en logística">
 					<p class="[ text-center ]">
-						Expertos en logística
+						<?php echo isset( $_GET['lang'] ) ? 'Logistics Experts' : 'Expertos en logística'; ?>
 					</p>
 				</div>
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
 					<img class="[ image-responsive ][ svg icon icon--xlarge ][ primary ][ text-center center block ]" src="<?php echo THEMEPATH; ?>images/badge.svg" alt="Alimentos de primera calidad">
 					<p class="[ text-center ]">
-						Alimentos de primera calidad
+						<?php echo isset( $_GET['lang'] ) ? 'Premium quality products' : 'Alimentos de primera calidad'; ?>
 					</p>
 				</div>
 				<div class="[ span xmall-12 medium-4 ][ margin-bottom ]">
 					<img class="[ image-responsive ][ svg icon icon--xlarge ][ primary ][ text-center center block ]" src="<?php echo THEMEPATH; ?>images/globe.svg" alt="Marcas reconocidas a nivel internacional">
 					<p class="[ text-center ]">
-						Marcas reconocidas a nivel internacional
+						<?php echo isset( $_GET['lang'] ) ? 'Worldwide recognised brands' : 'Marcas reconocidas a nivel internacional'; ?>
 					</p>
 				</div>
 				<div class="[ xmall-12 ][ text-center ]">
-					<a href="<?php echo site_url('opiniones-expertos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">Cónoce la opinión de los expertos</a>
+					<a href="<?php echo site_url('opiniones-expertos'); ?>" class="[ button button--highlight button--large ][ inline-block ]">
+						<?php echo isset( $_GET['lang'] ) ? "Experts' opinion" : 'Cónoce la opinión de los expertos'; ?>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -67,7 +73,9 @@
 	<!-- PRODUCTS -->
 	<section class="[ margin-bottom--large ]">
 		<div class="[ wrapper ]">
-			<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
+			<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">
+				<?php echo isset( $_GET['lang'] ) ? "Products" : 'Productos'; ?>
+			</h2>
 			<div class="[ row ]">
 				<?php
 				$products_args = array(
@@ -101,7 +109,9 @@
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
-					<a href="<?php echo site_url('productos'); ?>" class="[ button button--large ] [ inline-block ]">ver más productos</a>
+					<a href="<?php echo site_url('productos'); ?>" class="[ button button--large ] [ inline-block ]">
+						<?php echo isset( $_GET['lang'] ) ? "more products" : 'ver más productos'; ?>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -112,7 +122,9 @@
 		<div class="wrapper">
 			<div class="[ row ]">
 				<div class="[ span xmall-10 ] [ center block ] [ margin-bottom ]">
-					<h2 class="[ title ] [ text-center ] [ padding ]">Últimas recetas</h2>
+					<h2 class="[ title ] [ text-center ] [ padding ]">
+						<?php echo isset( $_GET['lang'] ) ? "Recipes" : 'Recetas'; ?> 
+					</h2>
 				</div>
 				<?php
 				$recetas_args = array(
@@ -137,7 +149,9 @@
 				<?php endwhile; endif; wp_reset_query(); ?>
 				<div class="clear"></div>
 				<div class="[ text-center ][ margin-bottom ]">
-					<a href="<?php echo site_url('recetas'); ?>" class="[ button button--large ] [ inline-block ]">ver más recetas</a>
+					<a href="<?php echo site_url('recetas'); ?>" class="[ button button--large ] [ inline-block ]">
+						<?php echo isset( $_GET['lang'] ) ? "more recipes" : 'ver más recetas'; ?> 
+					</a>
 				</div>
 			</div>
 		</div>

@@ -46,7 +46,7 @@
 						<div class="[ row ][ padding--top--small padding--bottom--small ]">
 							<div class="[ xmall-6 large-1 ][ inline-block align-middle ]">
 								<div class="[ logo ]">
-									<a href="<?php echo site_url() ?>">
+									<a href="<?php echo isset( $_GET['lang'] ) ? (site_url() . '?lang=en') : site_url(); ?>">
 										<img alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png" class="[ image-responsive ]">
 									</a>
 								</div>
@@ -64,7 +64,7 @@
 				<div class="[ shown--large ]">
 					<div class="[ header-top ][ diagonal-dark-blue-to-light-blue ][ relative z-index-1 ]">
 						<div class="[ wrapper ][ relative ]">
-							<a class="[ block ][ padding--small ][ bg-light ][ logo ][ center ]" href="<?php echo site_url() ?>">
+							<a class="[ block ][ padding--small ][ bg-light ][ logo ][ center ]" href="<?php echo isset( $_GET['lang'] ) ? (site_url() . '?lang=en') : site_url(); ?>">
 								<img class="[ image-responsive ]" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/logo.png">
 							</a>
 							<div class="[ menu-options ][ hide ]">
@@ -114,10 +114,14 @@
 								</a>
 								<div class="[ menu-options ][ hide ]">
 									<div class="[ columna xmall-4 ]">
-										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+										<a href="<?php echo site_url(); ?>">
+											<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
+										</a>
 									</div>
 									<div class="[ columna xmall-4 ][ opacity-3 ]">
-										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+										<a href="<?php echo site_url(); ?>?lang=en">
+											<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
+										</a>
 									</div>
 									<div class="[ columna xmall-4 ][ js-open-search ]" data-element="menu-options">
 										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/search.svg" alt="search">

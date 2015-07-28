@@ -5,7 +5,7 @@
 	<section class="[]">
 		<div class="[ wrapper ]">
 			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
-				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]">Productos</h2>
+				<h2 class="[ title ][ text-center ][ padding ][ margin-bottom ]"><?php echo isset( $_GET['lang'] ) ? "Products" : 'Productos'; ?> </h2>
 				<p><?php echo get_description_page( 'Productos' ); ?></p>
 			</div>
 

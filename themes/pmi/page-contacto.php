@@ -46,22 +46,28 @@
 					</ul>
 					<form action="" class="[ form form-contacto ][ js-contacto ]">
 						<fieldset class="[ margin-bottom ]">
-							<label class="[ secondary ]" for="name">Nombre</label><br>
+							<label class="[ secondary ]" for="name">
+								<?php echo isset( $_GET['lang'] ) ? "Name" : 'Nombre'; ?> 
+							</label><br>
 							<input class="[ xmall-12 ][ required ]" type="text" name="name">
 						</fieldset>
 						<fieldset class="[ margin-bottom ]">
-							<label class="[ secondary ]" for="email">Correo</label><br>
+							<label class="[ secondary ]" for="email">
+								<?php echo isset( $_GET['lang'] ) ? "Email" : 'Correo'; ?>
+							</label><br>
 							<input class="[ xmall-12 ][ required email ]" type="email" name="email">
 						</fieldset>
 						<fieldset class="[ margin-bottom ]">
-							<label class="[ secondary ]" for="message">Mensaje</label><br>
+							<label class="[ secondary ]" for="message">
+								<?php echo isset( $_GET['lang'] ) ? "Message" : 'Mensaje'; ?>
+							</label><br>
 							<textarea class="[ xmall-12 ][ required ]" name="message" id="" rows="7"></textarea>
 						</fieldset>
 						<fieldset class="[ text-center ]">
 							<input type="hidden" name="action" value="send_email_contacto">
 							<button type="submit" class="[ inline-block ][ button--hollow ][ diagonal-green-to-blue-gradient ]">
 								<span class="[ block ][ bg-light ][ padding--small ]">
-									Enviar
+									<?php echo isset( $_GET['lang'] ) ? "Send" : 'Enviar'; ?>
 								</span>
 							</button>
 						</fieldset>
