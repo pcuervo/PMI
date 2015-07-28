@@ -157,9 +157,9 @@ function scrollToElement(element, offset, speed){
  * @param User's name
  * @return successHTML
 **/
-function showContactSuccessHTML( name ){
-	return '<p>Gracias por tu mensaje ' + name + '</p>';
-}// showContactSuccessHTML
+function getContactSuccessHTML( ){
+	return '<h3 class="[ text-center ][ primary ]">Gracias por tu mensaje, nos pondremos en contacto lo antes posible.</h3>';
+}// getContactSuccessHTML
 
 /**
  * Show HTML if contact form was not sent succesfully.
@@ -189,13 +189,14 @@ function sendContactEmail(){
 		function( response ){
 			var jsonResponse = $.parseJSON( response );
 
-			console.log( jsonResponse );
 			if( jsonResponse.error === 1) {
 				showContactErrorHTML( jsonResponse.message );
 				return;
 			}
 
-			showContactSuccessHTML( jsonResponse.message );
+			getContactSuccessHTML();
+			$('.form-contacto').empty();
+			$('.form-contacto').append( getContactSuccessHTML )
 		}
 	);
 }// sendContactEmail

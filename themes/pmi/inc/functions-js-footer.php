@@ -97,34 +97,64 @@
 					});
 
 					if ( $('#slider1').length > 0 ){
-						$('#slider1').tinycarousel();
+						$('#slider1').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider2').length > 0 ){
-						$('#slider2').tinycarousel();
+						$('#slider2').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider3').length > 0 ){
-						$('#slider3').tinycarousel();
+						$('#slider3').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider4').length > 0 ){
-						$('#slider4').tinycarousel();
+						$('#slider4').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider5').length > 0 ){
-						$('#slider5').tinycarousel();
+						$('#slider5').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider6').length > 0 ){
-						$('#slider6').tinycarousel();
+						$('#slider6').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider7').length > 0 ){
-						$('#slider7').tinycarousel();
+						$('#slider7').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider8').length > 0 ){
-						$('#slider8').tinycarousel();
+						$('#slider8').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider9').length > 0 ){
-						$('#slider9').tinycarousel();
+						$('#slider9').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 					if ( $('#slider10').length > 0 ){
-						$('#slider10').tinycarousel();
+						$('#slider10').tinycarousel({
+							animationTime: 500,
+							infinite: false
+						});
 					}
 
 
