@@ -16,6 +16,7 @@
 				add_metaboxes_products();
 				add_metaboxes_recipes();
 				add_metaboxes_brands();
+				add_metaboxes_pos();
 		}
 	});
 
@@ -60,6 +61,13 @@
 	function add_metaboxes_brands(){
 		add_meta_box( 'link', 'Página web marca', 'metabox_link', 'marcas', 'advanced', 'high' );
 	}
+
+	/**
+	* Add metaboxes for post type "Puntos de venta"
+	**/
+	function add_metaboxes_pos(){
+		add_meta_box( 'pos_link', 'Página web punto de venta', 'metabox_pos_link', 'puntos-venta', 'advanced', 'high' );
+	}// add_metaboxes_pos
 
 
 
@@ -222,6 +230,14 @@
 		echo "<input type='text' class='[ widefat ]' name='_link_meta' value='$link' />";
 	}// metabox_link
 
+	function metabox_pos_link( $post ){
+		$pos_link = get_post_meta( $post->ID, '_pos_link_meta', true );
+		wp_nonce_field( __FILE__, '_pos_link_meta_nonce' );
+
+		echo "<label>Ejemplo de formato: http://www.google.com</label>";
+		echo "<input type='text' class='[ widefat ]' name='_pos_link_meta' value='$pos_link' />";
+	}// metabox_pos_link
+
 
 
 
@@ -238,6 +254,7 @@
 		save_metabox_recipes( $post_id );
 		save_metabox_contacto( $post_id );
 		save_metabox_brands( $post_id );
+		save_metabox_pos( $post_id );
 		
 	});
 
@@ -381,3 +398,14 @@
 		}
 
 	}// save_metabox_brands
+
+	/**
+	* Save the metaboxes for post type "Puntos de venta"
+	**/
+	function save_metabox_pos( $post_id ){
+		// Net content
+		if ( isset($_POST['_pos_link_meta']) and check_admin_referer( __FILE__, '_pos_link_meta_nonce') ){
+			update_post_meta($post_id, '_pos_link_meta', $_POST['_pos_link_meta']);
+		}
+
+	}// save_metabox_pos

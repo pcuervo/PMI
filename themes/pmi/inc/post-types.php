@@ -128,4 +128,34 @@
 		);
 		register_post_type( 'opiniones-expertos', $args );
 
+		// SELLING POINTS
+		$labels = array(
+			'name'          => 'Puntos de venta',
+			'singular_name' => 'Punto de venta',
+			'add_new'       => 'Nuevo punto de venta',
+			'add_new_item'  => 'Nuevo punto de venta',
+			'edit_item'     => 'Editar punto de venta',
+			'new_item'      => 'Nuevo punto de venta',
+			'all_items'     => 'Todas',
+			'view_item'     => 'Ver puntos de venta',
+			'search_items'  => 'Buscar puntos de venta',
+			'not_found'     => 'No se encontró',
+			'menu_name'     => 'Puntos de venta'
+		);
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'puntos-venta' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'puntos-venta', $args );
+
 	});

@@ -84,9 +84,20 @@
 							</p>
 						</div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
-							<h4 class="[ light ][ uppercase ][ margin-bottom ]">de venta en</h4>
-							<img class="[ svg icon icon--large ][ light ][ margin-bottom--small ]" src="<?php echo THEMEPATH; ?>images/soriana.svg" alt="soriana">
-							<img class="[ svg icon icon--large ][ light ]" src="<?php echo THEMEPATH; ?>images/walmart.svg" alt="walmart">
+							<h4 class="[ light ][ uppercase ][ margin-bottom ]">De venta en:</h4>
+							<?php
+							$pos_args = array(
+								'post_type' 		=> 'puntos-venta',
+								'posts_per_page' 	=> 3,
+							);
+							$query_pos = new WP_Query( $pos_args );
+							if ( $query_pos->have_posts() ) : while ( $query_pos->have_posts() ) : $query_pos->the_post();
+								$pos_img_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumb' );
+								$pos_link = get_post_meta( $post->ID, '_pos_link_meta', true );
+								echo '<a href="' . $pos_link . '" target="_blank"><img class="[ icon icon--large ][ light ][ margin-bottom--small ]" src="' . $pos_img_url[0] . '" alt="' . $post->post_title . '"></a>';
+								
+							endwhile; endif; wp_reset_query();
+							?>
 						</div>
 						<div class="[ clear--small ]"></div>
 						<div class="[ columna xmall-12 small-6 medium-3 ][ margin-bottom ]">
