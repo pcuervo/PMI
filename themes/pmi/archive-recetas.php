@@ -6,7 +6,9 @@
 		<div class="[ wrapper ]">
 
 			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
-				<h2 class="[ text-center ][ margin-bottom ]">Recetas</h2>
+				<h2 class="[ text-center ][ margin-bottom ]">
+					<?php echo isset( $_GET['lang'] ) ? "Recipes" : 'Recetas'; ?>
+				</h2>
 				<p><?php echo get_description_page( 'Recetas' ); ?></p>
 			</div>
 

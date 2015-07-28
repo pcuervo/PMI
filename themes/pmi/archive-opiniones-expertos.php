@@ -6,7 +6,9 @@
 	<section class="[]">
 		<div class="[ wrapper ]">
 			<div class="[ columna xmall-12 medium-8 ][ center ][ margin-bottom ]">
-					<h2 class="[ text-center ][ margin-bottom ][ title ][ uppercase ]">La opinión de los expertos</h2>
+					<h2 class="[ text-center ][ margin-bottom ][ title ][ uppercase ]">
+						<?php echo isset( $_GET['lang'] ) ? "Experts' opinion" : 'La opinión de los expertos'; ?>
+					</h2>
 				</div>
 			<div class="[ row ]">
 				<?php
