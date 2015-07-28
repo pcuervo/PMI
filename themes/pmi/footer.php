@@ -25,10 +25,10 @@
 						</article>
 
 						<nav class="[ center-full ][ hidden--large ]">
-							<a href="<?php echo site_url('nosotros'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Nosotros</a>
-							<a href="<?php echo site_url('productos'); ?>" class="<?php echo ( 'Productos' == get_post_type() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Productos</a>
-							<a href="<?php echo site_url('servicios'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Servicios</a>
-							<a href="<?php echo site_url('contacto'); ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]">Contacto</a>
+							<a href="<?php echo site_url('nosotros'); ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]"><?php echo isset( $_GET['lang'] ) ? 'About Us' : 'Nosotros'; ?></a>
+							<a href="<?php echo site_url('productos'); ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>" class="<?php echo ( 'Productos' == get_post_type() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]"><?php echo isset( $_GET['lang'] ) ? 'Products' : 'Productos'; ?></a>
+							<a href="<?php echo site_url('servicios'); ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]"><?php echo isset( $_GET['lang'] ) ? 'Services' : 'Servicios'; ?></a>
+							<a href="<?php echo site_url('contacto'); ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>" class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '' ?>[ nav-item ][ light ][ block ][ text-center uppercase ][ padding ]"><?php echo isset( $_GET['lang'] ) ? 'Contact' : 'Contacto'; ?></a>
 							<div class="[ nav-item ][ padding ][ relative ]">
 								<div class="[ row ][ menu-options ][ hide ]">
 									<div class="[ columna xmall-4 ]<?php echo isset( $_GET['lang'] ) ? '[ opacity-3 ]' : ''; ?>">

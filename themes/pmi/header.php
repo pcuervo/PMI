@@ -69,12 +69,12 @@
 							</a>
 							<div class="[ menu-options ][ hide ]">
 								<div class="[ columna xmall-4 ] <?php echo isset( $_GET['lang'] ) ? '[ opacity-3 ]' : ''; ?>">
-									<a href="<?php echo the_permalink(); ?>">
+									<a href="<?php echo site_url(); ?>">
 										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/spanish.svg" alt="spanish">
 									</a>
 								</div>
 								<div class="[ columna xmall-4 ]<?php echo isset( $_GET['lang'] ) ? '' : '[ opacity-3 ]'; ?>">
-									<a href="<?php echo the_permalink(); ?>?lang=en">
+									<a href="<?php echo site_url(); ?>?lang=en">
 										<img class="[ svg icon icon--small ]" src="<?php echo THEMEPATH; ?>images/english.svg" alt="English">
 									</a>
 								</div>
@@ -100,17 +100,17 @@
 								<a class="[ xmall-3 ][ inline-block align-middle ][ imago ]" href="<?php echo site_url() ?>">
 									<img class="" alt="Inicio PMI" src="<?php echo THEMEPATH ?>images/imago.png">
 								</a><a
-								class="<?php echo ( 'Nosotros' == get_the_title() ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?>">
-									Nosotros
+								class="<?php echo ( 'Nosotros' == get_the_title() || 'About Us' == get_the_title()  ) ? '[ active ]' : '[ active--light ]' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'nosotros') ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>">
+                                    <?php echo isset( $_GET['lang'] ) ? 'About Us' : 'Nosotros'; ?>
 								</a><a
-								class="<?php echo ( 'productos' == get_post_type() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?>">
-									Productos
+								class="<?php echo ( 'productos' == get_post_type() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url( 'productos' ) ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>">
+									<?php echo isset( $_GET['lang'] ) ? 'Products' : 'Productos'; ?>
 								</a><span class="[ xmall-4 inline-block align-middle ][ spacer ]">&nbsp;</span><a
-								class="<?php echo ( 'Servicios' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?>">
-									Servicios
+								class="<?php echo ( 'Servicios' == get_the_title() || 'Services' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('servicios') ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>">
+									<?php echo isset( $_GET['lang'] ) ? 'Services' : 'Servicios'; ?>
 								</a><a
-								class="<?php echo ( 'Contacto' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?>">
-									Contacto
+								class="<?php echo ( 'Contacto' == get_the_title() || 'Contact' == get_the_title() ) ? '[ active ]' : '' ?>[ xmall-2 ][ inline-block align-middle ][ button button--menu ]" href="<?php echo site_url('contacto') ?><?php echo isset( $_GET['lang'] ) ? '?lang=en' : ''; ?>">
+									<?php echo isset( $_GET['lang'] ) ? 'Contact' : 'Contacto'; ?>
 								</a>
 								<div class="[ menu-options ][ hide ]">
 									<div class="[ columna xmall-4 ]">

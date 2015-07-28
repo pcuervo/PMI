@@ -520,6 +520,23 @@
 
 	}// get_contact_email
 
+	function get_permalink_current_language( $post_id ){
+		$language = ICL_LANGUAGE_CODE;
+
+	    $lang_post_id = icl_object_id( $post_id , 'page', true, $language );
+
+	    $url = "";
+	    if($lang_post_id != 0) {
+	        $url = get_permalink( $lang_post_id );
+	    }else {
+	        // No page found, it's most likely the homepage
+	        global $sitepress;
+	        $url = $sitepress->language_url( $language );
+	    }
+
+	    return $url;
+	}
+
 
 
 
